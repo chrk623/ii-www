@@ -19,9 +19,9 @@ export default async function Home() {
       <Navbar />
 
       <section
-        className="relative overflow-hidden bg-blue-900/5 py-40 dark:bg-blue-900/20 md:py-48"
+        className="relative overflow-hidden bg-blue-900/5 bg-cover bg-center py-40 dark:bg-blue-900/20 md:py-48"
         id="home"
-        // style={{ backgroundImage: 'url("/images/focus/focus1.png")' }}
+        style={{ backgroundImage: 'url("/images/home/cover.png")' }}
       >
         <div className="container relative mt-8">
           <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-2">
@@ -29,7 +29,7 @@ export default async function Home() {
               <h1 className="mb-5 text-4xl font-semibold leading-normal tracking-wide lg:text-5xl lg:leading-normal">
                 A FINANCIAL INSTITUTION WITH A PURPOSE
               </h1>
-              <p className="max-w-xl text-lg text-slate-400">
+              <p className="max-w-xl text-lg text-black">
                 Integer Investments issdf dedicated to fostering positive change
                 within the property development ecosystem. We offer accessible,
                 tailored property development loans and invest directly in
