@@ -2,6 +2,16 @@ import React from "react";
 import Link from "next/link";
 // import { servicesData } from "../data/data";
 
+import {
+  ArrowTrendingUpIcon,
+  BriefcaseIcon,
+  CogIcon,
+  DocumentMagnifyingGlassIcon,
+  HomeModernIcon,
+  UserIcon,
+} from "@heroicons/react/16/solid";
+// import UserIcon from "@heroicons/react/16/solid";
+
 export default function WhatWeDo() {
   return (
     <section className="relative py-16 md:py-24" id="what-we-do">
@@ -14,14 +24,14 @@ export default function WhatWeDo() {
 
         <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
           {doData.map((item, index) => {
-            // let Icon = item.icon
+            let Icon = item.icon;
             return (
               <div
                 className="group relative flex h-full flex-col overflow-hidden rounded-md bg-white p-6 shadow dark:bg-slate-900 dark:shadow-gray-700"
                 key={index}
               >
                 <div className="flex size-14 -rotate-45 items-center justify-center rounded-full bg-gradient-to-r from-transparent to-gray-500/10 text-center text-gray-500 duration-500 group-hover:bg-gray-500/10">
-                  <div className="size-6 rotate-45"></div>
+                  <Icon className="size-6 rotate-45"></Icon>
                 </div>
 
                 <div className="content relative z-1 mt-6 flex-grow">
@@ -48,32 +58,32 @@ export default function WhatWeDo() {
 
 const doData = [
   {
-    icon: "",
+    icon: HomeModernIcon,
     title: "Developing Communities",
     desc: "Collaborating to rejuvenate and strengthen housing opportunities.",
   },
   {
-    icon: "",
+    icon: UserIcon,
     title: "Regional Expertise and Dedication",
     desc: "Relationship Managers with deep understanding of your business needs.",
   },
   {
-    icon: "",
+    icon: CogIcon,
     title: "Innovative Development Projects",
     desc: "Dedicated to advancing innovative and affordable development initiatives.",
   },
   {
-    icon: "",
+    icon: DocumentMagnifyingGlassIcon,
     title: "Creating Tailored Solutions",
     desc: "Recognizing your challenges and collaborating to provide customized funding solutions.",
   },
   {
-    icon: "",
+    icon: ArrowTrendingUpIcon,
     title: "Driving Economic Prosperity",
     desc: "Our lending commitment fuels economic growth and prosperity.",
   },
   {
-    icon: "",
+    icon: BriefcaseIcon,
     title: "Promoting Regional Job Creation",
     desc: "Generating jobs and supporting developers focused on local employment opportunities.",
   },
