@@ -1,15 +1,27 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ChevronDownIcon } from "@heroicons/react/16/solid";
 
 export default function Navbar() {
+  const [scroll, setScroll] = useState(false);
   const [menu, setMenu] = useState(false);
   const [lendingDropdownOpen, setLendingDropdownOpen] = useState(false);
 
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setScroll(window.scrollY > 50);
+    });
+    return () => {
+      window.removeEventListener("scroll", () => {
+        setScroll(window.scrollY > 50);
+      });
+    };
+  }, []);
+
   return (
-    <nav className="navbar" id="navbar">
+    <nav className={`navbar ${scroll ? "is-sticky" : ""}`} id="navbar">
       <div className="container relative flex flex-wrap items-center justify-between">
         <Link className="navbar-brand md:me-8" href="/">
           <Image
