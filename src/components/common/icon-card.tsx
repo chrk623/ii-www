@@ -19,8 +19,8 @@ export default function IconCard({ icon, title, description }: Props) {
       )}
 
       <div className="content relative z-1 mt-6 flex-grow">
-        <h6 className="title text-lg font-semibold">{title}</h6>
-        <p className="mt-3 text-slate-400">{description}</p>
+        <h6 className="title text-lg font-semibold text-primary">{title}</h6>
+        <p className="mt-3 text-lg text-slate-400">{description}</p>
       </div>
 
       <div className="absolute -end-16 bottom-0">
