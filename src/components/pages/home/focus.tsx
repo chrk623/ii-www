@@ -7,17 +7,17 @@ export default function Focus() {
     <section className="relative py-16 md:py-24" id="focus">
       <div className="container relative">
         <div className="grid grid-cols-1 pb-6 text-center">
-          <h3 className="mb-4 text-5xl font-semibold leading-normal">
+          <h3 className="mb-4 text-5xl font-semibold leading-normal text-primary">
             OUR FOCUS
           </h3>
         </div>
 
         <div
-          className={`mt-6 grid grid-cols-1 place-items-center gap-6 md:grid-cols-2 lg:grid-cols-2`}
+          className={`mt-6 grid grid-cols-1 place-items-center gap-12 md:grid-cols-2 lg:grid-cols-2`}
         >
           {focusData.map((item, index) => (
             <div
-              className="group relative overflow-hidden rounded-lg shadow-md"
+              className="group relative w-full max-w-2xl overflow-hidden rounded-lg shadow-md"
               key={index}
             >
               <div className="relative overflow-hidden">
@@ -32,15 +32,15 @@ export default function Focus() {
                 />
               </div>
 
-              <div className="rounded-b-lg bg-gray-100 p-6">
+              <div className="rounded-b-lg bg-gray-100 p-8">
                 <Link
                   href=""
-                  className="title hover:text-secondary text-lg font-semibold duration-500 ease-in-out"
+                  className="title text-xl font-semibold duration-500 ease-in-out hover:text-secondary"
                 >
                   {item.title}
                 </Link>
 
-                <div className="mt-3">
+                <div className="mt-4">
                   <Link href="" className="text-primary">
                     Find out more{" "}
                     <i className="mdi mdi-chevron-right align-middle"></i>
@@ -57,11 +57,11 @@ export default function Focus() {
 
 const focusData = [
   {
-    image: "/images/focus/focus1.png",
+    image: "/images/home/lending.png",
     title: "EXPLORE LENDING",
   },
   {
-    image: "/images/focus/focus2.png",
+    image: "/images/home/investments.png",
     title: "EXPLORE INVESTMENTS",
   },
 ];

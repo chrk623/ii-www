@@ -1,27 +1,15 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronDownIcon } from "@heroicons/react/16/solid";
+import { ChevronDownIcon, Bars3Icon } from "@heroicons/react/16/solid";
 
 export default function Navbar() {
-  const [scroll, setScroll] = useState(false);
   const [menu, setMenu] = useState(false);
   const [lendingDropdownOpen, setLendingDropdownOpen] = useState(false);
 
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      setScroll(window.scrollY > 50);
-    });
-    return () => {
-      window.removeEventListener("scroll", () => {
-        setScroll(window.scrollY > 50);
-      });
-    };
-  }, []);
-
   return (
-    <nav className={`navbar ${scroll ? "is-sticky" : ""}`} id="navbar">
+    <nav className="navbar bg-white" id="navbar">
       <div className="container relative flex flex-wrap items-center justify-between">
         <Link className="navbar-brand md:me-8" href="/">
           <Image
@@ -38,7 +26,7 @@ export default function Navbar() {
             <li className="inline">
               <Link
                 href=""
-                className="bg-primary text-secondary inline-flex h-8 items-center justify-center rounded-md px-4 text-[12px] font-medium uppercase tracking-wider"
+                className="inline-flex h-8 items-center justify-center rounded-md bg-primary px-4 text-[12px] font-medium uppercase tracking-wider text-secondary"
               >
                 Login
               </Link>
@@ -51,7 +39,7 @@ export default function Navbar() {
             onClick={() => setMenu(!menu)}
           >
             <span className="sr-only">Navigation Menu</span>
-            <i className="mdi mdi-menu text-[24px]"></i>
+            <Bars3Icon className="h-6 w-6" />
           </button>
         </div>
 
@@ -61,19 +49,19 @@ export default function Navbar() {
         >
           <ul className="navbar-nav" id="navbar-navlist">
             <li className="nav-item ms-0">
-              <Link className="nav-link text-primary" href="">
+              <Link className="nav-link text-primary" href="/our-mission">
                 Our MISSION
               </Link>
             </li>
             <li className="nav-item ms-0">
-              <Link className="nav-link text-primary" href="">
+              <Link className="nav-link text-primary" href="/investments">
                 INVESTMENTS
               </Link>
             </li>
             <li className="nav-item relative ms-0">
               <button
                 onClick={() => setLendingDropdownOpen(!lendingDropdownOpen)}
-                className="nav-link text-primary flex items-center focus:outline-none"
+                className="nav-link flex items-center text-primary focus:outline-none"
               >
                 LENDING
                 <ChevronDownIcon className="ml-1 h-5 w-5" />

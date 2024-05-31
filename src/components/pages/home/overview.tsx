@@ -9,7 +9,7 @@ export default function Overview() {
         <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-12">
           <div className="relative flex flex-col gap-6 md:col-span-6">
             <Image
-              src="/images/focus/focus1.png"
+              src="/images/home/overview1.png"
               width={0}
               height={0}
               sizes="100vw"
@@ -17,20 +17,11 @@ export default function Overview() {
               className="rounded-lg duration-500 group-hover:scale-110"
               alt=""
             />
-            <Image
-              src="/images/focus/focus2.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              style={{ width: "70%", height: "auto" }}
-              className="absolute left-20 top-24 rounded-lg shadow-lg duration-500 group-hover:scale-110"
-              alt=""
-            />
           </div>
 
           <div className="md:col-span-6">
             <div className="lg:ms-8">
-              <h6 className="text-primary mb-2 text-sm font-semibold uppercase">
+              <h6 className="mb-2 text-sm font-semibold uppercase text-primary">
                 Industry Overview
               </h6>
               <h3 className="mb-4 text-2xl font-semibold leading-normal">
@@ -41,7 +32,7 @@ export default function Overview() {
                 <div key={index} className="mb-6">
                   <div className="mb-3 flex items-start">
                     <div className="me-3 mt-1.5 flex-shrink-0">
-                      <div className="bg-primary h-2.5 w-2.5 rounded-full"></div>
+                      <div className="h-2.5 w-2.5 rounded-full bg-primary"></div>
                     </div>
                     <div className="max-w-xl text-slate-400">
                       <b className="block">{item.title}</b>

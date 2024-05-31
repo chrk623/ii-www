@@ -7,11 +7,12 @@ export default function Newsletter() {
     <section
       className="relative items-center overflow-hidden bg-cover bg-center py-16"
       id="newsletter"
-      style={{ backgroundImage: 'url("/images/focus/focus1.png")' }}
+      style={{ backgroundImage: 'url("/images/home/cover.jpg")' }}
     >
+      <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="container relative">
         <div className="mt-10 grid grid-cols-1 text-center md:mt-24">
-          <h4 className="text-secondary mb-5 text-4xl font-bold capitalize leading-normal tracking-wide lg:text-5xl lg:leading-normal">
+          <h4 className="mb-5 text-4xl font-bold capitalize leading-normal tracking-wide text-white lg:text-5xl lg:leading-normal">
             SUBSCRIBE TO OUR NEWSLETTER
           </h4>
 
@@ -26,7 +27,7 @@ export default function Newsletter() {
               />
               <button
                 type="submit"
-                className="bg-primary text-secondary absolute end-[3px] top-[2px] inline-flex h-[46px] items-center justify-center rounded-full px-6 font-medium tracking-wide"
+                className="absolute end-[3px] top-[2px] inline-flex h-[46px] items-center justify-center rounded-full bg-primary px-6 font-medium tracking-wide text-secondary"
               >
                 Subscribe Now
               </button>

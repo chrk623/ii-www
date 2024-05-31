@@ -16,7 +16,10 @@ export default {
       lg_992: "992px",
     },
     fontFamily: {
-      libre_franklin: ["var(--font-libre_franklin)"],
+      //   libre_franklin: ["var(--font-libre_franklin)"],
+      avenir: ["Avenir", "sans-serif"],
+      quote: ["Playfair Display", "serif"],
+      //   serif: ["Georgia", "Cambria", "Times New Roman", "Times", "serif"],
     },
     container: {
       center: true,

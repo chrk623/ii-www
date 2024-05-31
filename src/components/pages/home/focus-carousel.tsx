@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-// import Link from "next/link";
 import Image from "next/image";
 import Slider from "react-slick";
 
@@ -15,7 +14,7 @@ export default function FocusCarousel() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    // arrows: true,
+    autoplaySpeed: 1000,
     customPaging: () => <div className="h-3 w-3 rounded-full bg-white" />,
     appendDots: (dots: React.ReactNode) => (
       <div
@@ -39,20 +38,18 @@ export default function FocusCarousel() {
           {focusData.map((item, index) => (
             <div key={index} className="relative">
               <div className="relative overflow-hidden rounded-lg">
-                <Image
-                  src={item.image}
-                  layout="responsive"
-                  width={700}
-                  height={475}
-                  className="h-auto w-full rounded-lg"
-                  alt={item.title}
-                />
-                <div className="absolute inset-y-0 left-0 flex w-1/2 items-center  p-8">
+                <div className="relative h-0 pb-[50%]">
+                  <Image
+                    src={item.image}
+                    fill
+                    className="absolute inset-0 h-full w-full rounded-lg object-cover"
+                    alt={item.title}
+                  />
+                  <div className="absolute inset-0 bg-black opacity-50"></div>
+                </div>
+                <div className="absolute inset-y-0 left-0 flex w-1/2 items-center p-8">
                   <div className="text-left">
-                    <div className="text-primary mb-4 text-6xl leading-none">
-                      “
-                    </div>
-                    <h3 className="text-primary text-4xl font-bold">
+                    <h3 className="font-quote text-6xl text-white">
                       {item.title}
                     </h3>
                   </div>
@@ -65,26 +62,25 @@ export default function FocusCarousel() {
     </section>
   );
 }
-
 const focusData = [
   {
-    image: "/images/focus/focus1.png",
+    image: "/images/home/carousel1.png",
     title: "A financial institution that promote regional prosperity",
   },
   {
-    image: "/images/focus/focus2.png",
+    image: "/images/home/carousel2.png",
     title: "A financial institution that creates regional jobs",
   },
   {
-    image: "/images/focus/focus1.png",
+    image: "/images/home/carousel3.png",
     title: "A financial institution that help develop social housing",
   },
   {
-    image: "/images/focus/focus2.png",
+    image: "/images/home/carousel4.png",
     title: "A financial institution that's building communities",
   },
   {
-    image: "/images/focus/focus1.png",
+    image: "/images/home/carousel5.png",
     title: "A financial institution that support your dreams",
   },
 ];

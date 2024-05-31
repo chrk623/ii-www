@@ -7,7 +7,7 @@ export default function Purpose() {
       <div className="container relative">
         <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-12">
           <div className="md:col-span-6">
-            <span className="text-left text-5xl font-semibold">
+            <span className="text-left text-5xl font-semibold text-primary">
               Our regional expertise and dedication will drive significant
               economic growth.
             </span>
@@ -30,7 +30,7 @@ export default function Purpose() {
 
               <Link
                 href=""
-                className="bg-primary text-secondary font-large inline-flex h-10 items-center justify-center rounded-md px-6 tracking-wide"
+                className="font-large inline-flex h-10 items-center justify-center rounded-md bg-primary px-6 tracking-wide text-secondary"
               >
                 Our Purpose{" "}
                 <i className="mdi mdi-chevron-right ms-0.5 align-middle"></i>

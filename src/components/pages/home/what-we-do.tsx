@@ -1,6 +1,4 @@
 import React from "react";
-import Link from "next/link";
-// import { servicesData } from "../data/data";
 
 import {
   ArrowTrendingUpIcon,
@@ -10,7 +8,7 @@ import {
   HomeModernIcon,
   UserIcon,
 } from "@heroicons/react/16/solid";
-// import UserIcon from "@heroicons/react/16/solid";
+import IconCard from "~/components/common/icon-card";
 
 export default function WhatWeDo() {
   return (
@@ -24,30 +22,13 @@ export default function WhatWeDo() {
 
         <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
           {doData.map((item, index) => {
-            let Icon = item.icon;
             return (
-              <div
-                className="group relative flex h-full flex-col overflow-hidden rounded-md bg-white p-6 shadow dark:bg-slate-900 dark:shadow-gray-700"
+              <IconCard
                 key={index}
-              >
-                <div className="flex size-14 -rotate-45 items-center justify-center rounded-full bg-gradient-to-r from-transparent to-gray-500/10 text-center text-gray-500 duration-500 group-hover:bg-gray-500/10">
-                  <Icon className="size-6 rotate-45"></Icon>
-                </div>
-
-                <div className="content relative z-1 mt-6 flex-grow">
-                  <Link
-                    href=""
-                    className="title text-lg font-semibold hover:text-gray-500"
-                  >
-                    {item.title}
-                  </Link>
-                  <p className="mt-3 text-slate-400">{item.desc}</p>
-                </div>
-
-                <div className="absolute -end-16 bottom-0">
-                  <div className="size-48 text-gray-500 opacity-[0.04] duration-500 group-hover:opacity-10 dark:opacity-[0.04]"></div>
-                </div>
-              </div>
+                icon={<item.icon className="size-6 rotate-45" />}
+                title={item.title}
+                description={item.desc}
+              />
             );
           })}
         </div>
