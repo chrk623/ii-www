@@ -27,8 +27,3 @@ You can check out the [create-t3-app GitHub repository](https://github.com/t3-os
 ## How do I deploy this?
 
 Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
-
-
-https://themeforest.net/item/upcover-react-nextjs-business-landing-page-template/50667994
-
-https://preview.themeforest.net/item/upcover-react-nextjs-business-landing-page-template/full_screen_preview/50667994

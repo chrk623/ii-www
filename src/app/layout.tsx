@@ -1,19 +1,19 @@
-import "~/styles/globals.css";
+import "@/styles/globals.css";
 
-import { TRPCReactProvider } from "~/trpc/react";
+import { TRPCReactProvider } from "@/trpc/react";
 
-// import { Libre_Franklin } from "next/font/google";
-// import "./assets/css/materialdesignicons.min.css";
-import "./assets/scss/tailwind.scss";
+import TailwindIndicator from "@/components/TailwindIndicator";
 
-import Navbar from "~/components/layouts/navbar";
-import Footer from "~/components/layouts/footer";
+import { Inter as FontSans } from "next/font/google";
 
-// const libre_franklin = Libre_Franklin({
-//   subsets: ["latin"],
-//   weight: ["400", "700", "300", "500", "600", "700"],
-//   variable: "--font-libre_franklin",
-// });
+import { cn } from "@/lib/utils";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+
+const fontSans = FontSans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
 
 export const metadata = {
   title: "Integer Investments",
@@ -27,14 +27,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="light scroll-smooth" dir="ltr">
-      {/* ${libre_franklin.variable} */}
+    <html lang="en" className="h-full">
       <body
-        className={` bg-white font-libre_franklin text-base text-black dark:bg-slate-900 dark:text-white`}
+        className={cn(
+          "relative h-full font-sans antialiased",
+          fontSans.variable,
+        )}
       >
-        <Navbar />
-        <TRPCReactProvider>{children}</TRPCReactProvider>
-        <Footer />
+        <main className="relative flex min-h-screen flex-col">
+          <TRPCReactProvider>
+            <Navbar />
+            <div className="flex-1 flex-grow">{children}</div>
+            <Footer />
+            <TailwindIndicator />
+          </TRPCReactProvider>
+        </main>
       </body>
     </html>
   );

@@ -1,0 +1,123 @@
+"use client";
+
+import Link from "next/link";
+import Logo from "../common/Logo";
+
+import { Input } from "../ui/input";
+import { buttonVariants } from "../ui/button";
+import MaxWidthWrapper from "../MaxWidthWrapper";
+
+const Footer = () => {
+  return (
+    <footer className="text-primary inset-0 flex-grow-0 bg-zinc-50 bg-opacity-90 bg-gradient-to-br">
+      <MaxWidthWrapper>
+        <div className="grid grid-cols-1 gap-10 py-16 md:grid-cols-2">
+          {/* Left section */}
+          <div className="ml-4">
+            <h3 className="text-lg font-semibold">GET IN TOUCH:</h3>
+            <ul className="mt-4 space-y-2 text-sm">
+              <li>Integer Inv US LLC (US)</li>
+              <li>Integer Investments Europe LTD (UK)</li>
+              <li>Email: info@integerinvestments.com</li>
+              <li>Phone: +1 315 450 5074</li>
+              <li>LONDON | NYC</li>
+            </ul>
+          </div>
+
+          {/* Right section */}
+          <div>
+            <h3 className="text-lg font-semibold">CONTACT US:</h3>
+            <form className="mt-4 space-y-4">
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                <div>
+                  <label htmlFor="name" className="mb-1 block text-sm">
+                    Enter Your Name *
+                  </label>
+                  <Input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Name"
+                    className="w-full rounded-md border border-gray-300 p-2"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="message" className="mb-1 block text-sm">
+                    Enter Your Message *
+                  </label>
+                  <Input
+                    type="text"
+                    id="message"
+                    name="message"
+                    placeholder="Message"
+                    className="w-full rounded-md border border-gray-300 p-2"
+                  />
+                </div>
+              </div>
+              <div>
+                <label htmlFor="email" className="mb-1 block text-sm">
+                  Enter Your Email *
+                </label>
+                <Input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Email"
+                  className="w-full rounded-md border border-gray-300 p-2"
+                />
+              </div>
+              <div>
+                <label htmlFor="phone" className="mb-1 block text-sm">
+                  Phone number *
+                </label>
+                <Input
+                  type="text"
+                  id="phone"
+                  name="phone"
+                  placeholder="Include country code"
+                  className="w-full rounded-md border border-gray-300 p-2"
+                />
+              </div>
+              <div>
+                <Link
+                  href="/products"
+                  className={buttonVariants({ className: "w-full" })}
+                >
+                  Send
+                </Link>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div className="border-t border-gray-700 py-8">
+          <div className="flex justify-center">
+            <Logo className="h-12 w-auto" />
+          </div>
+        </div>
+
+        <div className="py-10 text-center md:flex md:items-center md:justify-between md:text-left">
+          <div>
+            <p className="text-sm">
+              &copy; {new Date().getFullYear()} All Rights Reserved
+            </p>
+          </div>
+
+          <div className="mt-4 flex items-center justify-center space-x-8 md:mt-0">
+            <Link href="#" className="text-sm hover:text-gray-400">
+              Terms
+            </Link>
+            <Link href="#" className="text-sm hover:text-gray-400">
+              Privacy Policy
+            </Link>
+            <Link href="#" className="text-sm hover:text-gray-400">
+              Cookie Policy
+            </Link>
+          </div>
+        </div>
+      </MaxWidthWrapper>
+    </footer>
+  );
+};
+
+export default Footer;

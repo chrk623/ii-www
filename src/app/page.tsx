@@ -1,12 +1,12 @@
-import Cover from "~/components/pages/home/cover";
-import Purpose from "~/components/pages/home/purpose";
-import Focus from "~/components/pages/home/focus";
-import FocusCarousel from "~/components/pages/home/focus-carousel";
-import WhatWeDo from "~/components/pages/home/what-we-do";
-import Overview from "~/components/pages/home/overview";
-import Newsletter from "~/components/pages/home/newsletter";
-// import { CreatePost } from "~/app/_components/create-post";
-// import { api } from "~/trpc/server";
+import React from "react";
+
+import Cover from "@/components/home/Cover";
+import Purpose from "@/components/home/Purpose";
+import Focus from "@/components/home/Focus";
+import FocusCarousel from "@/components/home/FocusCarousel";
+import WhatWeDo from "@/components/home/WhatWeDo";
+import Overview from "@/components/home/Overview";
+import Newsletter from "@/components/home/NewsLetter";
 
 export default async function Home() {
   //   const hello = await api.post.hello({ text: "from tRPC" });
@@ -29,3 +29,19 @@ export default async function Home() {
     </>
   );
 }
+
+// async function CrudShowcase() {
+//   const latestPost = await api.post.getLatest();
+
+//   return (
+//     <div className="w-full max-w-xs">
+//       {latestPost ? (
+//         <p className="truncate">Your most recent post: {latestPost.name}</p>
+//       ) : (
+//         <p>You have no posts yet.</p>
+//       )}
+
+//       <CreatePost />
+//     </div>
+//   );
+// }
