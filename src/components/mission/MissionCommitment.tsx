@@ -12,10 +12,10 @@ export default function MissionCommitment() {
             <div className="mb-6">
               <div className="mb-3 flex items-start">
                 <div className="max-w-xl">
-                  <h2 className="text-primary text-4xl font-bold">
+                  <h2 className="text-4xl font-bold text-primary">
                     Our Commitment
                   </h2>
-                  <p className="mt-4 text-base font-semibold leading-relaxed tracking-tight text-gray-400">
+                  <p className="mt-4 text-base text-lg font-semibold leading-relaxed tracking-tight text-gray-400">
                     We are committed to supporting regional growth by offering
                     financial solutions that benefit both developers and the
                     communities they serve. We value innovation, growth, and the

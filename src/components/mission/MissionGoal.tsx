@@ -26,8 +26,8 @@ export default function MissionGoal() {
             <div className="mb-6">
               <div className="mb-3 flex items-start">
                 <div className="max-w-xl">
-                  <h2 className="text-primary text-4xl font-bold">Our Goal</h2>
-                  <p className="mt-4 text-base font-semibold leading-relaxed tracking-tight text-gray-400">
+                  <h2 className="text-4xl font-bold text-primary">Our Goal</h2>
+                  <p className="mt-4 text-base text-lg font-semibold leading-relaxed tracking-tight text-gray-400">
                     Since our inception, our goal has been to become the
                     preferred lender for property and regional regeneration. We
                     want to be the financial partner for those developers who
