@@ -15,7 +15,7 @@ export default function MissionCommitment() {
                   <h2 className="text-4xl font-bold text-primary">
                     Our Commitment
                   </h2>
-                  <p className="mt-4 text-base text-lg font-semibold leading-relaxed tracking-tight text-gray-400">
+                  <p className="mt-4 text-lg font-semibold leading-relaxed tracking-tight text-gray-400">
                     We are committed to supporting regional growth by offering
                     financial solutions that benefit both developers and the
                     communities they serve. We value innovation, growth, and the
@@ -30,7 +30,7 @@ export default function MissionCommitment() {
         <div className="relative flex flex-col gap-6 md:col-span-6">
           <div className="mx-auto w-full max-w-lg">
             <Image
-              src="/images/home/overview1.png"
+              src="/images/mission/commitment.png"
               width={0}
               height={0}
               sizes="100vw"

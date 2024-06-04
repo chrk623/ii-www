@@ -9,14 +9,14 @@ export default function Purpose() {
     <MaxWidthWrapper>
       <div className="mx-6 my-24 grid grid-cols-1 items-center gap-6 md:grid-cols-12">
         <div className="md:col-span-5 md:col-start-2">
-          <h1 className="text-primary text-left text-5xl font-semibold">
+          <h1 className="text-left text-5xl font-semibold text-primary">
             Our regional expertise and dedication will drive significant
             economic growth.
           </h1>
         </div>
         <div className="md:col-span-5">
           <div className="lg:pl-8">
-            <p className="mb-6 max-w-xl font-semibold tracking-tight text-gray-400">
+            <p className="mb-6 max-w-xl text-lg font-semibold tracking-tight text-gray-400">
               At Integer Investments, we prioritize innovation, value creation,
               and growth in our interactions with customers and communities. We
               actively seek diverse perspectives, promoting a culture that

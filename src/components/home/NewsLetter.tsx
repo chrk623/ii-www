@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 export default function Newsletter() {
   return (
     <div
-      className="relative items-center overflow-hidden bg-cover bg-center py-16"
+      className="relative items-center overflow-hidden bg-cover bg-center py-8"
       style={{ backgroundImage: 'url("/images/home/newsletter.png")' }}
     >
       <div className="absolute inset-0 bg-black opacity-60"></div>

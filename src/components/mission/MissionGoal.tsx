@@ -10,7 +10,7 @@ export default function MissionGoal() {
         <div className="relative flex flex-col gap-6 md:col-span-6">
           <div className="mx-auto w-full max-w-lg">
             <Image
-              src="/images/home/overview1.png"
+              src="/images/mission/goal.png"
               width={0}
               height={0}
               sizes="100vw"
@@ -27,7 +27,7 @@ export default function MissionGoal() {
               <div className="mb-3 flex items-start">
                 <div className="max-w-xl">
                   <h2 className="text-4xl font-bold text-primary">Our Goal</h2>
-                  <p className="mt-4 text-base text-lg font-semibold leading-relaxed tracking-tight text-gray-400">
+                  <p className="mt-4 text-lg font-semibold leading-relaxed tracking-tight text-gray-400">
                     Since our inception, our goal has been to become the
                     preferred lender for property and regional regeneration. We
                     want to be the financial partner for those developers who

@@ -9,13 +9,13 @@ import MaxWidthWrapper from "../MaxWidthWrapper";
 
 const Footer = () => {
   return (
-    <footer className="text-primary inset-0 flex-grow-0 bg-zinc-50 bg-opacity-90 bg-gradient-to-br">
+    <footer className="bg-zinc-50 bg-opacity-90 bg-gradient-to-br text-primary">
       <MaxWidthWrapper>
-        <div className="grid grid-cols-1 gap-10 py-16 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-10 pb-4 pt-4 md:grid-cols-2">
           {/* Left section */}
           <div className="ml-4">
             <h3 className="text-lg font-semibold">GET IN TOUCH:</h3>
-            <ul className="mt-4 space-y-2 text-sm">
+            <ul className="text-md mt-4 space-y-2">
               <li>Integer Inv US LLC (US)</li>
               <li>Integer Investments Europe LTD (UK)</li>
               <li>Email: info@integerinvestments.com</li>
@@ -30,7 +30,7 @@ const Footer = () => {
             <form className="mt-4 space-y-4">
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 <div>
-                  <label htmlFor="name" className="mb-1 block text-sm">
+                  <label htmlFor="name" className="text-md mb-1 block">
                     Enter Your Name *
                   </label>
                   <Input
@@ -42,20 +42,20 @@ const Footer = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="mb-1 block text-sm">
-                    Enter Your Message *
+                  <label htmlFor="message" className="text-md mb-1 block">
+                    Phone number *
                   </label>
                   <Input
                     type="text"
-                    id="message"
-                    name="message"
-                    placeholder="Message"
+                    id="phone"
+                    name="phone"
+                    placeholder="Include country code"
                     className="w-full rounded-md border border-gray-300 p-2"
                   />
                 </div>
               </div>
               <div>
-                <label htmlFor="email" className="mb-1 block text-sm">
+                <label htmlFor="email" className="text-md mb-1 block">
                   Enter Your Email *
                 </label>
                 <Input
@@ -67,20 +67,21 @@ const Footer = () => {
                 />
               </div>
               <div>
-                <label htmlFor="phone" className="mb-1 block text-sm">
-                  Phone number *
+                <label htmlFor="phone" className="text-md mb-1 block">
+                  Enter Your Message *
                 </label>
+
                 <Input
                   type="text"
-                  id="phone"
-                  name="phone"
-                  placeholder="Include country code"
+                  id="message"
+                  name="message"
+                  placeholder="Message"
                   className="w-full rounded-md border border-gray-300 p-2"
                 />
               </div>
               <div>
                 <Link
-                  href="/products"
+                  href="/send-newsletter"
                   className={buttonVariants({ className: "w-full" })}
                 >
                   Send
@@ -90,17 +91,15 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 py-8">
-          <div className="flex justify-center">
-            <Logo className="h-12 w-auto" />
-          </div>
-        </div>
-
-        <div className="py-10 text-center md:flex md:items-center md:justify-between md:text-left">
+        <div className="border-t border-gray-500 py-2 text-center md:flex md:items-center md:justify-between md:text-left">
           <div>
             <p className="text-sm">
               &copy; {new Date().getFullYear()} All Rights Reserved
             </p>
+          </div>
+
+          <div>
+            <Logo className="h-12 w-auto" />
           </div>
 
           <div className="mt-4 flex items-center justify-center space-x-8 md:mt-0">
