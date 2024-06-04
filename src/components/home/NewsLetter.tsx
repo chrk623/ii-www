@@ -8,10 +8,10 @@ export default function Newsletter() {
       className="relative items-center overflow-hidden bg-cover bg-center py-8"
       style={{ backgroundImage: 'url("/images/home/newsletter.png")' }}
     >
-      <div className="absolute inset-0 bg-black opacity-60"></div>
+      <div className="absolute inset-0 bg-white bg-opacity-50"></div>
       <div className="container relative">
         <div className="mt-10 grid grid-cols-1 text-center md:mt-24">
-          <h4 className="mb-5 text-4xl font-bold capitalize leading-normal tracking-wide text-white lg:text-5xl lg:leading-normal">
+          <h4 className="mb-5 text-4xl font-bold capitalize leading-normal tracking-wide text-primary lg:text-5xl lg:leading-normal">
             SUBSCRIBE TO OUR NEWSLETTER
           </h4>
 
