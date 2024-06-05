@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import React from "react";
 import Image from "next/image";
 import Slider from "react-slick";
-import ImageOpacity from "../common/ImageOpacity";
+import ImageOpacity from "../../common/ImageOpacity";
 
 const focusData = [
   {
@@ -56,13 +56,13 @@ export default function FocusCarousel() {
   };
 
   return (
-    <div className="max-w-full  overflow-hidden bg-cover bg-center">
+    <div className="max-w-full overflow-hidden bg-cover bg-center">
       <div className="relative mt-24">
         <Slider {...settings}>
           {focusData.map((item, index) => (
             <div key={index} className="relative">
               <div className="overflow-hidden rounded-lg">
-                <div className="h-0 pb-[45%]">
+                <div className="h-0 pb-[60%] md:pb-[45%]">
                   <Image
                     src={item.image}
                     fill
@@ -73,7 +73,7 @@ export default function FocusCarousel() {
                 </div>
                 <div className="absolute inset-y-0 left-0 flex w-1/2 items-center p-8">
                   <div className="text-left">
-                    <h3 className="font-quote text-6xl text-white">
+                    <h3 className="font-quote text-2xl text-white sm:text-4xl lg:text-6xl">
                       {item.title}
                     </h3>
                   </div>

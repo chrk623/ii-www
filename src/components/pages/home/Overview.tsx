@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-import MaxWidthWrapper from "../MaxWidthWrapper";
+import MaxWidthWrapper from "../../MaxWidthWrapper";
 
 const overviewData = [
   {
@@ -33,7 +33,7 @@ export default function Overview() {
   return (
     <MaxWidthWrapper>
       <div className="mb-10 mt-20 grid grid-cols-1 items-center gap-6 md:grid-cols-12">
-        <div className="relative flex flex-col gap-6 md:col-span-6">
+        <div className="relative col-span-6 flex flex-col gap-6">
           <div className="mx-auto w-full max-w-lg">
             <Image
               src="/images/home/overview1.png"
@@ -47,30 +47,28 @@ export default function Overview() {
           </div>
         </div>
 
-        <div className="md:col-span-6">
-          <div className="lg:ms-8">
-            <h6 className="mb-2 text-lg font-semibold uppercase text-primary">
-              Industry Overview
-            </h6>
-            <h3 className="mb-4 text-2xl font-semibold leading-normal text-gray-500">
-              Addressing a Critical Need
-            </h3>
+        <div className="col-span-6 m-6">
+          <h6 className="mb-2 text-lg font-semibold uppercase text-primary">
+            Industry Overview
+          </h6>
+          <h3 className="mb-4 text-2xl font-semibold leading-normal text-gray-500">
+            Addressing a Critical Need
+          </h3>
 
-            {overviewData.map((item, index) => (
-              <div key={index} className="mb-6">
-                <div className="mb-3 flex items-start">
-                  <div className="me-3 mt-1.5 flex-shrink-0">
-                    <div className="h-2.5 w-2.5 rounded-full bg-primary"></div>
-                  </div>
-                  <div className="max-w-xl text-gray-400">
-                    <p className="block font-bold">{item.title}</p>
-                    <span className="text-lg">{item.content}</span>
-                  </div>
+          {overviewData.map((item, index) => (
+            <div key={index} className="mb-6">
+              <div className="mb-3 flex items-start">
+                <div className="me-3 mt-1.5 flex-shrink-0">
+                  <div className="h-2.5 w-2.5 rounded-full bg-primary"></div>
                 </div>
-                {index < overviewData.length - 1 && <hr className="my-6" />}
+                <div className="max-w-xl text-gray-400">
+                  <p className="block font-bold">{item.title}</p>
+                  <span className="text-lg">{item.content}</span>
+                </div>
               </div>
-            ))}
-          </div>
+              {index < overviewData.length - 1 && <hr className="my-6" />}
+            </div>
+          ))}
         </div>
       </div>
     </MaxWidthWrapper>

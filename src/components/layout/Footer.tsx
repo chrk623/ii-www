@@ -11,11 +11,11 @@ const Footer = () => {
   return (
     <footer className="bg-zinc-50 bg-opacity-90 bg-gradient-to-br text-primary">
       <MaxWidthWrapper>
-        <div className="grid grid-cols-1 gap-10 pb-4 pt-4 md:grid-cols-2">
+        <div className="mb-4 grid grid-cols-1 gap-6 p-4 pt-4 md:grid-cols-2 md:gap-4">
           {/* Left section */}
-          <div className="ml-4">
+          <div className="space-y-2">
             <h3 className="text-lg font-semibold">GET IN TOUCH:</h3>
-            <ul className="text-md mt-4 space-y-2">
+            <ul className="text-md space-y-2">
               <li>Integer Inv US LLC (US)</li>
               <li>Integer Investments Europe LTD (UK)</li>
               <li>Email: info@integerinvestments.com</li>

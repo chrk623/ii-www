@@ -1,7 +1,7 @@
 import React from "react";
 
 import { HeartHandshake, BookCheck, Users, Badge } from "lucide-react";
-import MaxWidthWrapper from "../MaxWidthWrapper";
+import MaxWidthWrapper from "../../MaxWidthWrapper";
 
 const doData = [
   {
@@ -31,10 +31,10 @@ export default function MissionPromise() {
     <MaxWidthWrapper className="my-12">
       <div className="grid grid-cols-1 pb-6 text-center">
         <div className="text-center">
-          <h3 className="text-primary mb-4 text-5xl font-semibold leading-normal">
+          <h3 className="mb-4 text-5xl font-semibold leading-normal text-primary">
             OUR VALUES
           </h3>
-          <p className="mt-4 px-72 text-center text-lg font-semibold text-gray-400">
+          <p className="mt-4 px-0 text-center text-lg font-semibold text-gray-400 xl:px-36">
             This is our promise to you
           </p>
         </div>
@@ -46,10 +46,10 @@ export default function MissionPromise() {
             key={index}
             className="relative flex h-full flex-col overflow-hidden rounded-md bg-white p-6 shadow dark:bg-gray-900 dark:shadow-gray-700"
           >
-            <item.icon className="text-primary h-12 w-12" />
+            <item.icon className="h-12 w-12 text-primary" />
 
             <div className="content z-1 relative mt-6 flex-grow">
-              <h6 className="title text-primary text-lg font-semibold">
+              <h6 className="title text-lg font-semibold text-primary">
                 {item.title}
               </h6>
               <p className="mt-3 text-lg font-semibold tracking-tight text-gray-400">

@@ -1,7 +1,7 @@
 import * as React from "react";
 import Image from "next/image";
 
-import MaxWidthWrapper from "../MaxWidthWrapper";
+import MaxWidthWrapper from "../../MaxWidthWrapper";
 import {
   Carousel,
   CarouselContent,
@@ -50,8 +50,8 @@ export function MissionCarousel() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious className="hidden md:flex" />
+        <CarouselNext className="hidden md:flex" />
       </Carousel>
     </MaxWidthWrapper>
   );

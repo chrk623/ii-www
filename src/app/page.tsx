@@ -1,19 +1,19 @@
 import React from "react";
 
-import Cover from "@/components/home/Cover";
-import Purpose from "@/components/home/Purpose";
-import Focus from "@/components/home/Focus";
-import FocusCarousel from "@/components/home/FocusCarousel";
-import WhatWeDo from "@/components/home/WhatWeDo";
-import Overview from "@/components/home/Overview";
-import Newsletter from "@/components/home/NewsLetter";
+import HomeCover from "@/components/pages/home/HomeCover";
+import Purpose from "@/components/pages/home/Purpose";
+import Focus from "@/components/pages/home/Focus";
+import FocusCarousel from "@/components/pages/home/FocusCarousel";
+import WhatWeDo from "@/components/pages/home/WhatWeDo";
+import Overview from "@/components/pages/home/Overview";
+import Newsletter from "@/components/pages/home/NewsLetter";
 
 export default async function Home() {
   //   const hello = await api.post.hello({ text: "from tRPC" });
 
   return (
     <>
-      <Cover />
+      <HomeCover />
 
       <Purpose />
 
