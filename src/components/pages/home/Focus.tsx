@@ -11,7 +11,7 @@ const focusData = [
   },
   {
     image: "/images/home/investments.png",
-    title: "EXPLORE INVESTMENTS",
+    title: "EXPLORE OUR INVESTMENTS",
   },
 ];
 
@@ -51,7 +51,7 @@ export default function Focus() {
               </Link>
 
               <div className="mt-4">
-                <Link href="" className="text-primary underline">
+                <Link href="" className="text-lg text-primary underline">
                   Find out more{" "}
                   <i className="mdi mdi-chevron-right align-middle"></i>
                 </Link>

@@ -5,8 +5,8 @@ import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 import type { NAV_ITEMS } from "@/config";
-import { Button, buttonVariants } from "../ui/button";
 import { ChevronDown } from "lucide-react";
+import { Button, buttonVariants } from "../ui/button";
 
 type TNavItem = (typeof NAV_ITEMS)[number];
 
@@ -22,13 +22,14 @@ const NavItem = ({ navItem, handleOpen, isOpen, isAnyOpen }: NavItemProps) => {
     <div className="relative flex items-center">
       {navItem.sub ? (
         <Button
-          className="text-primary gap-1.5"
+          className="gap-1.5 text-[16px] text-primary"
           onClick={handleOpen}
-          variant={isOpen ? "secondary" : "ghost"}
+          //   variant={isOpen ? "secondary" : "ghost"}
+          variant="ghost"
         >
           {navItem.label}
           <ChevronDown
-            className={cn("text-muted-foreground h-4 w-4 transition-all", {
+            className={cn("h-5 w-5 text-muted-foreground transition-all ", {
               "-rotate-180": isOpen,
             })}
           />
@@ -38,17 +39,17 @@ const NavItem = ({ navItem, handleOpen, isOpen, isAnyOpen }: NavItemProps) => {
           href={navItem.href}
           className={buttonVariants({
             variant: "ghost",
-            className: "text-primary gap-1.5",
+            className: "gap-1.5 text-primary",
           })}
         >
-          {navItem.label}
+          <p className="text-[16px]">{navItem.label}</p>
         </Link>
       )}
 
       {isOpen && navItem.sub ? (
         <div
           className={cn(
-            "absolute left-0 top-full z-10 w-48 bg-white shadow-md",
+            "absolute left-0 top-full z-10 w-36 bg-white shadow-md",
             {
               "animate-in fade-in-10 slide-in-from-top-5": !isAnyOpen,
             },
@@ -59,7 +60,11 @@ const NavItem = ({ navItem, handleOpen, isOpen, isAnyOpen }: NavItemProps) => {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-primary block px-4 py-2 text-gray-900 hover:bg-gray-100"
+                className="block rounded-md px-4 py-2 text-[16px] font-semibold text-primary hover:bg-accent hover:text-accent-foreground"
+                // className={buttonVariants({
+                //   variant: "ghost",
+                //   className: "max-w gap-1.5 text-[16px] text-primary",
+                // })}
               >
                 {item.name}
               </Link>

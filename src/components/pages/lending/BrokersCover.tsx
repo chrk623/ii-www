@@ -31,7 +31,7 @@ const LendingCover = () => {
             href="/products"
             className={buttonVariants({ className: "text-lg" })}
           >
-            View our lending solutions
+            Explore Lending
           </Link>
         </div>
       </div>

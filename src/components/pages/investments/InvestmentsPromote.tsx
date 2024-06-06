@@ -66,7 +66,7 @@ export default function InvestmentsCities() {
         <div className="col-span-6">
           <div className="mx-auto w-full max-w-lg">
             <Image
-              src="/images/investments/london.jpg"
+              src="/images/investments/london.png"
               width={0}
               height={0}
               sizes="100vw"

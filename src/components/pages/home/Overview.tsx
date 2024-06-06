@@ -32,7 +32,7 @@ const overviewData = [
 export default function Overview() {
   return (
     <MaxWidthWrapper>
-      <div className="mb-10 mt-20 grid grid-cols-1 items-center gap-6 md:grid-cols-12">
+      <div className="mb-2 mt-20 grid grid-cols-1 items-center gap-6 md:grid-cols-12">
         <div className="relative col-span-6 flex flex-col gap-6">
           <div className="mx-auto w-full max-w-lg">
             <Image

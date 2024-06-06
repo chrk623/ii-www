@@ -28,10 +28,10 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold">CONTACT US:</h3>
             <form className="mt-4 space-y-4">
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
                 <div>
                   <label htmlFor="name" className="text-md mb-1 block">
-                    Enter Your Name *
+                    Name *
                   </label>
                   <Input
                     type="text"
@@ -42,8 +42,20 @@ const Footer = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="text-md mb-1 block">
-                    Phone number *
+                  <label htmlFor="email" className="text-md mb-1 block">
+                    Email *
+                  </label>
+                  <Input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Email"
+                    className="w-full rounded-md border border-gray-300 p-2"
+                  />
+                </div>
+                <div className="relative">
+                  <label htmlFor="phone" className="text-md mb-1 block">
+                    Phone Number *
                   </label>
                   <Input
                     type="text"
@@ -52,40 +64,17 @@ const Footer = () => {
                     placeholder="Include country code"
                     className="w-full rounded-md border border-gray-300 p-2"
                   />
+                  <div className="mt-4 flex justify-end">
+                    <Link
+                      href="/send-newsletter"
+                      className={buttonVariants({
+                        className: "w-full md:w-1/2",
+                      })}
+                    >
+                      Send
+                    </Link>
+                  </div>
                 </div>
-              </div>
-              <div>
-                <label htmlFor="email" className="text-md mb-1 block">
-                  Enter Your Email *
-                </label>
-                <Input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="Email"
-                  className="w-full rounded-md border border-gray-300 p-2"
-                />
-              </div>
-              <div>
-                <label htmlFor="phone" className="text-md mb-1 block">
-                  Enter Your Message *
-                </label>
-
-                <Input
-                  type="text"
-                  id="message"
-                  name="message"
-                  placeholder="Message"
-                  className="w-full rounded-md border border-gray-300 p-2"
-                />
-              </div>
-              <div>
-                <Link
-                  href="/send-newsletter"
-                  className={buttonVariants({ className: "w-full" })}
-                >
-                  Send
-                </Link>
               </div>
             </form>
           </div>

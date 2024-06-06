@@ -34,7 +34,7 @@ export default function MissionPromise() {
           <h3 className="mb-4 text-5xl font-semibold leading-normal text-primary">
             OUR VALUES
           </h3>
-          <p className="mt-4 px-0 text-center text-lg font-semibold text-gray-400 xl:px-36">
+          <p className="mt-4 px-0 text-center text-3xl font-semibold text-gray-400 xl:px-36">
             This is our promise to you
           </p>
         </div>
