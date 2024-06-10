@@ -32,7 +32,7 @@ const BorrowFormSchema = z.object({
 });
 type TBorrowFormSchema = z.infer<typeof BorrowFormSchema>;
 
-const BorrowerForm = () => {
+const LendingForm = () => {
   const {
     register,
     handleSubmit,
@@ -225,4 +225,4 @@ const BorrowerForm = () => {
   );
 };
 
-export default BorrowerForm;
+export default LendingForm;

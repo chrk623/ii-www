@@ -1,6 +1,6 @@
 import React from "react";
 
-import Link from "next/link";
+import LendingForm from "@/components/forms/LendingFormTemp";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
 const BrokersFinancing = () => {
@@ -16,17 +16,7 @@ const BrokersFinancing = () => {
           flexible lending solutions tailored to your needs, ensuring quick and
           efficient access to funds.
         </p>
-
-        <p className="text-5xl text-red-500">
-          This form should be same as{" "}
-          <Link
-            href="https://www.integerinvestments.com/application"
-            className="text-blue-400 underline"
-          >
-            this
-          </Link>
-          ? Or a new one replicating gbbank?
-        </p>
+        <LendingForm />
       </div>
     </MaxWidthWrapper>
   );

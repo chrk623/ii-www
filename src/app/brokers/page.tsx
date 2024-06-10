@@ -4,7 +4,7 @@ import BrokersCover from "./brokers-cover";
 import BrokersPartnership from "./brokers-partnership";
 import BrokersSolutions from "./brokers-solution";
 import BrokersFinancing from "./brokers-financing";
-import BrokersFutures from "./brokers-futures";
+import BetterFutures from "@/components/pages/better-futures";
 
 const page = () => {
   return (
@@ -17,7 +17,7 @@ const page = () => {
 
       <BrokersFinancing />
 
-      <BrokersFutures />
+      <BetterFutures />
     </>
   );
 };

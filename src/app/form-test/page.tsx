@@ -1,7 +1,7 @@
 import React from "react";
 
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
-import BorrowerForm from "@/components/forms/BorrowForm";
+import BorrowerForm from "@/components/forms/LendingForm";
 
 const Page = () => {
   return (

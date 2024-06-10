@@ -1,0 +1,25 @@
+import React from "react";
+
+import LendingForm from "@/components/forms/LendingFormTemp";
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+
+const CustomersFinancing = () => {
+  return (
+    <MaxWidthWrapper className="my-12">
+      <div className="text-center">
+        <h3 className="text-5xl font-semibold leading-normal text-primary">
+          Looking to finance your real estate development?
+        </h3>
+        {/* <p className="mt-4 px-0 text-center text-lg font-semibold text-gray-400 xl:px-36">
+          If you&apos;re interested in joining our panel or seeking finance for
+          a client&apos;s project, get in touch with us today. We offer bespoke,
+          flexible lending solutions tailored to your needs, ensuring quick and
+          efficient access to funds.
+        </p> */}
+        <LendingForm />
+      </div>
+    </MaxWidthWrapper>
+  );
+};
+
+export default CustomersFinancing;

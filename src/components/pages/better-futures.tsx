@@ -5,7 +5,7 @@ import ImageOpacity from "@/components/common/ImageOpacity";
 import { buttonVariants } from "@/components/ui/button";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
-const BrokersFutures = () => {
+const BetterFutures = () => {
   return (
     <MaxWidthWrapper
       className="relative max-w-full overflow-hidden bg-cover bg-center py-8 md:py-12"
@@ -34,4 +34,4 @@ const BrokersFutures = () => {
   );
 };
 
-export default BrokersFutures;
+export default BetterFutures;

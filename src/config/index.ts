@@ -22,12 +22,12 @@ export const NAV_ITEMS = [
     ],
   },
   {
-    label: "News",
-    href: "news" as const,
+    label: "Finance Solutions",
+    href: "finance-solutions" as const,
   },
   {
-    label: "Placeholder 1",
-    href: "#" as const,
+    label: "News",
+    href: "news" as const,
   },
   {
     label: "Placeholder 2",
