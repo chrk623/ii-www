@@ -9,6 +9,17 @@ import {
 
 export const focusData = [
   {
+    image: "/images/home/lending.png",
+    title: "EXPLORE LENDING",
+  },
+  {
+    image: "/images/home/investments.png",
+    title: "EXPLORE OUR INVESTMENTS",
+  },
+];
+
+export const focusCarouselData = [
+  {
     image: "/images/home/carousel1.png",
     title: "A financial institution that promotes regional prosperity",
   },

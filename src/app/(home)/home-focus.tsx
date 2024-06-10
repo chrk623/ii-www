@@ -2,18 +2,8 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+import { focusData } from "./home-data";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
-
-const focusData = [
-  {
-    image: "/images/home/lending.png",
-    title: "EXPLORE LENDING",
-  },
-  {
-    image: "/images/home/investments.png",
-    title: "EXPLORE OUR INVESTMENTS",
-  },
-];
 
 export default function HomeFocus() {
   return (

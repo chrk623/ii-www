@@ -8,7 +8,7 @@ import Image from "next/image";
 import Slider from "react-slick";
 import ImageOpacity from "@/components/common/ImageOpacity";
 
-import { focusData } from "./home-data";
+import { focusCarouselData } from "./home-data";
 
 export default function HomeFocusCarousel() {
   const settings = {
@@ -38,7 +38,7 @@ export default function HomeFocusCarousel() {
     <div className="max-w-full overflow-hidden bg-cover bg-center">
       <div className="relative mt-24">
         <Slider {...settings}>
-          {focusData.map((item, index) => (
+          {focusCarouselData.map((item, index) => (
             <div key={index} className="relative">
               <div className="overflow-hidden rounded-lg">
                 <div className="h-0 pb-[60%] md:pb-[45%]">
