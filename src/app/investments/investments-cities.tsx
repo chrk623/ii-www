@@ -63,9 +63,7 @@ export default function InvestmentsCities() {
         <div className="col-span-6">
           <div className="mb-3 flex items-start text-center sm:px-12 md:text-left">
             <div className="max-w-xl">
-              <h2 className="text-4xl font-bold text-primary">
-                New York City (United States)
-              </h2>
+              <h2 className="text-4xl font-bold text-primary">New York City</h2>
               <h3 className="pt-1 text-2xl font-bold text-primary">
                 United States
               </h3>
