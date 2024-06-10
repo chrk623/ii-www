@@ -13,11 +13,11 @@ export const NAV_ITEMS = [
     sub: [
       {
         name: "Brokers",
-        href: "lending-brokers",
+        href: "brokers",
       },
       {
         name: "Customers",
-        href: "lending-customers",
+        href: "customers",
       },
     ],
   },

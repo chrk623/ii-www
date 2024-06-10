@@ -20,16 +20,17 @@ const Footer = () => {
               <li>Integer Investments Europe LTD (UK)</li>
               <li>Email: info@integerinvestments.com</li>
               <li>Phone: +1 315 450 5074</li>
+              <li>Whatsapp: +44 7909050331</li>
               <li>LONDON | NYC</li>
             </ul>
           </div>
 
-          {/* Right section */}
+          {/* form start */}
           <div>
             <h3 className="text-lg font-semibold">CONTACT US:</h3>
             <form className="mt-4 space-y-4">
               <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-                <div>
+                <div className="col-span-1">
                   <label htmlFor="name" className="text-md mb-1 block">
                     Name *
                   </label>
@@ -41,7 +42,7 @@ const Footer = () => {
                     className="w-full rounded-md border border-gray-300 p-2"
                   />
                 </div>
-                <div>
+                <div className="col-span-1">
                   <label htmlFor="email" className="text-md mb-1 block">
                     Email *
                   </label>
@@ -53,7 +54,7 @@ const Footer = () => {
                     className="w-full rounded-md border border-gray-300 p-2"
                   />
                 </div>
-                <div className="relative">
+                <div className="relative col-span-1">
                   <label htmlFor="phone" className="text-md mb-1 block">
                     Phone Number *
                   </label>
@@ -64,20 +65,36 @@ const Footer = () => {
                     placeholder="Include country code"
                     className="w-full rounded-md border border-gray-300 p-2"
                   />
-                  <div className="mt-4 flex justify-end">
-                    <Link
-                      href="/send-newsletter"
-                      className={buttonVariants({
-                        className: "w-full md:w-1/2",
-                      })}
-                    >
-                      Send
-                    </Link>
-                  </div>
+                </div>
+
+                <div className="col-span-1 md:col-span-2">
+                  <label htmlFor="message" className="text-md mb-1 block">
+                    Message
+                  </label>
+                  <Input
+                    type="text"
+                    id="message"
+                    name="message"
+                    placeholder="Message"
+                    className="w-full rounded-md border border-gray-300 p-2"
+                  />
+                </div>
+
+                <div className="col-span-1 flex items-end justify-end">
+                  <Link
+                    href="/send-newsletter"
+                    className={buttonVariants({
+                      className: "w-full md:w-3/4",
+                    })}
+                  >
+                    Send
+                  </Link>
                 </div>
               </div>
             </form>
           </div>
+
+          {/* form end */}
         </div>
 
         <div className="border-t border-gray-500 py-2 text-center md:flex md:items-center md:justify-between md:text-left">

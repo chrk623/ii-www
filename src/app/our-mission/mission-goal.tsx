@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-import MaxWidthWrapper from "../../MaxWidthWrapper";
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
 export default function MissionGoal() {
   return (

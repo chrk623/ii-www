@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import MaxWidthWrapper from "../../MaxWidthWrapper";
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
 const focusData = [
   {
@@ -15,7 +15,7 @@ const focusData = [
   },
 ];
 
-export default function Focus() {
+export default function HomeFocus() {
   return (
     <MaxWidthWrapper>
       <div className="mx-6 my-24 grid grid-cols-1 text-center">

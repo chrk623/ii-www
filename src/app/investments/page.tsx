@@ -1,18 +1,18 @@
 import React from "react";
 
-import InvestmentsCover from "@/components/pages/investments/InvestmentsCover";
-import InvestmentsPromote from "@/components/pages/investments/InvestmentsPromote";
-import InvestmentsAssets from "@/components/pages/investments/InvestmentsAssets";
-import InvestmentsAdvantages from "@/components/pages/investments/InvestmentsAdvantages";
+import InvestmentsCover from "./investments-cover";
+import InvestmentsCities from "./investments-cities";
+// import InvestmentsAssets from "./investments-assets";
+import InvestmentsAdvantages from "./investments-advantages";
 
 const page = () => {
   return (
     <>
       <InvestmentsCover />
 
-      <InvestmentsPromote />
+      <InvestmentsCities />
 
-      <InvestmentsAssets />
+      {/* <InvestmentsAssets /> */}
 
       <InvestmentsAdvantages />
     </>

@@ -1,9 +1,41 @@
-import React from "react";
-
 import { Home, BookCheck, PersonStanding, TrendingUp } from "lucide-react";
-import MaxWidthWrapper from "../../MaxWidthWrapper";
 
-const doData = [
+export const investmentsAssetsData = [
+  {
+    image: "/images/investments/ny-city1.png",
+    title: "NEW YORK CITY",
+  },
+  {
+    image: "/images/investments/upstate-ny.png",
+    title: "UPSTATE NEW YORK",
+  },
+  {
+    image: "/images/investments/ny-city2.png",
+    title: "NEW YORK CITY",
+  },
+  {
+    image: "/images/investments/london1.png",
+    title: "LONDON",
+  },
+  {
+    image: "/images/investments/london2.png",
+    title: "LONDON",
+  },
+  {
+    image: "/images/investments/london3.png",
+    title: "LONDON",
+  },
+  {
+    image: "/images/investments/north-italy1.png",
+    title: "NORTH OF ITALY",
+  },
+  {
+    image: "/images/investments/north-italy2.png",
+    title: "NORTH OF ITALY",
+  },
+];
+
+export const investmentsAdvantagesData = [
   {
     icon: Home,
     title: "Quality Housing You Can Rely On",
@@ -25,37 +57,3 @@ const doData = [
     desc: "We make it easy for tenants to find and secure affordable housing. Our streamlined application process ensures quick and efficient service, allowing residents to move into their new homes with minimal hassle.",
   },
 ];
-
-export default function InvestmentsAdvantages() {
-  return (
-    <MaxWidthWrapper className="my-12">
-      <div className="grid grid-cols-1 pb-6 text-center">
-        <div className="text-center">
-          <h3 className="mb-4 text-5xl font-semibold leading-normal text-primary">
-            FOUR ADVANTAGES
-          </h3>
-        </div>
-      </div>
-
-      <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
-        {doData.map((item, index) => (
-          <div
-            key={index}
-            className="relative flex h-full flex-col overflow-hidden rounded-md bg-white p-6 shadow dark:bg-gray-900 dark:shadow-gray-700"
-          >
-            <item.icon className="h-12 w-12 text-primary" />
-
-            <div className="content z-1 relative mt-6 flex-grow">
-              <h6 className="title text-lg font-semibold text-primary">
-                {item.title}
-              </h6>
-              <p className="mt-3 text-lg font-semibold tracking-tight text-gray-400">
-                {item.desc}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </MaxWidthWrapper>
-  );
-}

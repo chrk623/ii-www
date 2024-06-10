@@ -1,9 +1,29 @@
-import React from "react";
-
 import { HeartHandshake, BookCheck, Users, Badge } from "lucide-react";
-import MaxWidthWrapper from "../../MaxWidthWrapper";
 
-const doData = [
+export const missionCarouselData = [
+  {
+    image: "/images/home/carousel1.png",
+    title: "A financial institution that promotes regional prosperity",
+  },
+  {
+    image: "/images/home/carousel2.png",
+    title: "A financial institution that creates regional jobs",
+  },
+  {
+    image: "/images/home/carousel3.png",
+    title: "A financial institution that helps develop social housing",
+  },
+  {
+    image: "/images/home/carousel4.png",
+    title: "A financial institution that's building communities",
+  },
+  {
+    image: "/images/home/carousel5.png",
+    title: "A financial institution that supports your dreams",
+  },
+];
+
+export const missionPromiseData = [
   {
     icon: HeartHandshake,
     title: "Achieving Success Together",
@@ -25,40 +45,3 @@ const doData = [
     desc: "We are dedicated to making a positive impact in the communities we serve. This commitment drives our efforts to foster sustainable development, create local job opportunities, and support initiatives that enhance the quality of life for residents. By working closely with community leaders, businesses, and organizations, we ensure our projects align with the needs and aspirations of those we serve. We believe that strong, vibrant communities are the foundation of a prosperous future.",
   },
 ];
-
-export default function MissionPromise() {
-  return (
-    <MaxWidthWrapper className="my-12">
-      <div className="grid grid-cols-1 pb-6 text-center">
-        <div className="text-center">
-          <h3 className="mb-4 text-5xl font-semibold leading-normal text-primary">
-            OUR VALUES
-          </h3>
-          <p className="mt-4 px-0 text-center text-3xl font-semibold text-gray-400 xl:px-36">
-            This is our promise to you
-          </p>
-        </div>
-      </div>
-
-      <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
-        {doData.map((item, index) => (
-          <div
-            key={index}
-            className="relative flex h-full flex-col overflow-hidden rounded-md bg-white p-6 shadow dark:bg-gray-900 dark:shadow-gray-700"
-          >
-            <item.icon className="h-12 w-12 text-primary" />
-
-            <div className="content z-1 relative mt-6 flex-grow">
-              <h6 className="title text-lg font-semibold text-primary">
-                {item.title}
-              </h6>
-              <p className="mt-3 text-lg font-semibold tracking-tight text-gray-400">
-                {item.desc}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </MaxWidthWrapper>
-  );
-}

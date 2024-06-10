@@ -1,35 +1,10 @@
 import React from "react";
 import Image from "next/image";
 
-import MaxWidthWrapper from "../../MaxWidthWrapper";
+import { overviewData } from "./home-data";
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
-const overviewData = [
-  {
-    title: "Expanding SME Funding Gap",
-    content:
-      "Lending to developers across the UK has significantly declined over the past five years, with the steepest reductions occurring in regional areas.",
-  },
-  {
-    title: "Chronic Housing Undersupply",
-    content:
-      "Only around 235,000 of the government’s 300,000 annual housebuilding target is currently being met.",
-  },
-  {
-    title: "£166 Billion+",
-    content: "Market opportunity available.",
-  },
-  {
-    title: "Distinct Market Position",
-    content:
-      "Specialist lender in development finance, with a focus on HMO conversions.",
-  },
-  {
-    title: "Guided by a Wealth of Experience",
-    content: "A blend of real estate insight and seasoned financial expertise.",
-  },
-];
-
-export default function Overview() {
+export default function HomeOverview() {
   return (
     <MaxWidthWrapper>
       <div className="mb-2 mt-20 grid grid-cols-1 items-center gap-6 md:grid-cols-12">

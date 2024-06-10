@@ -1,8 +1,9 @@
 import React from "react";
-import { Input } from "../../ui/input";
-import { Button } from "../../ui/button";
 
-export default function Newsletter() {
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+
+export default function HomeNewsletter() {
   return (
     <div
       className="relative items-center overflow-hidden bg-cover bg-center py-8"

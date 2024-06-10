@@ -1,10 +1,10 @@
 import React from "react";
 import Link from "next/link";
 
-import { buttonVariants } from "../../ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
-export default function Purpose() {
+export default function HomePurpose() {
   return (
     <MaxWidthWrapper>
       <div className="mx-6 my-24 grid grid-cols-1 items-center gap-6 md:grid-cols-12">

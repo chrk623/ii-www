@@ -5,7 +5,7 @@ import { buttonVariants } from "@/components/ui/button";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import ImageOpacity from "@/components/common/ImageOpacity";
 
-const LendingCover = () => {
+const BrokersCover = () => {
   return (
     <MaxWidthWrapper
       className="md:py-18 relative max-w-full overflow-hidden bg-cover bg-center py-12 lg:py-24"
@@ -39,4 +39,4 @@ const LendingCover = () => {
   );
 };
 
-export default LendingCover;
+export default BrokersCover;

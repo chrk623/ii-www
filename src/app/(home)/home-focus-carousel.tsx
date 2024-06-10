@@ -6,32 +6,11 @@ import "slick-carousel/slick/slick-theme.css";
 import React from "react";
 import Image from "next/image";
 import Slider from "react-slick";
-import ImageOpacity from "../../common/ImageOpacity";
+import ImageOpacity from "@/components/common/ImageOpacity";
 
-const focusData = [
-  {
-    image: "/images/home/carousel1.png",
-    title: "A financial institution that promotes regional prosperity",
-  },
-  {
-    image: "/images/home/carousel2.png",
-    title: "A financial institution that creates regional jobs",
-  },
-  {
-    image: "/images/home/carousel3.png",
-    title: "A financial institution that helps develop social housing",
-  },
-  {
-    image: "/images/home/carousel4.png",
-    title: "A financial institution that's building communities",
-  },
-  {
-    image: "/images/home/carousel5.png",
-    title: "A financial institution that supports your dreams",
-  },
-];
+import { focusData } from "./home-data";
 
-export default function FocusCarousel() {
+export default function HomeFocusCarousel() {
   const settings = {
     dots: true,
     infinite: true,

@@ -1,42 +1,8 @@
 import React from "react";
 import Image from "next/image";
 
-import MaxWidthWrapper from "../../MaxWidthWrapper";
-
-const assetsData = [
-  {
-    image: "/images/investments/ny-city1.png",
-    title: "NEW YORK CITY",
-  },
-  {
-    image: "/images/investments/upstate-ny.png",
-    title: "UPSTATE NEW YORK",
-  },
-  {
-    image: "/images/investments/ny-city2.png",
-    title: "NEW YORK CITY",
-  },
-  {
-    image: "/images/investments/london1.png",
-    title: "LONDON",
-  },
-  {
-    image: "/images/investments/london2.png",
-    title: "LONDON",
-  },
-  {
-    image: "/images/investments/london3.png",
-    title: "LONDON",
-  },
-  {
-    image: "/images/investments/north-italy1.png",
-    title: "NORTH OF ITALY",
-  },
-  {
-    image: "/images/investments/north-italy2.png",
-    title: "NORTH OF ITALY",
-  },
-];
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import { investmentsAssetsData } from "./investments-data";
 
 export default function InvestmentsAssets() {
   return (
@@ -49,7 +15,7 @@ export default function InvestmentsAssets() {
 
       {/* remove div below if our assets above is needed */}
       <div className="pt-1">
-        {assetsData.map((item, index) => (
+        {investmentsAssetsData.map((item, index) => (
           <div className="mx-auto mt-10 max-w-4xl" key={index}>
             <div className="group relative overflow-hidden">
               <Image
