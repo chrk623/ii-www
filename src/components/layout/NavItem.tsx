@@ -61,6 +61,7 @@ const NavItem = ({ navItem, handleOpen, isOpen, isAnyOpen }: NavItemProps) => {
                 key={item.name}
                 href={item.href}
                 className="block rounded-md px-4 py-2 text-[16px] font-semibold text-primary hover:bg-accent hover:text-accent-foreground"
+                onClick={handleOpen}
                 // className={buttonVariants({
                 //   variant: "ghost",
                 //   className: "max-w gap-1.5 text-[16px] text-primary",
