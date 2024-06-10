@@ -189,7 +189,7 @@ const LendingForm = () => {
             {...register("agreeToTerms")}
             className="mr-2"
           />
-          I declare that the info I've provided is accurate & complete.
+          I declare that the info I&apos;ve provided is accurate & complete.
         </label>
         {errors.agreeToTerms && (
           <span className="text-red-500">{errors.agreeToTerms.message}</span>

@@ -15,7 +15,7 @@ import {
 import ImageOpacity from "@/components/common/ImageOpacity";
 import LendingForm from "@/components/forms/LendingFormTemp";
 
-export const financeData = [
+const financeData = [
   {
     title: "Loan Range",
     content:
