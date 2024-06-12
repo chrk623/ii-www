@@ -3,6 +3,8 @@ import React from "react";
 import InvestorsCover from "./investors-cover";
 import InvestorsCommitment from "./investors-commitment";
 import InvestorsExecellence from "./investors-excellence";
+import InvestorsGovernance from "./investors-governance";
+import BetterFutures from "@/components/pages/better-futures";
 
 const Page = () => {
   return (
@@ -11,9 +13,11 @@ const Page = () => {
 
       <InvestorsCommitment />
 
+      <InvestorsGovernance />
+
       <InvestorsExecellence />
 
-      <h1 className="text-center text-8xl font-bold text-red-500">TODO</h1>
+      <BetterFutures />
     </>
   );
 };

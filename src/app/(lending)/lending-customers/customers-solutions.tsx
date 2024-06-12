@@ -8,7 +8,10 @@ export default function CustomersSolutions() {
     <MaxWidthWrapper className="my-12">
       <div className="grid grid-cols-1 pb-6 text-center">
         <div className="text-center">
-          <h3 className="mb-4 text-5xl font-semibold leading-normal text-primary">
+          <h3
+            className="mb-4 text-5xl font-semibold leading-normal text-primary"
+            id="finance-solutions"
+          >
             FINANCE SOLUTIONS
           </h3>
         </div>

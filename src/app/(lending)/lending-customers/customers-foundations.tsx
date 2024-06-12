@@ -10,13 +10,13 @@ export default function CustomersFoundations() {
         <div className="relative col-span-6 flex flex-col gap-6">
           <div className="mx-auto w-full max-w-lg">
             <Image
-              src="/images/brokers/simplify.png"
+              src="/images/lending-customers/foundation.png"
               width={0}
               height={0}
               sizes="100vw"
               style={{ width: "100%", height: "auto" }}
               className="rounded-lg"
-              alt=""
+              alt="foundation"
             />
           </div>
         </div>
