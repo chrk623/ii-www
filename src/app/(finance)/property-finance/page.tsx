@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-// import Link from "next/link";
+import Link from "next/link";
 
 // import { buttonVariants } from "@/components/ui/button";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
@@ -19,15 +19,15 @@ const financeData = [
   {
     title: "Loan Range",
     content:
-      "Our residential bridging finance spans from £50,000 to £250,000, suitable for diverse development projects.",
+      "Our property development finance spans from £50,000 to £250,000, suitable for various development projects.",
   },
   {
     title: "Terms",
-    content: "Available with terms ranging from 4 to 18 months.",
+    content: "Available with terms ranging from 4 to 12 months.",
   },
   {
     title: "Interest Rate",
-    content: "Competitive rates starting at 0.9% per month.",
+    content: "Competitive rates between 0.9% and 1.1% per month.",
   },
   {
     title: "Financing Options",
@@ -36,7 +36,7 @@ const financeData = [
   },
   {
     title: "Loan Fees",
-    content: "A fee of 2% to 2.5% of the loan amount. No other hidden fees.",
+    content: "A fee of 2% to 2.5% of the loan amount. No Other Hidden Fees.",
   },
   {
     title: "Additional Costs",
@@ -46,25 +46,32 @@ const financeData = [
     title: "Security",
     content: "First charge on the property and a personal guarantee.",
   },
+  {
+    title: "We welcome both experienced and non-experienced borrowers",
+    content: (
+      <>
+        Contact us{" "}
+        <Link href="/contact" className="text-blue-400 underline">
+          here
+        </Link>
+        .
+      </>
+    ),
+  },
 ];
 
-import { Hammer, Link as LinkIcon, Shovel } from "lucide-react";
+import { Construction, BrickWall } from "lucide-react";
 
 const bridgingData = [
   {
-    icon: LinkIcon,
-    title: "Standard Bridging ",
-    desc: "Whether you are an experienced investor or new to the market, we can tailor the perfect package for you. Ideal for projects where the repair and development budget is less than or equal to 10% of the market value.",
+    icon: Construction,
+    title: "Construction Conversion Loans",
+    desc: "Designed for significant renovation projects, our construction conversion loans provide the capital necessary to add rooms, restructure properties, and make substantial alterations. These loans are ideal for developers looking to transform properties into high-yielding investments.",
   },
   {
-    icon: Hammer,
-    title: "Light Refurbishment Bridging ",
-    desc: "Designed for property refurbishments involving minor improvements that do not require planning permission. Our light refurbishment bridging loans are suitable for a variety of residential property types.",
-  },
-  {
-    icon: Shovel,
-    title: "Heavy Refurbishment Bridging ",
-    desc: "Our heavy refurbishment bridging loans are geared towards significant renovation projects that include major structural work, such as converting commercial properties to residential use or projects requiring planning permission.",
+    icon: BrickWall,
+    title: "New Development Loans",
+    desc: "Our new development loans offer the financial backing needed for ground-up construction projects. Whether you’re building residential units, commercial spaces, or mixed-use developments, we provide the flexible funding options necessary to turn your blueprints into reality.",
   },
 ];
 
@@ -81,19 +88,15 @@ const Page = () => {
           <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-2">
             <div>
               <h1 className="mb-5 text-4xl font-semibold leading-normal tracking-wide text-white lg:text-5xl lg:leading-normal">
-                Residential Bridging Finance
+                Property Development Loans
               </h1>
               <p className="max-w-xl text-lg font-medium tracking-tight text-white">
-                For real estate investors looking to bridge the gap for a new
-                property or development, our residential bridging finance
-                solutions offer the flexibility and support needed to purchase,
-                refinance, improve properties, or make further investments.
+                Targeted at real estate investors, our property development
+                loans offer the financial backing needed to undertake new
+                developments or refurbish existing properties. We provide
+                flexible funding options to help you bring your property visions
+                to life.
               </p>
-              {/* <div className="mb-4 mt-4 flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0">
-                <Link href="/products" className={buttonVariants()}>
-                  View our lending solutions
-                </Link>
-              </div> */}
             </div>
           </div>
         </div>
@@ -104,17 +107,10 @@ const Page = () => {
       <MaxWidthWrapper className="mt-4">
         <div className="text-center">
           <h3 className="text-5xl font-semibold leading-normal text-primary">
-            The Right Solution for Short-Term Secured Finance
+            ??
           </h3>
-          {/* <h3 className="mb-2 text-2xl font-semibold leading-normal text-gray-400">
-        Building Better Futures
-      </h3> */}
           <p className="mt-4 px-0 text-center text-lg font-semibold text-gray-400 xl:px-36">
-            Our residential bridging products cater to a range of investment
-            properties, offering flexible funding solutions for various needs.
-            Whether you require financing for a purchase, refinancing, property
-            improvements, or unlocking working capital for further investments,
-            we are here to help.
+            ???
           </p>
         </div>
 
@@ -146,14 +142,9 @@ const Page = () => {
                 </AccordionItem>
               ))}
             </Accordion>
-
-            <p className="mt-4 px-0 text-center text-xl font-semibold text-primary ">
-              We welcome both experienced and non-experienced borrowers.
-            </p>
           </div>
         </div>
       </MaxWidthWrapper>
-
       {/* 2 end */}
 
       {/* 3 start */}
@@ -161,12 +152,12 @@ const Page = () => {
         <div className="grid grid-cols-1 pb-6 text-center">
           <div className="text-center">
             <h3 className="mb-4 text-5xl font-semibold leading-normal text-primary">
-              FINANCE SOLUTIONS
+              Comprehensive Development Finance Solutions
             </h3>
           </div>
         </div>
 
-        <div className="mx-2 mt-6 grid grid-cols-1 gap-6 md:grid-cols-3 xl:mx-40">
+        <div className="mx-2 mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 xl:mx-40">
           {bridgingData.map((item, index) => (
             <div
               key={index}

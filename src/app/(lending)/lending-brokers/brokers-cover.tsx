@@ -28,10 +28,10 @@ const BrokersCover = () => {
         </div>
         <div className="mb-4 mt-4 flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0">
           <Link
-            href="/products"
+            href="#brokers-finance-solutions"
             className={buttonVariants({ className: "text-lg" })}
           >
-            Explore Lending
+            View our lending solutions
           </Link>
         </div>
       </div>

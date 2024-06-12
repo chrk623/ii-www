@@ -4,7 +4,7 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
-export default function HomePurpose() {
+export default function HomeMission() {
   return (
     <MaxWidthWrapper>
       <div className="mx-6 my-24 grid grid-cols-1 items-center gap-6 md:grid-cols-12">
@@ -27,8 +27,8 @@ export default function HomePurpose() {
             the financial backing needed to regenerate and build communities.
           </p>
 
-          <Link href="/our-purpose" className={buttonVariants()}>
-            Our Purpose
+          <Link href="/our-mission" className={buttonVariants()}>
+            Our Mission
           </Link>
         </div>
       </div>

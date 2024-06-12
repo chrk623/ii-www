@@ -28,20 +28,23 @@ export default function HomeFocus() {
                 sizes="100vw"
                 style={{ width: "100%", height: "auto" }}
                 className="rounded-t-lg duration-500 group-hover:scale-110"
-                alt=""
+                alt={`${item.title}`}
               />
             </div>
 
             <div className="rounded-b-lg bg-gray-100 p-8">
               <Link
-                href=""
+                href={item.href}
                 className="title text-xl font-semibold text-gray-500"
               >
                 {item.title}
               </Link>
 
               <div className="mt-4">
-                <Link href="" className="text-lg text-primary underline">
+                <Link
+                  href={item.href}
+                  className="text-lg text-primary underline"
+                >
                   Find out more{" "}
                   <i className="mdi mdi-chevron-right align-middle"></i>
                 </Link>

@@ -22,7 +22,7 @@ const BetterFutures = () => {
           supporting real estate developers with the power to dream.
         </p>
         <Link
-          href="#"
+          href="/our-mission"
           className={buttonVariants({
             className: "lg:max-w-42 mt-6 max-w-full lg:mt-12",
           })}

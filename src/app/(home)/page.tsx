@@ -2,7 +2,7 @@ import React from "react";
 
 import HomeCover from "./home-cover";
 import HomeFocus from "./home-focus";
-import HomePurpose from "./home-purpose";
+import HomeMission from "./home-mission";
 import HomeFocusCarousel from "./home-focus-carousel";
 import HomeWhatWeDo from "./home-what-we-do";
 import HomeOverview from "./home-overview";
@@ -13,7 +13,7 @@ export default function Home() {
     <>
       <HomeCover />
 
-      <HomePurpose />
+      <HomeMission />
 
       <HomeFocus />
 
