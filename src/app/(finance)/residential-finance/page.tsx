@@ -136,7 +136,7 @@ const Page = () => {
           <div className="relative col-span-6 flex flex-col gap-6">
             <div className="mx-auto w-full max-w-lg">
               <Image
-                src="/images/home/overview1.png"
+                src="/images/residential-finance/overview.png"
                 width={0}
                 height={0}
                 sizes="100vw"
