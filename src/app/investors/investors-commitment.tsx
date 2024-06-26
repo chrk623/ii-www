@@ -38,7 +38,7 @@ export default function InvestorsCommitment() {
         <div className="col-span-6">
           <div className="mx-auto w-full max-w-lg">
             <Image
-              src="/images/mission/commitment.png"
+              src="/images/investors/regional.png"
               width={0}
               height={0}
               sizes="100vw"

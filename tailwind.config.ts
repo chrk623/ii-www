@@ -24,6 +24,18 @@ const config = {
       },
     },
     extend: {
+      fontSize: {
+        xs: ["12px", { lineHeight: "1rem" }], // 12px
+        sm: ["14px", { lineHeight: "1.25rem" }], // 14px
+        base: ["18px", { lineHeight: "1.5rem" }], // 18px
+        lg: ["20px", { lineHeight: "1.5rem" }], // 20px
+        xl: ["24px", { lineHeight: "1.5rem" }], // 24px
+        "2xl": ["30px", { lineHeight: "2rem" }], // 30px
+        "3xl": ["36px", { lineHeight: "2.25rem" }], // 36px
+        "4xl": ["48px", { lineHeight: "2.5rem" }], // 48px
+        "5xl": ["60px", { lineHeight: "1" }], // 60px
+        "6xl": ["72px", { lineHeight: "1" }], // 72px
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

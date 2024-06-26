@@ -1,11 +1,11 @@
 import React from "react";
 import Link from "next/link";
 
-import { brokersSolutionData } from "./brokers-data";
+import { financeSolutionsData } from "./finance-solutions-data";
 import { buttonVariants } from "@/components/ui/button";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
-export default function BrokersSolutions() {
+export default function FinanceSolutions() {
   return (
     <MaxWidthWrapper className="my-12">
       <div className="grid grid-cols-1 pb-6 text-center">
@@ -20,7 +20,7 @@ export default function BrokersSolutions() {
       </div>
 
       <div className="mx-2 mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 xl:mx-40">
-        {brokersSolutionData.map((item, index) => (
+        {financeSolutionsData.map((item, index) => (
           <div
             key={index}
             className="relative flex h-full flex-col overflow-hidden rounded-md bg-white p-6 shadow dark:bg-gray-900 dark:shadow-gray-700"

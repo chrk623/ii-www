@@ -3,7 +3,7 @@ import React from "react";
 import { customersFinanceSolutionData } from "./customers-data";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
-export default function CustomersSolutions() {
+export default function CustomersExpertise() {
   return (
     <MaxWidthWrapper className="my-12">
       <div className="grid grid-cols-1 pb-6 text-center">
@@ -12,7 +12,7 @@ export default function CustomersSolutions() {
             className="mb-4 text-5xl font-semibold leading-normal text-primary"
             id="finance-solutions"
           >
-            FINANCE SOLUTIONS
+            FINANCIAL EXPERTISE
           </h3>
         </div>
       </div>

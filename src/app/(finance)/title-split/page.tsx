@@ -81,7 +81,7 @@ const Page = () => {
       {/* 1 start */}
       <MaxWidthWrapper
         className="md:py-18 relative max-w-full overflow-hidden bg-cover bg-center py-12 lg:py-24"
-        style={{ backgroundImage: `url("/images/investments/cover.png")` }}
+        style={{ backgroundImage: `url("/images/title-split/cover.png")` }}
       >
         <ImageOpacity opacity={50} />
         <div className="container relative mt-8">
@@ -105,20 +105,20 @@ const Page = () => {
 
       {/* 2 start */}
       <MaxWidthWrapper className="mt-4">
-        <div className="text-center">
-          <h3 className="text-5xl font-semibold leading-normal text-primary">
-            ??
-          </h3>
-          <p className="mt-4 px-0 text-center text-lg font-semibold text-gray-400 xl:px-36">
-            ???
-          </p>
-        </div>
+        {/* <div className="text-center"> */}
+        {/*   <h3 className="text-5xl font-semibold leading-normal text-primary"> */}
+        {/*     ?? */}
+        {/*   </h3> */}
+        {/*   <p className="mt-4 px-0 text-center text-lg font-semibold text-gray-400 xl:px-36"> */}
+        {/*     ??? */}
+        {/*   </p> */}
+        {/* </div> */}
 
         <div className="mb-2 mt-8 grid grid-cols-1 items-center gap-6 md:grid-cols-12">
           <div className="relative col-span-6 flex flex-col gap-6">
             <div className="mx-auto w-full max-w-lg">
               <Image
-                src="/images/home/overview1.png"
+                src="/images/title-split/overview.png"
                 width={0}
                 height={0}
                 sizes="100vw"

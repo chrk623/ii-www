@@ -80,7 +80,7 @@ const Page = () => {
       {/* 1 start */}
       <MaxWidthWrapper
         className="md:py-18 relative max-w-full overflow-hidden bg-cover bg-center py-12 lg:py-24"
-        style={{ backgroundImage: `url("/images/investments/cover.png")` }}
+        style={{ backgroundImage: `url("/images/hmo-finance/cover.png")` }}
       >
         <ImageOpacity opacity={50} />
         <div className="container relative mt-8">
@@ -123,11 +123,11 @@ const Page = () => {
           <div className="relative col-span-6 flex flex-col gap-6">
             <div className="mx-auto w-full max-w-lg">
               <Image
-                src="/images/home/overview1.png"
+                src="/images/hmo-finance/conversion.png"
                 width={0}
                 height={0}
                 sizes="100vw"
-                style={{ width: "100%", height: "auto" }}
+                style={{ width: "120%", height: "auto" }}
                 className="rounded-lg"
                 alt=""
               />

@@ -40,6 +40,10 @@ export const NAV_ITEMS = [
     href: "/investors" as const,
   },
   {
+    label: "Team",
+    href: "team",
+  },
+  {
     label: "Contact",
     href: "/contact" as const,
   },

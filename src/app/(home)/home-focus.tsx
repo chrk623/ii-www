@@ -43,7 +43,7 @@ export default function HomeFocus() {
               <div className="mt-4">
                 <Link
                   href={item.href}
-                  className="text-lg text-primary underline"
+                  className="text-lg font-semibold text-primary underline"
                 >
                   Find out more{" "}
                   <i className="mdi mdi-chevron-right align-middle"></i>

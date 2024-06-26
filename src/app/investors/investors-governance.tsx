@@ -12,7 +12,7 @@ export default function InvestorsGovernance() {
         <div className="col-span-6">
           <div className="mx-auto w-full max-w-lg">
             <Image
-              src="/images/mission/commitment.png"
+              src="/images/investors/governance.png"
               width={0}
               height={0}
               sizes="100vw"

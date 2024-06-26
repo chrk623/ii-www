@@ -86,7 +86,9 @@ const Page = () => {
       {/* 1 start */}
       <MaxWidthWrapper
         className="md:py-18 relative max-w-full overflow-hidden bg-cover bg-center py-12 lg:py-24"
-        style={{ backgroundImage: `url("/images/investments/cover.png")` }}
+        style={{
+          backgroundImage: `url("/images/residential-finance/cover.png")`,
+        }}
       >
         <ImageOpacity opacity={50} />
         <div className="container relative mt-8">

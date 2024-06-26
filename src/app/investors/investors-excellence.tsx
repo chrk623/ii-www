@@ -29,7 +29,7 @@ export default function InvestorsExecellence() {
         <div className="col-span-6">
           <div className="mx-auto w-full max-w-lg">
             <Image
-              src="/images/mission/goal.png"
+              src="/images/investors/excellence.png"
               width={0}
               height={0}
               sizes="100vw"

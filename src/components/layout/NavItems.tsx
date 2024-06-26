@@ -28,7 +28,7 @@ const NavItems = () => {
   }, []);
 
   return (
-    <div className="flex h-full gap-4" ref={navRef}>
+    <div className="flex h-full gap-3" ref={navRef}>
       {NAV_ITEMS.map((item, i) => {
         const handleOpen = () => {
           if (activeIndex === i) {

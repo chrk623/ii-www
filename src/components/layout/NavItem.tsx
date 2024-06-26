@@ -22,7 +22,7 @@ const NavItem = ({ navItem, handleOpen, isOpen, isAnyOpen }: NavItemProps) => {
     <div className="relative flex items-center">
       {navItem.sub ? (
         <Button
-          className="gap-1.5 text-[16px] text-primary"
+          className="gap-1.5 text-base font-semibold text-primary"
           onClick={handleOpen}
           //   variant={isOpen ? "secondary" : "ghost"}
           variant="ghost"
@@ -42,7 +42,7 @@ const NavItem = ({ navItem, handleOpen, isOpen, isAnyOpen }: NavItemProps) => {
             className: "gap-1.5 text-primary",
           })}
         >
-          <p className="text-[16px]">{navItem.label}</p>
+          <p className="text-base font-semibold">{navItem.label}</p>
         </Link>
       )}
 
@@ -60,7 +60,7 @@ const NavItem = ({ navItem, handleOpen, isOpen, isAnyOpen }: NavItemProps) => {
               <Link
                 key={item.name}
                 href={item.href}
-                className="block rounded-md px-4 py-2 text-[16px] font-semibold text-primary hover:bg-accent hover:text-accent-foreground"
+                className="block rounded-md px-4 py-2 text-base font-semibold text-primary hover:bg-accent hover:text-accent-foreground"
                 onClick={handleOpen}
                 // className={buttonVariants({
                 //   variant: "ghost",

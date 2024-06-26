@@ -11,7 +11,7 @@ export default function HomeOverview() {
         <div className="relative col-span-6 flex flex-col gap-6">
           <div className="mx-auto w-full max-w-lg">
             <Image
-              src="/images/home/overview1.png"
+              src="/images/home/overview.png"
               width={0}
               height={0}
               sizes="100vw"
@@ -37,7 +37,7 @@ export default function HomeOverview() {
                   <div className="h-2.5 w-2.5 rounded-full bg-primary"></div>
                 </div>
                 <div className="max-w-xl text-gray-400">
-                  <p className="block font-bold">{item.title}</p>
+                  <p className="block text-base font-bold">{item.title}</p>
                   <span className="text-lg">{item.content}</span>
                 </div>
               </div>

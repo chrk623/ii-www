@@ -60,6 +60,14 @@ const financeData = [
   },
 ];
 
+const bullets = [
+  "Available for semi-commercial investment properties, our finance solutions cover a range of projects and developments",
+  "With terms up to 24 months",
+  "Rates from 11% above BoE base rate",
+  "Both experienced and non-experienced borrowers welcome",
+  "Ranging from £150,000 to £250,000, our commercial development solutions are available for a variety of properties",
+];
+
 import { Construction, BrickWall } from "lucide-react";
 
 const bridgingData = [
@@ -81,7 +89,9 @@ const Page = () => {
       {/* 1 start */}
       <MaxWidthWrapper
         className="md:py-18 relative max-w-full overflow-hidden bg-cover bg-center py-12 lg:py-24"
-        style={{ backgroundImage: `url("/images/investments/cover.png")` }}
+        style={{
+          backgroundImage: `url("/images/commercial-finance/cover.png")`,
+        }}
       >
         <ImageOpacity opacity={50} />
         <div className="container relative mt-8">
@@ -104,21 +114,46 @@ const Page = () => {
       {/* 1 end */}
 
       {/* 2 start */}
-      <MaxWidthWrapper className="mt-4">
-        <div className="text-center">
-          <h3 className="text-5xl font-semibold leading-normal text-primary">
-            ??
-          </h3>
-          <p className="mt-4 px-0 text-center text-lg font-semibold text-gray-400 xl:px-36">
-            ???
-          </p>
-        </div>
+      {/* <MaxWidthWrapper className="mt-4"> */}
+      {/*   <div className="text-center"> */}
+      {/*   <div className="mb-2 mt-8 grid grid-cols-1 items-center gap-6 md:grid-cols-12"> */}
+      {/*     <div className="relative col-span-6 flex flex-col gap-6"> */}
+      {/*       <div className="mx-auto w-full max-w-lg"> */}
+      {/*         <Image */}
+      {/*           src="/images/commercial-finance/overview.png" */}
+      {/*           width={0} */}
+      {/*           height={0} */}
+      {/*           sizes="100vw" */}
+      {/*           style={{ width: "100%", height: "auto" }} */}
+      {/*           className="rounded-lg" */}
+      {/*           alt="" */}
+      {/*         /> */}
+      {/*       </div> */}
+      {/*     </div> */}
+      {/**/}
+      {/*     <div className="col-span-6 m-6"> */}
+      {/*       <Accordion type="single" collapsible> */}
+      {/*         {financeData.map((item, index) => ( */}
+      {/*           <AccordionItem key={index} value={`item-${index}`}> */}
+      {/*             <AccordionTrigger className="font-bold text-primary"> */}
+      {/*               {item.title} */}
+      {/*             </AccordionTrigger> */}
+      {/*             <AccordionContent className="text-lg font-semibold text-gray-500"> */}
+      {/*               {item.content} */}
+      {/*             </AccordionContent> */}
+      {/*           </AccordionItem> */}
+      {/*         ))} */}
+      {/*       </Accordion> */}
+      {/*     </div> */}
+      {/*   </div> */}
+      {/* </MaxWidthWrapper> */}
 
-        <div className="mb-2 mt-8 grid grid-cols-1 items-center gap-6 md:grid-cols-12">
+      <MaxWidthWrapper>
+        <div className="mb-2 mt-2 grid grid-cols-1 items-center gap-6 md:grid-cols-12">
           <div className="relative col-span-6 flex flex-col gap-6">
             <div className="mx-auto w-full max-w-lg">
               <Image
-                src="/images/home/overview1.png"
+                src="/images/commercial-finance/overview.png"
                 width={0}
                 height={0}
                 sizes="100vw"
@@ -130,18 +165,25 @@ const Page = () => {
           </div>
 
           <div className="col-span-6 m-6">
-            <Accordion type="single" collapsible>
-              {financeData.map((item, index) => (
-                <AccordionItem key={index} value={`item-${index}`}>
-                  <AccordionTrigger className="font-bold text-primary">
-                    {item.title}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-lg font-semibold text-gray-500">
-                    {item.content}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+            <h6 className="mb-8 text-3xl font-semibold uppercase tracking-tight text-primary">
+              Find the right funding for your commercial project
+            </h6>
+
+            {bullets.map((bullet, index) => (
+              <div key={index} className="mb-6">
+                <div className="mb-3 flex items-start">
+                  <div className="me-3 mt-1.5 flex-shrink-0">
+                    <div className="h-2.5 w-2.5 rounded-full bg-primary"></div>
+                  </div>
+                  <div className="max-w-xl text-gray-400">
+                    <p className="block text-lg font-semibold tracking-tight">
+                      {bullet}
+                    </p>
+                  </div>
+                </div>
+                {index < bullets.length - 1 && <hr className="my-6" />}
+              </div>
+            ))}
           </div>
         </div>
       </MaxWidthWrapper>
