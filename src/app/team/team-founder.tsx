@@ -23,8 +23,11 @@ export default function TeamFounder() {
         </div>
 
         <div className="col-span-6 m-6">
-          <h3 className="mb-4 text-4xl font-semibold leading-normal text-primary">
+          <h3 className="mb-2 text-4xl font-semibold leading-normal text-primary">
             Our Founder
+          </h3>
+          <h3 className="mb-4 text-xl font-bold leading-normal text-gray-500">
+            Christiano Bellavitis
           </h3>
 
           {founderData.map((item, index) => (
