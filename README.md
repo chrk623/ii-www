@@ -29,3 +29,17 @@ You can check out the [create-t3-app GitHub repository](https://github.com/t3-os
 Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
 
 https://www.dropbox.com/scl/fo/39pp1iqh0lg1pg8pzuh6m/ADkCd0K7Nlgo97GHelfRsTc?rlkey=prqs8atzh31ixs07o1g21oybq&e=7&dl=0
+
+https://github.com/sanity-io/sanity/issues/1857
+
+###
+
+```bash
+# install sanityh cli
+sudo npm install -g sanity@latest
+
+# first extract json schema
+sanity schema extract
+# then generate types from json
+sanity typegen genereate
+```

@@ -7,8 +7,6 @@ import TailwindIndicator from "@/components/TailwindIndicator";
 import { Inter as FontSans } from "next/font/google";
 
 import { cn } from "@/lib/utils";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -27,22 +25,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full">
-      <body
-        className={cn(
-          "relative h-full font-sans antialiased",
-          fontSans.variable,
-        )}
-      >
-        <main className="relative flex min-h-screen flex-col">
-          <TRPCReactProvider>
-            <Navbar />
-            <div className="flex-1 flex-grow">{children}</div>
-            <Footer />
-            <TailwindIndicator />
-          </TRPCReactProvider>
-        </main>
-      </body>
+    <html lang="en">
+      <TRPCReactProvider>
+        <body
+          className={cn(
+            "font-sans relative h-full antialiased",
+            fontSans.variable,
+          )}
+        >
+          <main>{children}</main>
+          <TailwindIndicator />
+        </body>
+      </TRPCReactProvider>
     </html>
   );
 }
