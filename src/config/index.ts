@@ -27,11 +27,11 @@ export const NAV_ITEMS = [
     sub: [
       {
         name: "News",
-        href: "news",
+        href: "/news",
       },
       {
         name: "Case Studies",
-        href: "case-studies",
+        href: "/case-studies",
       },
     ],
   },
