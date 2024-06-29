@@ -1,10 +1,12 @@
 "use client";
 
+import Link from "next/link";
+import { useEffect, useState } from "react";
+
 import { NAV_ITEMS } from "@/config";
 import { Menu, X } from "lucide-react";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { buttonVariants } from "@/components/ui/button";
 
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -55,13 +57,13 @@ const MobileNav = () => {
           </button>
         </div>
 
-        <div className="flex-1 overflow-y-auto pb-12">
+        <div className="flex-1 overflow-y-auto pb-12 pl-4">
           <ul>
             {NAV_ITEMS.map((navItem) => (
               <li key={navItem.label} className="px-4 pb-2 pt-2">
                 <Link
                   href={navItem.href || "#"}
-                  className="block py-2 text-base font-medium text-gray-900"
+                  className="block py-2 text-lg font-bold text-primary"
                   onClick={() => closeOnCurrent(navItem.href)}
                 >
                   {navItem.label}
@@ -73,7 +75,7 @@ const MobileNav = () => {
                       <li key={item.name}>
                         <Link
                           href={item.href}
-                          className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100"
+                          className="block px-4 py-2 text-base font-semibold text-primary"
                           onClick={() => closeOnCurrent(item.href)}
                         >
                           {item.name}
@@ -87,17 +89,17 @@ const MobileNav = () => {
           </ul>
         </div>
 
-        {/* <div className="space-y-6 border-t border-gray-200 px-4 py-6">
+        <div className="space-y-6 border-t border-gray-200 px-4 py-6">
           <div className="flow-root">
             <Link
               onClick={() => closeOnCurrent("/login")}
               href="/login"
-              className="-m-2 block p-2 font-medium text-gray-900"
+              className={buttonVariants({ className: "block p-2 text-lg" })}
             >
               Login
             </Link>
           </div>
-        </div> */}
+        </div>
       </div>
     </div>
   );

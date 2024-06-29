@@ -1,64 +1,63 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 // import { buttonVariants } from "@/components/ui/button";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+// import {
+//   Accordion,
+//   AccordionContent,
+//   AccordionItem,
+//   AccordionTrigger,
+// } from "@/components/ui/accordion";
 
 import ImageOpacity from "@/components/common/ImageOpacity";
 import LendingForm from "@/components/forms/LendingFormTemp";
 
-const financeData = [
-  {
-    title: "Loan Range",
-    content:
-      "Our property development finance spans from £50,000 to £250,000, suitable for various development projects.",
-  },
-  {
-    title: "Terms",
-    content: "Available with terms ranging from 4 to 12 months.",
-  },
-  {
-    title: "Interest Rate",
-    content: "Competitive rates between 0.9% and 1.1% per month.",
-  },
-  {
-    title: "Financing Options",
-    content:
-      "Up to 90% LTV (Loan to Value) of the purchase price and renovations, or up to 80% of the market value or GDV (Gross Development Value).",
-  },
-  {
-    title: "Loan Fees",
-    content: "A fee of 2% to 2.5% of the loan amount. No Other Hidden Fees.",
-  },
-  {
-    title: "Additional Costs",
-    content: "Legal and inspection fees are charged at cost.",
-  },
-  {
-    title: "Security",
-    content: "First charge on the property and a personal guarantee.",
-  },
-  {
-    title: "We welcome both experienced and non-experienced borrowers",
-    content: (
-      <>
-        Contact us{" "}
-        <Link href="/contact" className="text-blue-400 underline">
-          here
-        </Link>
-        .
-      </>
-    ),
-  },
-];
+// const financeData = [
+//   {
+//     title: "Loan Range",
+//     content:
+//       "Our property development finance spans from £50,000 to £250,000, suitable for various development projects.",
+//   },
+//   {
+//     title: "Terms",
+//     content: "Available with terms ranging from 4 to 12 months.",
+//   },
+//   {
+//     title: "Interest Rate",
+//     content: "Competitive rates between 0.9% and 1.1% per month.",
+//   },
+//   {
+//     title: "Financing Options",
+//     content:
+//       "Up to 90% LTV (Loan to Value) of the purchase price and renovations, or up to 80% of the market value or GDV (Gross Development Value).",
+//   },
+//   {
+//     title: "Loan Fees",
+//     content: "A fee of 2% to 2.5% of the loan amount. No Other Hidden Fees.",
+//   },
+//   {
+//     title: "Additional Costs",
+//     content: "Legal and inspection fees are charged at cost.",
+//   },
+//   {
+//     title: "Security",
+//     content: "First charge on the property and a personal guarantee.",
+//   },
+//   {
+//     title: "We welcome both experienced and non-experienced borrowers",
+//     content: (
+//       <>
+//         Contact us{" "}
+//         <Link href="/contact" className="text-blue-400 underline">
+//           here
+//         </Link>
+//         .
+//       </>
+//     ),
+//   },
+// ];
 
 const bullets = [
   "Available for semi-commercial investment properties, our finance solutions cover a range of projects and developments",

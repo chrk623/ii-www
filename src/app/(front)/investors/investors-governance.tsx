@@ -1,8 +1,6 @@
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
 
-import { buttonVariants } from "@/components/ui/button";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
 export default function InvestorsGovernance() {
