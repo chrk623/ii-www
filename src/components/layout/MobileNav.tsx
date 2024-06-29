@@ -92,11 +92,11 @@ const MobileNav = () => {
         <div className="space-y-6 border-t border-gray-200 px-4 py-6">
           <div className="flow-root">
             <Link
-              onClick={() => closeOnCurrent("/login")}
-              href="/login"
+              onClick={() => closeOnCurrent("/sign-in")}
+              href="/sign-in"
               className={buttonVariants({ className: "block p-2 text-lg" })}
             >
-              Login
+              Sign in
             </Link>
           </div>
         </div>

@@ -32,12 +32,12 @@ const Navbar = () => {
             <div className="hidden lg:flex lg:items-center lg:space-x-6">
               {user ? null : (
                 <Link
-                  href="#"
+                  href="/sign-in"
                   className={buttonVariants({
                     variant: "default",
                   })}
                 >
-                  Login
+                  Sign in
                 </Link>
               )}
             </div>

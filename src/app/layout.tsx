@@ -1,12 +1,10 @@
 import "@/styles/globals.css";
-
-import { TRPCReactProvider } from "@/trpc/react";
-
-import TailwindIndicator from "@/components/TailwindIndicator";
-
 import { Inter as FontSans } from "next/font/google";
 
+import { ClerkProvider } from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
+import { TRPCReactProvider } from "@/trpc/react";
+import TailwindIndicator from "@/components/TailwindIndicator";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -27,15 +25,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <TRPCReactProvider>
-        <body
-          className={cn(
-            "font-sans relative h-full antialiased",
-            fontSans.variable,
-          )}
-        >
-          <main>{children}</main>
-          <TailwindIndicator />
-        </body>
+        <ClerkProvider>
+          <body
+            className={cn(
+              "font-sans relative h-full antialiased",
+              fontSans.variable,
+            )}
+          >
+            <main>{children}</main>
+            <TailwindIndicator />
+          </body>
+        </ClerkProvider>
       </TRPCReactProvider>
     </html>
   );
