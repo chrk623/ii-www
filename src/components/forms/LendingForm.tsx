@@ -1,227 +1,919 @@
 "use client";
 
-// components/BorrowerForm.js
-import React from "react";
+// import React, { useState } from "react";
+import { api } from "@/trpc/react";
+import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 
-const BorrowFormSchema = z.object({
-  idBorrower1: z.string().nonempty("ID for borrower 1 is required"),
-  idBorrower2: z.string().nonempty("ID for borrower 2 is required"),
-  idBorrower3: z.string().optional(),
-  proofAddressBorrower1: z
+import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+} from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Form,
+  FormField,
+  FormMessage,
+  FormLabel,
+  FormItem,
+  FormControl,
+} from "@/components/ui/form";
+
+import MaxWidthWrapper from "../MaxWidthWrapper";
+import ImageOpacity from "../common/ImageOpacity";
+
+const formSchema = z.object({
+  fullName: z.string().min(5, { message: "Must be 5 or more characters long" }),
+  email: z.string().email({ message: "Invalid email address" }),
+  address: z.string().min(5, { message: "Must be 5 or more characters long" }),
+  companyDetails: z.string().optional(),
+  propertyAddress: z
     .string()
-    .nonempty("Proof of address for borrower 1 is required"),
-  proofAddressBorrower2: z
+    .min(5, { message: "Must be 5 or more characters long" }),
+  propertyPurchasePrice: z
+    .number()
+    .min(0, { message: "Must be a positive number" }),
+  renovationCosts: z.number().min(0, { message: "Must be a positive number" }),
+  desiredLoan: z.number().min(0, { message: "Must be a positive number" }),
+  loanTerm: z
+    .number()
+    .min(0, { message: "Loan term must be a positive number" }),
+  criminalOffence: z.enum(["yes", "yes"], {
+    message: "Please select an option",
+  }),
+  bankruptcyProceedings: z.enum(["yes", "no"], {
+    message: "Please select an option",
+  }),
+  directorDisqualified: z.enum(["yes", "no"], {
+    message: "Please select an option",
+  }),
+  netAssets: z
     .string()
-    .nonempty("Proof of address for borrower 2 is required"),
-  proofAddressBorrower3: z.string().optional(),
-  solicitors: z.string().nonempty("Solicitors details are required"),
+    .min(5, { message: "Must be 5 or more characters long" }),
+  combinedIncome: z
+    .string()
+    .min(5, { message: "Must be 5 or more characters long" }),
+  renovationDetails: z
+    .string()
+    .min(5, { message: "Must be 5 or more characters long" }),
+  exitStrategy: z
+    .string()
+    .min(5, { message: "Must be 5 or more characters long" }),
+  experience: z
+    .string()
+    .min(5, { message: "Must be 5 or more characters long" }),
+  creditReport1: z.any(),
+  creditReport2: z.any().optional(),
+  creditReport3: z.any().optional(),
+  proofIncome1: z.any(),
+  proofIncome2: z.any().optional(),
+  proofIncome3: z.any().optional(),
+  nationalInsuranceNumber: z
+    .string()
+    .min(5, { message: "Must be 5 or more characters long" }),
+  idBorrower1: z.any(),
+  idBorrower2: z.any().optional(),
+  idBorrower3: z.any().optional(),
+  addressProof1: z.any(),
+  addressProof2: z.any().optional(),
+  addressProof3: z.any().optional(),
+  solicitors: z
+    .string()
+    .min(5, { message: "Must be 5 or more characters long" }),
   refusedLending: z.string().optional(),
   referredByBroker: z.string().optional(),
-  targetCompletionDate: z
+  completionDate: z
     .string()
-    .nonempty("Target completion date is required"),
-  signature: z.string().nonempty("Signature is required"),
-  agreeToTerms: z
-    .boolean()
-    .refine((val) => val === true, "You must agree to the terms"),
-  authorizeChecks: z.boolean().optional(),
+    .min(5, { message: "Must be 5 or more characters long" }),
+  declareInfo: z.boolean(),
+  authorizeChecks: z.boolean(),
   subscribeNewsletter: z.boolean().optional(),
 });
-type TBorrowFormSchema = z.infer<typeof BorrowFormSchema>;
 
 const LendingForm = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<TBorrowFormSchema>({
-    resolver: zodResolver(BorrowFormSchema),
+  const form = useForm({
+    resolver: zodResolver(formSchema),
   });
 
-  //   const onsubmit = ({ email, password }: TAuthCredentialValidator) => {
-  //     // mutate({ email, password });
-  //     console.log();
-  //   };
+  // const homeRouter = api.home.getLatest.useQuery();
 
-  // <form onSubmit={handleSubmit(onSubmit)}>
+  // const data = api.home.hello.useQuery({ text: "from tRPC" }).data;
+
+  const { mutate, isSuccess } = api.home.create.useMutation();
+  const onSubmit = async () => {
+    // const data = api.home.create.useMutation({ name: "foobar" });
+    // const data = api.home.hell
+    // const data = mutate({ name: "foobar" });
+    // console.log(data);
+    console.log("foo");
+  };
+
   return (
-    <form className="grid grid-cols-1 gap-4 md:grid-cols-6">
-      <div className="md:col-span-2">
-        <label className="block">ID for borrower 1 *</label>
-        <input
-          type="file"
-          {...register("idBorrower1")}
-          className="w-full border p-2"
-        />
-        {errors.idBorrower1 && (
-          <span className="text-red-500">{errors.idBorrower1.message}</span>
-        )}
+    <MaxWidthWrapper
+      className="relative max-w-full overflow-hidden bg-cover bg-center py-4 md:py-6"
+      // style={{ backgroundImage: `url("/images/contact/bg.png")` }}
+    >
+      {/* <ImageOpacity opacity={50} /> */}
+      <div className="container relative bg-white p-4 text-left">
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="grid grid-cols-1 gap-6 md:grid-cols-12"
+          >
+            <div className="md:col-span-6">
+              <FormField
+                control={form.control}
+                name="fullName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      Full name *
+                    </FormLabel>
+                    <FormControl>
+                      <Input {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div className="md:col-span-6">
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      Email *
+                    </FormLabel>
+                    <FormControl>
+                      <Input {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div className="md:col-span-12">
+              <FormField
+                control={form.control}
+                name="address"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      Full address of where you live *
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="Street address, City, State, Postal code, Country"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div className="md:col-span-12">
+              <FormField
+                control={form.control}
+                name="companyDetails"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      If you intend to buy through a company: Company name and
+                      number, registered company address
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="Company name, company number, registed office street address, City, State, Postal code, Country"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div className="md:col-span-7">
+              <FormField
+                control={form.control}
+                name="propertyAddress"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      Full address of the property you intend to buy *
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="Street address, City, State, Postal code, Counrty"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div className="md:col-span-5">
+              <FormField
+                control={form.control}
+                name="propertyPurchasePrice"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      Property purchase price *
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        type="number"
+                        placeholder="Enter a number"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div className="md:col-span-4">
+              <FormField
+                control={form.control}
+                name="renovationCosts"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      Renovation costs *
+                    </FormLabel>
+                    <FormControl>
+                      <Input type="number" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div className="md:col-span-4">
+              <FormField
+                control={form.control}
+                name="desiredLoan"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      Desired total loan *
+                    </FormLabel>
+                    <FormControl>
+                      <Input {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div className="md:col-span-4">
+              <FormField
+                control={form.control}
+                name="loanTerm"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      Desired loan term *
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        type="number"
+                        placeholder="How many months will you need the loan"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div className="flex items-end space-x-4 md:col-span-12">
+              <FormField
+                control={form.control}
+                name="criminalOffence"
+                render={() => (
+                  <FormItem className="flex-1">
+                    <FormLabel className="font-semibold text-primary">
+                      Has any of the borrowers ever been convicted of a criminal
+                      offence? *
+                    </FormLabel>
+                    <FormControl>
+                      <Select>
+                        <SelectTrigger className="w-full text-gray-500">
+                          <SelectValue placeholder="Choose an option" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="yes">Yes</SelectItem>
+                          <SelectItem value="yes">No</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="bankruptcyProceedings"
+                render={() => (
+                  <FormItem className="flex-1">
+                    <FormLabel className="font-semibold text-primary">
+                      Has any of the borrowers ever been through bankruptcy
+                      proceedings? *
+                    </FormLabel>
+                    <FormControl>
+                      <Select>
+                        <SelectTrigger className="w-full text-gray-500">
+                          <SelectValue placeholder="Choose an option" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="yes">Yes</SelectItem>
+                          <SelectItem value="no">No</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="directorDisqualified"
+                render={() => (
+                  <FormItem className="flex-1">
+                    <FormLabel className="font-semibold text-primary">
+                      Has any of the directors ever been disqualified? *
+                    </FormLabel>
+                    <FormControl>
+                      <Select>
+                        <SelectTrigger className="w-full text-gray-500">
+                          <SelectValue placeholder="Choose an option" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="yes">Yes</SelectItem>
+                          <SelectItem value="no">No</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            {/* <div className="md:col-span-6"> */}
+            <div className="flex items-end space-x-4 md:col-span-12">
+              <FormField
+                control={form.control}
+                name="netAssets"
+                render={({ field }) => (
+                  <FormItem className="flex-1">
+                    <FormLabel className="font-semibold text-primary">
+                      What are the combined net assets of the borrowers? Specify
+                      assets and liabilities with details of each *
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="Assets (e.g. house) minus lobailities (e.g. mortgage)"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              {/* </div> */}
+
+              {/* <div className="md:col-span-6"> */}
+              <FormField
+                control={form.control}
+                name="combinedIncome"
+                render={({ field }) => (
+                  <FormItem className="flex-1">
+                    <FormLabel className="font-semibold text-primary">
+                      What is the combined income of the borrowers? Specify
+                      sources *
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="Salary, rental income, dividends"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div className="md:col-span-12">
+              <FormField
+                control={form.control}
+                name="renovationDetails"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      Renovation details *
+                    </FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder="Specify what type of renovations are required and the expected costs for each, as well as the expected timeline."
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div className="md:col-span-12">
+              <FormField
+                control={form.control}
+                name="exitStrategy"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      Exit strategy *
+                    </FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder="Explain what is your exit strategy. You plan on selling the property? Remortgage? What is the expected GDV? Provide comparables to justify purchase and remortgage/selling price."
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div className="md:col-span-12">
+              <FormField
+                control={form.control}
+                name="experience"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      Your experience *
+                    </FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder="Describe your previous experience with similar projects."
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            {/* New fields start here */}
+            <div className="md:col-span-4">
+              <FormField
+                control={form.control}
+                name="creditReport1"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      Credit report for borrower 1 *
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        type="file"
+                        className="cursor-pointer file:rounded file:bg-primary file:text-white file:hover:bg-primary/90"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="md:col-span-4">
+              <FormField
+                control={form.control}
+                name="creditReport2"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      Credit report for borrower 2
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        type="file"
+                        className="cursor-pointer file:rounded file:bg-primary file:text-white file:hover:bg-primary/90"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="md:col-span-4">
+              <FormField
+                control={form.control}
+                name="creditReport3"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      Credit report for borrower 3
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        type="file"
+                        className="cursor-pointer file:rounded file:bg-primary file:text-white file:hover:bg-primary/90"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div className="md:col-span-4">
+              <FormField
+                control={form.control}
+                name="proofIncome1"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      Proof of income for borrower 1 *
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        type="file"
+                        className="cursor-pointer file:rounded file:bg-primary file:text-white file:hover:bg-primary/90"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="md:col-span-4">
+              <FormField
+                control={form.control}
+                name="proofIncome2"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      Proof of income for borrower 2
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        type="file"
+                        className="cursor-pointer file:rounded file:bg-primary file:text-white file:hover:bg-primary/90"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="md:col-span-4">
+              <FormField
+                control={form.control}
+                name="proofIncome3"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      Proof of income for borrower 3
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        type="file"
+                        className="cursor-pointer file:rounded file:bg-primary file:text-white file:hover:bg-primary/90"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div className="md:col-span-12">
+              <FormField
+                control={form.control}
+                name="nationalInsuranceNumber"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      KYC/AML: National Insurance Number *
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="KYC/AML: our solicitors need National Insurance Number, IDs and proof of address for ALL borrowers."
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div className="md:col-span-4">
+              <FormField
+                control={form.control}
+                name="idBorrower1"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      ID for borrower 1 *
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        type="file"
+                        className="cursor-pointer file:rounded file:bg-primary file:text-white file:hover:bg-primary/90"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="md:col-span-4">
+              <FormField
+                control={form.control}
+                name="idBorrower2"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      ID for borrower 2
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        type="file"
+                        className="cursor-pointer file:rounded file:bg-primary file:text-white file:hover:bg-primary/90"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="md:col-span-4">
+              <FormField
+                control={form.control}
+                name="idBorrower3"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      ID for borrower 3
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        type="file"
+                        className="cursor-pointer file:rounded file:bg-primary file:text-white file:hover:bg-primary/90"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div className="md:col-span-4">
+              <FormField
+                control={form.control}
+                name="addressProof1"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      Proof of address for borrower 1 *
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        type="file"
+                        className="cursor-pointer file:rounded file:bg-primary file:text-white file:hover:bg-primary/90"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="md:col-span-4">
+              <FormField
+                control={form.control}
+                name="addressProof2"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      Proof of address for borrower 2
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        type="file"
+                        className="cursor-pointer file:rounded file:bg-primary file:text-white file:hover:bg-primary/90"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="md:col-span-4">
+              <FormField
+                control={form.control}
+                name="addressProof3"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      Proof of address for borrower 3
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        type="file"
+                        className="cursor-pointer file:rounded file:bg-primary file:text-white file:hover:bg-primary/90"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div className="md:col-span-12">
+              <FormField
+                control={form.control}
+                name="solicitors"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      Your solicitors *
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="Name, phone and email of your solicitors. If you prefer to be dual represented we can offer that option."
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div className="md:col-span-4">
+              <FormField
+                control={form.control}
+                name="refusedLending"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      Have you been refused lending elsewhere, why?
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="Have you been refused lending elsewhere and why"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div className="md:col-span-4">
+              <FormField
+                control={form.control}
+                name="referredByBroker"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      Are you being referred by a broker?
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="Please report the name of the broker. If not, write NA"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div className="md:col-span-4">
+              <FormField
+                control={form.control}
+                name="completionDate"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      When is your target completion date? *
+                    </FormLabel>
+                    <FormControl>
+                      <Input placeholder="Target completion date" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div className="md:col-span-12">
+              <FormField
+                control={form.control}
+                name="declareInfo"
+                render={({ field }) => (
+                  <FormItem className="justify-between space-x-3">
+                    <FormControl>
+                      <input type="checkbox" {...field} />
+                    </FormControl>
+                    <FormLabel className="font-semibold text-primary">
+                      I declare that the info I’ve provided is accurate &
+                      complete.
+                    </FormLabel>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div className="md:col-span-12">
+              <FormField
+                control={form.control}
+                name="authorizeChecks"
+                render={({ field }) => (
+                  <FormItem className=" justify-between space-x-3">
+                    <FormControl>
+                      <input type="checkbox" {...field} />
+                    </FormControl>
+                    <FormLabel className="font-semibold text-primary">
+                      I authorize Integer Investments to conduct background
+                      checks on me and my company, including credit reports.
+                    </FormLabel>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div className="md:col-span-12">
+              <FormField
+                control={form.control}
+                name="subscribeNewsletter"
+                render={({ field }) => (
+                  <FormItem className="justify-between space-x-3">
+                    <FormControl>
+                      <input type="checkbox" {...field} />
+                    </FormControl>
+                    <FormLabel className="font-semibold text-primary">
+                      I want to subscribe to the newsletter.
+                    </FormLabel>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div className="flex justify-center md:col-span-12">
+              <Button type="submit" className="w-48">
+                Submit
+              </Button>
+            </div>
+          </form>
+        </Form>
       </div>
-      <div className="md:col-span-2">
-        <label className="block">ID for borrower 2 *</label>
-        <input
-          type="file"
-          {...register("idBorrower2")}
-          className="w-full border p-2"
-        />
-        {errors.idBorrower2 && (
-          <span className="text-red-500">{errors.idBorrower2.message}</span>
-        )}
-      </div>
-      <div className="md:col-span-2">
-        <label className="block">ID for borrower 3</label>
-        <input
-          type="file"
-          {...register("idBorrower3")}
-          className="w-full border p-2"
-        />
-        {errors.idBorrower3 && (
-          <span className="text-red-500">{errors.idBorrower3.message}</span>
-        )}
-      </div>
-      <div className="md:col-span-2">
-        <label className="block">Proof of address for borrower 1 *</label>
-        <input
-          type="file"
-          {...register("proofAddressBorrower1")}
-          className="w-full border p-2"
-        />
-        {errors.proofAddressBorrower1 && (
-          <span className="text-red-500">
-            {errors.proofAddressBorrower1.message}
-          </span>
-        )}
-      </div>
-      <div className="md:col-span-2">
-        <label className="block">Proof of address for borrower 2 *</label>
-        <input
-          type="file"
-          {...register("proofAddressBorrower2")}
-          className="w-full border p-2"
-        />
-        {errors.proofAddressBorrower2 && (
-          <span className="text-red-500">
-            {errors.proofAddressBorrower2.message}
-          </span>
-        )}
-      </div>
-      <div className="md:col-span-2">
-        <label className="block">Proof of address for borrower 3</label>
-        <input
-          type="file"
-          {...register("proofAddressBorrower3")}
-          className="w-full border p-2"
-        />
-        {errors.proofAddressBorrower3 && (
-          <span className="text-red-500">
-            {errors.proofAddressBorrower3.message}
-          </span>
-        )}
-      </div>
-      <div className="md:col-span-2">
-        <label className="block">Your solicitors *</label>
-        <input
-          type="text"
-          {...register("solicitors")}
-          className="w-full border p-2"
-        />
-        {errors.solicitors && (
-          <span className="text-red-500">{errors.solicitors.message}</span>
-        )}
-      </div>
-      <div className="md:col-span-2">
-        <label className="block">
-          Have you been refused lending elsewhere, why?
-        </label>
-        <input
-          type="text"
-          {...register("refusedLending")}
-          className="w-full border p-2"
-        />
-        {errors.refusedLending && (
-          <span className="text-red-500">{errors.refusedLending.message}</span>
-        )}
-      </div>
-      <div className="md:col-span-2">
-        <label className="block">Are you being referred by a broker?</label>
-        <input
-          type="text"
-          {...register("referredByBroker")}
-          className="w-full border p-2"
-        />
-        {errors.referredByBroker && (
-          <span className="text-red-500">
-            {errors.referredByBroker.message}
-          </span>
-        )}
-      </div>
-      <div className="md:col-span-2">
-        <label className="block">When is your target completion date? *</label>
-        <input
-          type="date"
-          {...register("targetCompletionDate")}
-          className="w-full border p-2"
-        />
-        {errors.targetCompletionDate && (
-          <span className="text-red-500">
-            {errors.targetCompletionDate.message}
-          </span>
-        )}
-      </div>
-      <div className="md:col-span-3">
-        <label className="block">Your Signature*</label>
-        <input
-          type="text"
-          {...register("signature")}
-          className="w-full border p-2"
-        />
-        {errors.signature && (
-          <span className="text-red-500">{errors.signature.message}</span>
-        )}
-      </div>
-      <div className="flex items-center md:col-span-3">
-        <label className="block">
-          <input
-            type="checkbox"
-            {...register("agreeToTerms")}
-            className="mr-2"
-          />
-          I declare that the info I&apos;ve provided is accurate & complete.
-        </label>
-        {errors.agreeToTerms && (
-          <span className="text-red-500">{errors.agreeToTerms.message}</span>
-        )}
-      </div>
-      <div className="flex items-center md:col-span-3">
-        <label className="block">
-          <input
-            type="checkbox"
-            {...register("authorizeChecks")}
-            className="mr-2"
-          />
-          I authorize Integer Investments to conduct background checks on me and
-          my company, including credit reports.
-        </label>
-      </div>
-      <div className="flex items-center md:col-span-3">
-        <label className="block">
-          <input
-            type="checkbox"
-            {...register("subscribeNewsletter")}
-            className="mr-2"
-          />
-          I want to subscribe to the newsletter.
-        </label>
-      </div>
-      <div className="md:col-span-3">
-        <button type="submit" className="w-full bg-blue-500 p-2 text-white">
-          Submit
-        </button>
-      </div>
-    </form>
+    </MaxWidthWrapper>
   );
 };
 

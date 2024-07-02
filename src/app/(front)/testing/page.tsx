@@ -1,24 +1,23 @@
-// "use client";
-// import React from "react";
-//
-// import config from "sanity.config";
-//
-// import { Studio } from "sanity";
-//
-// const Page = () => {
-//   return (
-//     <section style={{ height: "100vh", width: "100%" }}>
-//       <Studio config={config} unstable_globalStyles />
-//     </section>
-//   );
-// };
-//
-// export default Page;
-
 import React from "react";
 
-const page = () => {
-  return <div>page</div>;
-};
+import ImageOpacity from "@/components/common/ImageOpacity";
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import LendingForm from "@/components/forms/LendingForm";
 
-export default page;
+function Page() {
+  return (
+    <MaxWidthWrapper
+      className="relative max-w-full overflow-hidden bg-cover bg-center py-4 md:py-12"
+      style={{ backgroundImage: `url("/images/contact/bg.png")` }}
+    >
+      <ImageOpacity opacity={50} />
+      <div className="relative bg-white p-12">
+        <LendingForm />
+      </div>
+    </MaxWidthWrapper>
+  );
+
+  // return <LendingForm />;
+}
+
+export default Page;

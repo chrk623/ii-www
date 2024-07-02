@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/accordion";
 
 import ImageOpacity from "@/components/common/ImageOpacity";
-import LendingForm from "@/components/forms/LendingFormTemp";
+import LendingForm from "@/components/forms/LendingForm";
 
 const financeData = [
   {

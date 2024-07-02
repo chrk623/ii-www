@@ -1,11 +1,11 @@
 import React from "react";
 
-import LendingForm from "@/components/forms/LendingFormTemp";
+import LendingForm from "@/components/forms/LendingForm";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
 const CustomersFinancing = () => {
   return (
-    <MaxWidthWrapper className="my-12">
+    <MaxWidthWrapper className="my-2">
       <div className="text-center">
         <h3 className="text-5xl font-semibold leading-normal text-primary">
           Looking to finance your real estate development?
