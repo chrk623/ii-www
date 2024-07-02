@@ -44,7 +44,7 @@ const formSchema = z.object({
   loanTerm: z
     .number()
     .min(0, { message: "Loan term must be a positive number" }),
-  criminalOffence: z.enum(["yes", "yes"], {
+  criminalOffence: z.enum(["yes", "no"], {
     message: "Please select an option",
   }),
   bankruptcyProceedings: z.enum(["yes", "no"], {
