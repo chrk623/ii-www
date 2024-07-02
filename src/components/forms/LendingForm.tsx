@@ -323,7 +323,7 @@ const LendingForm = () => {
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="yes">Yes</SelectItem>
-                          <SelectItem value="yes">No</SelectItem>
+                          <SelectItem value="no">No</SelectItem>
                         </SelectContent>
                       </Select>
                     </FormControl>
