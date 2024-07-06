@@ -870,7 +870,7 @@ const LendingForm = () => {
                 render={({ field }) => (
                   <FormItem className="justify-between space-x-3">
                     <FormControl>
-                      <Input
+                      <input
                         // type="checkbox" {...field}
                         type="checkbox"
                         checked={field.value}
@@ -895,7 +895,7 @@ const LendingForm = () => {
                   <FormItem className=" justify-between space-x-3">
                     <FormControl>
                       {/* <input type="checkbox" {...field} /> */}
-                      <Input
+                      <input
                         // type="checkbox" {...field}
                         type="checkbox"
                         checked={field.value}
@@ -920,7 +920,7 @@ const LendingForm = () => {
                   <FormItem className="justify-between space-x-3">
                     <FormControl>
                       {/* <input type="checkbox" {...field} /> */}
-                      <Input
+                      <input
                         // type="checkbox" {...field}
                         type="checkbox"
                         checked={field.value}
