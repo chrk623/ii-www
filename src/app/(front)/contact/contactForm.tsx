@@ -1,78 +1,136 @@
+"use client";
+
 import React from "react";
+import { type z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+import {
+  Form,
+  FormField,
+  FormMessage,
+  FormLabel,
+  FormItem,
+  FormControl,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
 
-export default function ContactForm() {
+// import { api } from "@/trpc/react";
+import { contactFormSchema } from "@/lib/form-utils";
+
+const ContactForm = () => {
+  const form = useForm<z.infer<typeof contactFormSchema>>({
+    resolver: zodResolver(contactFormSchema),
+  });
+
+  // const homeRouter = api.home.getLatest.useQuery();
+
+  // const data = api.home.hello.useQuery({ text: "from tRPC" }).data;
+
+  // const { mutate, isSuccess } = api.home.contact.useMutation();
+  function onSubmit(values: z.infer<typeof contactFormSchema>) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    // const data = mutate(values);
+    console.log(values);
+  }
+
   return (
-    <>
-      {" "}
-      <form className="w-full max-w-md">
-        <div className="mb-4">
-          <label
-            className="mb-2 block text-sm font-bold text-white"
-            htmlFor="first-name"
-          >
-            First Name*
-          </label>
-          <Input
-            className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-black shadow focus:outline-none"
-            id="first-name"
-            type="text"
-            placeholder="Type your first name"
+    <Form {...form}>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="grid w-full max-w-md grid-cols-1 gap-6"
+      >
+        <div>
+          <FormField
+            control={form.control}
+            name="firstName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="font-semibold text-white">
+                  First Name *
+                </FormLabel>
+                <FormControl>
+                  <Input {...field} placeholder="Type your first name" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
         </div>
-        <div className="mb-4">
-          <label
-            className="mb-2 block text-sm font-bold text-white"
-            htmlFor="last-name"
-          >
-            Last Name*
-          </label>
-          <Input
-            className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-black shadow focus:outline-none"
-            id="last-name"
-            type="text"
-            placeholder="Type your last name"
+        <div>
+          <FormField
+            control={form.control}
+            name="lastName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="font-semibold text-white">
+                  Last Name *
+                </FormLabel>
+                <FormControl>
+                  <Input {...field} placeholder="Type your last name" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
         </div>
-        <div className="mb-4">
-          <label
-            className="mb-2 block text-sm font-bold text-white"
-            htmlFor="email"
-          >
-            Email*
-          </label>
-          <Input
-            className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-black shadow focus:outline-none"
-            id="email"
-            type="email"
-            placeholder="Type your email"
+        <div>
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="font-semibold text-white">
+                  Email *
+                </FormLabel>
+                <FormControl>
+                  <Input {...field} placeholder="Type your email" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
         </div>
-        <div className="mb-4">
-          <label
-            className="mb-2 block text-sm font-bold text-white"
-            htmlFor="phone"
-          >
-            Phone
-          </label>
-          <Input
-            className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-black shadow focus:outline-none"
-            id="phone"
-            type="tel"
-            placeholder="Type your phone number"
+        <div>
+          <FormField
+            control={form.control}
+            name="phone"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="font-semibold text-white">
+                  Phone *
+                </FormLabel>
+                <FormControl>
+                  <Input {...field} placeholder="Type your phone number" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
         </div>
-        <div className="mb-6">
-          <label className="mb-2 block text-sm font-bold text-white">
-            Message*
-          </label>
-          <textarea
-            className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-black shadow focus:outline-none"
-            id="message"
-            // placeholder="Type your message"
-            rows={4}
-          ></textarea>
+        <div>
+          <FormField
+            control={form.control}
+            name="message"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="font-semibold text-white">
+                  Message *
+                </FormLabel>
+                <FormControl>
+                  <Textarea
+                    {...field}
+                    rows={4}
+                    placeholder="Type your message"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
         </div>
         <div className="flex items-center justify-center">
           <Button className="px-4 py-2 font-bold" type="submit">
@@ -80,6 +138,8 @@ export default function ContactForm() {
           </Button>
         </div>
       </form>
-    </>
+    </Form>
   );
-}
+};
+
+export default ContactForm;

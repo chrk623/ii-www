@@ -1,8 +1,8 @@
 "use client";
 
 // import React, { useState } from "react";
+import { type z } from "zod";
 import { api } from "@/trpc/react";
-import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -25,80 +25,12 @@ import {
   FormControl,
 } from "@/components/ui/form";
 
+import { lendingFormSchema } from "@/lib/form-utils";
 import MaxWidthWrapper from "../MaxWidthWrapper";
-import ImageOpacity from "../common/ImageOpacity";
-
-const formSchema = z.object({
-  fullName: z.string().min(5, { message: "Must be 5 or more characters long" }),
-  email: z.string().email({ message: "Invalid email address" }),
-  address: z.string().min(5, { message: "Must be 5 or more characters long" }),
-  companyDetails: z.string().optional(),
-  propertyAddress: z
-    .string()
-    .min(5, { message: "Must be 5 or more characters long" }),
-  propertyPurchasePrice: z
-    .number()
-    .min(0, { message: "Must be a positive number" }),
-  renovationCosts: z.number().min(0, { message: "Must be a positive number" }),
-  desiredLoan: z.number().min(0, { message: "Must be a positive number" }),
-  loanTerm: z
-    .number()
-    .min(0, { message: "Loan term must be a positive number" }),
-  criminalOffence: z.enum(["yes", "no"], {
-    message: "Please select an option",
-  }),
-  bankruptcyProceedings: z.enum(["yes", "no"], {
-    message: "Please select an option",
-  }),
-  directorDisqualified: z.enum(["yes", "no"], {
-    message: "Please select an option",
-  }),
-  netAssets: z
-    .string()
-    .min(5, { message: "Must be 5 or more characters long" }),
-  combinedIncome: z
-    .string()
-    .min(5, { message: "Must be 5 or more characters long" }),
-  renovationDetails: z
-    .string()
-    .min(5, { message: "Must be 5 or more characters long" }),
-  exitStrategy: z
-    .string()
-    .min(5, { message: "Must be 5 or more characters long" }),
-  experience: z
-    .string()
-    .min(5, { message: "Must be 5 or more characters long" }),
-  creditReport1: z.any(),
-  creditReport2: z.any().optional(),
-  creditReport3: z.any().optional(),
-  proofIncome1: z.any(),
-  proofIncome2: z.any().optional(),
-  proofIncome3: z.any().optional(),
-  nationalInsuranceNumber: z
-    .string()
-    .min(5, { message: "Must be 5 or more characters long" }),
-  idBorrower1: z.any(),
-  idBorrower2: z.any().optional(),
-  idBorrower3: z.any().optional(),
-  addressProof1: z.any(),
-  addressProof2: z.any().optional(),
-  addressProof3: z.any().optional(),
-  solicitors: z
-    .string()
-    .min(5, { message: "Must be 5 or more characters long" }),
-  refusedLending: z.string().optional(),
-  referredByBroker: z.string().optional(),
-  completionDate: z
-    .string()
-    .min(5, { message: "Must be 5 or more characters long" }),
-  declareInfo: z.boolean(),
-  authorizeChecks: z.boolean(),
-  subscribeNewsletter: z.boolean().optional(),
-});
 
 const LendingForm = () => {
-  const form = useForm({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof lendingFormSchema>>({
+    resolver: zodResolver(lendingFormSchema),
   });
 
   // const homeRouter = api.home.getLatest.useQuery();
@@ -106,13 +38,11 @@ const LendingForm = () => {
   // const data = api.home.hello.useQuery({ text: "from tRPC" }).data;
 
   const { mutate, isSuccess } = api.home.create.useMutation();
-  const onSubmit = async () => {
-    // const data = api.home.create.useMutation({ name: "foobar" });
-    // const data = api.home.hell
-    // const data = mutate({ name: "foobar" });
-    // console.log(data);
-    console.log("foo");
-  };
+  function onSubmit(values: z.infer<typeof lendingFormSchema>) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    console.log(values);
+  }
 
   return (
     <MaxWidthWrapper
@@ -491,7 +421,7 @@ const LendingForm = () => {
             </div>
 
             {/* New fields start here */}
-            <div className="md:col-span-4">
+            <div className="md:col-span-3">
               <FormField
                 control={form.control}
                 name="creditReport1"
@@ -504,7 +434,7 @@ const LendingForm = () => {
                       <Input
                         type="file"
                         className="cursor-pointer file:rounded file:bg-primary file:text-white file:hover:bg-primary/90"
-                        {...field}
+                        {...form.register(field.name)}
                       />
                     </FormControl>
                     <FormMessage />
@@ -512,7 +442,7 @@ const LendingForm = () => {
                 )}
               />
             </div>
-            <div className="md:col-span-4">
+            <div className="md:col-span-3">
               <FormField
                 control={form.control}
                 name="creditReport2"
@@ -525,7 +455,7 @@ const LendingForm = () => {
                       <Input
                         type="file"
                         className="cursor-pointer file:rounded file:bg-primary file:text-white file:hover:bg-primary/90"
-                        {...field}
+                        {...form.register(field.name)}
                       />
                     </FormControl>
                     <FormMessage />
@@ -533,7 +463,7 @@ const LendingForm = () => {
                 )}
               />
             </div>
-            <div className="md:col-span-4">
+            <div className="md:col-span-3">
               <FormField
                 control={form.control}
                 name="creditReport3"
@@ -546,7 +476,28 @@ const LendingForm = () => {
                       <Input
                         type="file"
                         className="cursor-pointer file:rounded file:bg-primary file:text-white file:hover:bg-primary/90"
-                        {...field}
+                        {...form.register(field.name)}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="md:col-span-3">
+              <FormField
+                control={form.control}
+                name="creditReport4"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      Credit report for borrower 4
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        type="file"
+                        className="cursor-pointer file:rounded file:bg-primary file:text-white file:hover:bg-primary/90"
+                        {...form.register(field.name)}
                       />
                     </FormControl>
                     <FormMessage />
@@ -555,7 +506,7 @@ const LendingForm = () => {
               />
             </div>
 
-            <div className="md:col-span-4">
+            <div className="md:col-span-3">
               <FormField
                 control={form.control}
                 name="proofIncome1"
@@ -568,7 +519,7 @@ const LendingForm = () => {
                       <Input
                         type="file"
                         className="cursor-pointer file:rounded file:bg-primary file:text-white file:hover:bg-primary/90"
-                        {...field}
+                        {...form.register(field.name)}
                       />
                     </FormControl>
                     <FormMessage />
@@ -576,7 +527,7 @@ const LendingForm = () => {
                 )}
               />
             </div>
-            <div className="md:col-span-4">
+            <div className="md:col-span-3">
               <FormField
                 control={form.control}
                 name="proofIncome2"
@@ -589,7 +540,7 @@ const LendingForm = () => {
                       <Input
                         type="file"
                         className="cursor-pointer file:rounded file:bg-primary file:text-white file:hover:bg-primary/90"
-                        {...field}
+                        {...form.register(field.name)}
                       />
                     </FormControl>
                     <FormMessage />
@@ -597,7 +548,7 @@ const LendingForm = () => {
                 )}
               />
             </div>
-            <div className="md:col-span-4">
+            <div className="md:col-span-3">
               <FormField
                 control={form.control}
                 name="proofIncome3"
@@ -610,7 +561,28 @@ const LendingForm = () => {
                       <Input
                         type="file"
                         className="cursor-pointer file:rounded file:bg-primary file:text-white file:hover:bg-primary/90"
-                        {...field}
+                        {...form.register(field.name)}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="md:col-span-3">
+              <FormField
+                control={form.control}
+                name="proofIncome4"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      Proof of income for borrower 4
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        type="file"
+                        className="cursor-pointer file:rounded file:bg-primary file:text-white file:hover:bg-primary/90"
+                        {...form.register(field.name)}
                       />
                     </FormControl>
                     <FormMessage />
@@ -640,7 +612,7 @@ const LendingForm = () => {
               />
             </div>
 
-            <div className="md:col-span-4">
+            <div className="md:col-span-3">
               <FormField
                 control={form.control}
                 name="idBorrower1"
@@ -653,7 +625,7 @@ const LendingForm = () => {
                       <Input
                         type="file"
                         className="cursor-pointer file:rounded file:bg-primary file:text-white file:hover:bg-primary/90"
-                        {...field}
+                        {...form.register(field.name)}
                       />
                     </FormControl>
                     <FormMessage />
@@ -661,7 +633,7 @@ const LendingForm = () => {
                 )}
               />
             </div>
-            <div className="md:col-span-4">
+            <div className="md:col-span-3">
               <FormField
                 control={form.control}
                 name="idBorrower2"
@@ -674,7 +646,7 @@ const LendingForm = () => {
                       <Input
                         type="file"
                         className="cursor-pointer file:rounded file:bg-primary file:text-white file:hover:bg-primary/90"
-                        {...field}
+                        {...form.register(field.name)}
                       />
                     </FormControl>
                     <FormMessage />
@@ -682,7 +654,7 @@ const LendingForm = () => {
                 )}
               />
             </div>
-            <div className="md:col-span-4">
+            <div className="md:col-span-3">
               <FormField
                 control={form.control}
                 name="idBorrower3"
@@ -695,7 +667,28 @@ const LendingForm = () => {
                       <Input
                         type="file"
                         className="cursor-pointer file:rounded file:bg-primary file:text-white file:hover:bg-primary/90"
-                        {...field}
+                        {...form.register(field.name)}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="md:col-span-3">
+              <FormField
+                control={form.control}
+                name="idBorrower4"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      ID for borrower 4
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        type="file"
+                        className="cursor-pointer file:rounded file:bg-primary file:text-white file:hover:bg-primary/90"
+                        {...form.register(field.name)}
                       />
                     </FormControl>
                     <FormMessage />
@@ -704,7 +697,7 @@ const LendingForm = () => {
               />
             </div>
 
-            <div className="md:col-span-4">
+            <div className="md:col-span-3">
               <FormField
                 control={form.control}
                 name="addressProof1"
@@ -717,7 +710,7 @@ const LendingForm = () => {
                       <Input
                         type="file"
                         className="cursor-pointer file:rounded file:bg-primary file:text-white file:hover:bg-primary/90"
-                        {...field}
+                        {...form.register(field.name)}
                       />
                     </FormControl>
                     <FormMessage />
@@ -725,7 +718,7 @@ const LendingForm = () => {
                 )}
               />
             </div>
-            <div className="md:col-span-4">
+            <div className="md:col-span-3">
               <FormField
                 control={form.control}
                 name="addressProof2"
@@ -738,7 +731,7 @@ const LendingForm = () => {
                       <Input
                         type="file"
                         className="cursor-pointer file:rounded file:bg-primary file:text-white file:hover:bg-primary/90"
-                        {...field}
+                        {...form.register(field.name)}
                       />
                     </FormControl>
                     <FormMessage />
@@ -746,7 +739,7 @@ const LendingForm = () => {
                 )}
               />
             </div>
-            <div className="md:col-span-4">
+            <div className="md:col-span-3">
               <FormField
                 control={form.control}
                 name="addressProof3"
@@ -759,7 +752,28 @@ const LendingForm = () => {
                       <Input
                         type="file"
                         className="cursor-pointer file:rounded file:bg-primary file:text-white file:hover:bg-primary/90"
-                        {...field}
+                        {...form.register(field.name)}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="md:col-span-3">
+              <FormField
+                control={form.control}
+                name="addressProof4"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-primary">
+                      Proof of address for borrower 4
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        type="file"
+                        className="cursor-pointer file:rounded file:bg-primary file:text-white file:hover:bg-primary/90"
+                        {...form.register(field.name)}
                       />
                     </FormControl>
                     <FormMessage />
@@ -856,7 +870,12 @@ const LendingForm = () => {
                 render={({ field }) => (
                   <FormItem className="justify-between space-x-3">
                     <FormControl>
-                      <input type="checkbox" {...field} />
+                      <Input
+                        // type="checkbox" {...field}
+                        type="checkbox"
+                        checked={field.value}
+                        onChange={(e) => field.onChange(e.target.checked)}
+                      />
                     </FormControl>
                     <FormLabel className="font-semibold text-primary">
                       I declare that the info I’ve provided is accurate &
@@ -875,7 +894,13 @@ const LendingForm = () => {
                 render={({ field }) => (
                   <FormItem className=" justify-between space-x-3">
                     <FormControl>
-                      <input type="checkbox" {...field} />
+                      {/* <input type="checkbox" {...field} /> */}
+                      <Input
+                        // type="checkbox" {...field}
+                        type="checkbox"
+                        checked={field.value}
+                        onChange={(e) => field.onChange(e.target.checked)}
+                      />
                     </FormControl>
                     <FormLabel className="font-semibold text-primary">
                       I authorize Integer Investments to conduct background
@@ -894,7 +919,13 @@ const LendingForm = () => {
                 render={({ field }) => (
                   <FormItem className="justify-between space-x-3">
                     <FormControl>
-                      <input type="checkbox" {...field} />
+                      {/* <input type="checkbox" {...field} /> */}
+                      <Input
+                        // type="checkbox" {...field}
+                        type="checkbox"
+                        checked={field.value}
+                        onChange={(e) => field.onChange(e.target.checked)}
+                      />
                     </FormControl>
                     <FormLabel className="font-semibold text-primary">
                       I want to subscribe to the newsletter.

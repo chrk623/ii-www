@@ -1,23 +1,39 @@
-import React from "react";
+"use client";
 
-import ImageOpacity from "@/components/common/ImageOpacity";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
-import LendingForm from "@/components/forms/LendingForm";
+
+// src="https://forms.monday.com/forms/embed/52308e45d13c5d6c5c7e4efa1ca4c575?r=use1"
 
 function Page() {
   return (
-    <MaxWidthWrapper
-      className="relative max-w-full overflow-hidden bg-cover bg-center py-4 md:py-12"
-      style={{ backgroundImage: `url("/images/contact/bg.png")` }}
-    >
-      <ImageOpacity opacity={50} />
-      <div className="relative bg-white p-12">
-        <LendingForm />
+    <MaxWidthWrapper>
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          height: "100%",
+          paddingBottom: "200.25%",
+          overflow: "hidden",
+          display: "block",
+        }}
+      >
+        <iframe
+          src="https://forms.monday.com/forms/embed/52308e45d13c5d6c5c7e4efa1ca4c575?r=use1"
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            border: 0,
+            bottom: 0,
+            boxShadow: "5px 5px 56px 0px rgba(0,0,0,0.25)",
+          }}
+          allowFullScreen={true}
+        />
       </div>
     </MaxWidthWrapper>
   );
-
-  // return <LendingForm />;
 }
 
 export default Page;

@@ -1,20 +1,18 @@
 import React from "react";
+import Link from "next/link";
 
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import ImageOpacity from "@/components/common/ImageOpacity";
 import ContactForm from "./contactForm";
 
-import Link from "next/link";
-
 export default function Page() {
   return (
     <MaxWidthWrapper
-      className="relative max-w-full overflow-hidden bg-cover bg-center md:py-48"
+      className="relative max-w-full overflow-hidden bg-cover bg-center md:py-12"
       style={{ backgroundImage: `url("/images/contact/bg.png")` }}
     >
-      <ImageOpacity opacity={50} />
+      <ImageOpacity opacity={55} />
 
-      {/* <ImageOpacity opacity={40} /> */}
       <div className="relative flex h-full flex-col items-center justify-center px-4 py-8 md:py-20">
         <h1 className="mb-8 text-3xl font-semibold text-white md:text-6xl">
           Contact us
