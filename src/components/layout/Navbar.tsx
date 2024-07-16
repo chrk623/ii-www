@@ -1,14 +1,14 @@
 import React from "react";
 import Link from "next/link";
 import Logo from "../common/Logo";
-import { buttonVariants } from "../ui/button";
+// import { buttonVariants } from "../ui/button";
 
 import NavItems from "./NavItems";
 import MobileNav from "./MobileNav";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 
 const Navbar = () => {
-  const user = null;
+  // const user = null;
 
   return (
     <div className="sticky inset-x-0 top-0 z-50 h-16 text-white ">
@@ -30,16 +30,16 @@ const Navbar = () => {
             </div>
 
             <div className="hidden lg:flex lg:items-center lg:space-x-6">
-              {user ? null : (
-                <Link
-                  href="/sign-in"
-                  className={buttonVariants({
-                    variant: "default",
-                  })}
-                >
-                  Sign in
-                </Link>
-              )}
+              {/* {user ? null : ( */}
+              {/*   <Link */}
+              {/*     href="/sign-in" */}
+              {/*     className={buttonVariants({ */}
+              {/*       variant: "default", */}
+              {/*     })} */}
+              {/*   > */}
+              {/*     Sign in */}
+              {/*   </Link> */}
+              {/* )} */}
             </div>
           </div>
           {/* </div> */}

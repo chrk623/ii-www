@@ -19,6 +19,10 @@ export const NAV_ITEMS = [
         name: "Customers",
         href: "/lending-customers",
       },
+      {
+        name: "Renovations Drawdown",
+        href: "/renovations-drawdown",
+      },
     ],
   },
   // {

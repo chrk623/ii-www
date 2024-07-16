@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { NAV_ITEMS } from "@/config";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { buttonVariants } from "@/components/ui/button";
+// import { buttonVariants } from "@/components/ui/button";
 
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -91,13 +91,13 @@ const MobileNav = () => {
 
         <div className="space-y-6 border-t border-gray-200 px-4 py-6">
           <div className="flow-root">
-            <Link
-              onClick={() => closeOnCurrent("/sign-in")}
-              href="/sign-in"
-              className={buttonVariants({ className: "block p-2 text-lg" })}
-            >
-              Sign in
-            </Link>
+            {/* <Link */}
+            {/*   onClick={() => closeOnCurrent("/sign-in")} */}
+            {/*   href="/sign-in" */}
+            {/*   className={buttonVariants({ className: "block p-2 text-lg" })} */}
+            {/* > */}
+            {/*   Sign in */}
+            {/* </Link> */}
           </div>
         </div>
       </div>
