@@ -5,9 +5,12 @@ import type { PostPreview } from "./types";
 import { getPostPreviews } from "./news-utils";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
+export const revalidate = 120;
+
 export const Posts = async () => {
   // eslint-disable-next-line
   const posts: PostPreview[] = await getPostPreviews(); //: PostPreview[]
+
   return (
     <MaxWidthWrapper className="my-12">
       {/* <div className="grid grid-cols-1 place-items-center gap-x-3 gap-y-6 px-6 md:grid-cols-2 md:px-12 lg:grid-cols-3 lg:px-36"> */}

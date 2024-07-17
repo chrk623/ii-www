@@ -25,7 +25,7 @@ export const getPostPreviews = async () => {
   // eslint-disable-next-line
   return posts;
 };
-import { Post } from "@/../sanity.types";
+import { type Post } from "@/../sanity.types";
 export const getPostConetent = async (slug: string) => {
   // const query = `*[_type == "post" && !(_id in path("drafts.**")) && slug.current == '${slug}'] {
   //   _id,
