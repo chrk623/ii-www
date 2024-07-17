@@ -5,9 +5,20 @@ import type { PostPreview } from "./types";
 import { getPostPreviews } from "./news-utils";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
+import { unstable_cache } from "next/cache";
+
+const getCachedPosts = unstable_cache(
+  async () => (await getPostPreviews()) as PostPreview[],
+  ["all-posts"],
+  {
+    revalidate: 30,
+  },
+);
+
 export const Posts = async () => {
   // eslint-disable-next-line
-  const posts: PostPreview[] = await getPostPreviews(); //: PostPreview[]
+  // const posts: PostPreview[] = await getPostPreviews(); //: PostPreview[]
+  const posts: PostPreview[] = await getCachedPosts();
 
   return (
     <MaxWidthWrapper className="my-12">
