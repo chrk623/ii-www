@@ -3,8 +3,6 @@ import React from "react";
 import { Posts } from "../posts";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
-export const revalidate = 120;
-
 const Page = async () => {
   return (
     <>

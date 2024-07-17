@@ -5,8 +5,6 @@ import type { PostPreview } from "./types";
 import { getPostPreviews } from "./news-utils";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
-export const revalidate = 120;
-
 export const Posts = async () => {
   // eslint-disable-next-line
   const posts: PostPreview[] = await getPostPreviews(); //: PostPreview[]
