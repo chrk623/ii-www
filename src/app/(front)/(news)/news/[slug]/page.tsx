@@ -41,7 +41,7 @@ async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <MaxWidthWrapper className="my-6">
-      <ReFetch ms={600000} />
+      <ReFetch ms={2000} />
       <article className="prose prose-gray dark:prose-invert mx-auto max-w-3xl">
         <div className="not-prose mb-6 space-y-4">
           <h1 className="text-4xl font-extrabold tracking-tight text-primary lg:text-5xl">
