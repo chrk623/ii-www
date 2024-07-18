@@ -16,8 +16,20 @@ import { urlForImage } from "@/../sanity/lib/image";
 import { getPostConetent, portableComponent } from "../../news-utils";
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
 
+import { unstable_cache } from "next/cache";
+
 async function Page({ params }: { params: { slug: string } }) {
-  const post = (await getPostConetent(params.slug)) as Post;
+  const getCachedPostContent = unstable_cache(
+    async () => (await getPostConetent(params.slug)) as Post,
+    ["post", params.slug],
+    {
+      tags: ["post", params.slug],
+      revalidate: 30,
+    },
+  );
+  //
+  const post: Post = await getCachedPostContent();
+  // const post = (await getPostConetent(params.slug)) as Post;
   if (!post) {
     return;
   }

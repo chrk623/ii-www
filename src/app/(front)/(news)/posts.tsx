@@ -11,6 +11,7 @@ const getCachedPosts = unstable_cache(
   async () => (await getPostPreviews()) as PostPreview[],
   ["all-posts"],
   {
+    tags: ["all-posts"],
     revalidate: 30,
   },
 );
