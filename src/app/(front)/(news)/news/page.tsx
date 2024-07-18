@@ -1,11 +1,19 @@
 import React from "react";
+// import { useRouter } from "next/navigation";
 
 import { Posts } from "../posts";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
+import { ReFetch } from "@/components/re-fetch";
+
 const Page = async () => {
+  // const router = useRouter();
+  // router.refresh();
+
   return (
     <>
+      <ReFetch ms={600000} />
+
       <MaxWidthWrapper className="my-12">
         <div className="text-center">
           <h3 className="text-5xl font-semibold leading-normal text-primary">

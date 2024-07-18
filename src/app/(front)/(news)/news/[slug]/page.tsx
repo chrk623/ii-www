@@ -11,6 +11,7 @@ import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 import type { Post } from "@/../sanity.types";
+import { ReFetch } from "@/components/re-fetch";
 import { formatPostDate } from "@/lib/utils";
 import { urlForImage } from "@/../sanity/lib/image";
 import { getPostConetent, portableComponent } from "../../news-utils";
@@ -40,6 +41,7 @@ async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <MaxWidthWrapper className="my-6">
+      <ReFetch ms={600000} />
       <article className="prose prose-gray dark:prose-invert mx-auto max-w-3xl">
         <div className="not-prose mb-6 space-y-4">
           <h1 className="text-4xl font-extrabold tracking-tight text-primary lg:text-5xl">
