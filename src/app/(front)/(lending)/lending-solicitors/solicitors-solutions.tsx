@@ -21,7 +21,7 @@ export default function SolicitorsSolutions() {
             className="mb-4 text-5xl font-semibold leading-normal text-primary"
             id="brokers-finance-solutions"
           >
-            FINANCE SOLUTIONS
+            Technology Solutions
           </h3>
         </div>
       </div>
