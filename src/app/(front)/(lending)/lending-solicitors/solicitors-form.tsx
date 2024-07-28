@@ -1,16 +1,6 @@
 import React from "react";
+import Link from "next/link";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
-
-const solutionsData = [
-  {
-    title: "Innovative Transaction Management Software",
-    desc: "Our internally developed transaction management software ensures a streamlined process for all our clients. This cutting-edge tool enhances efficiency and transparency, making every step of the lending journey seamless and hassle-free. Trust our technology-driven approach to simplify your transactions.",
-  },
-  {
-    title: "Embracing a Paperless Future",
-    desc: "We utilize digital signatures and documents, fully compliant with PG82 HMLR guidelines. Our innovative, paperless approach streamlines the process, enhances security, and boosts efficiency, ensuring seamless and quick real estate transactions.",
-  },
-];
 
 export default function SolicitorsForm() {
   return (
@@ -23,6 +13,17 @@ export default function SolicitorsForm() {
             the process, enhances security, and boosts efficiency, ensuring
             seamless and quick real estate transactions.
           </h3>
+          <p className="mt-4 px-0 text-center text-xl font-semibold text-gray-400 xl:px-36">
+            Before applying, please take a look at the{" "}
+            <Link
+              href="/files/Integer Investments Terms and Conditions of Panel Appointment.pdf"
+              className="text-blue-400 underline"
+            >
+              {" "}
+              attached file
+            </Link>{" "}
+            as this represents the undertakings we require.
+          </p>
         </div>
       </div>
 
