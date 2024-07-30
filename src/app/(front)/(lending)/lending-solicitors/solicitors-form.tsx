@@ -8,10 +8,10 @@ export default function SolicitorsForm() {
       <div className="grid grid-cols-1 pb-6 text-center">
         <div className="text-center">
           <h3 className="mb-4 text-3xl font-semibold leading-normal text-primary">
-            We utilize digital signatures and documents, fully compliant with
-            PG82 HMLR guidelines. Our innovative, paperless approach streamlines
-            the process, enhances security, and boosts efficiency, ensuring
-            seamless and quick real estate transactions.
+            Integer Investments has a panel of solicitors who are approved to
+            act in the provision of bridge lending. If you’re not already an
+            active member of the panel and you are looking to apply, please fill
+            in the application below.
           </h3>
           <p className="mt-4 px-0 text-center text-xl font-semibold text-gray-400 xl:px-36">
             Before applying, please take a look at the{" "}
