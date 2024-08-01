@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Logo from "../common/Logo";
 
+import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { buttonVariants } from "../ui/button";
 import MaxWidthWrapper from "../MaxWidthWrapper";
@@ -81,14 +82,17 @@ const Footer = () => {
                 </div>
 
                 <div className="col-span-1 flex items-end justify-end">
-                  <Link
-                    href="/send-newsletter"
-                    className={buttonVariants({
-                      className: "w-full md:w-3/4",
-                    })}
-                  >
+                  {/* <Link */}
+                  {/*   href="/send-newsletter" */}
+                  {/*   className={buttonVariants({ */}
+                  {/*     className: "w-full md:w-3/4", */}
+                  {/*   })} */}
+                  {/* > */}
+                  {/*   Send */}
+                  {/* </Link> */}
+                  <Button className="md:3/4 w-full" disabled>
                     Send
-                  </Link>
+                  </Button>
                 </div>
               </div>
             </form>

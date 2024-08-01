@@ -133,7 +133,7 @@ const ContactForm = () => {
           />
         </div>
         <div className="flex items-center justify-center">
-          <Button className="px-4 py-2 font-bold" type="submit">
+          <Button disabled className="px-4 py-2 font-bold" type="submit">
             Submit
           </Button>
         </div>
