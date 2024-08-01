@@ -31,12 +31,11 @@ export default function Page() {
             <h2 className="mb-2 text-2xl font-semibold">Brokers</h2>
             <p className="mb-2 text-base">
               If you would like to join our panel or are looking to finance a
-              development for your client, please use the contact form on
-              our Lending{" "}
+              development for your client, please use the contact form on our{" "}
               <Link href="/lending-brokers" className="text-blue-500 underline">
-                Lending Introducers
+                Lending Brokers
               </Link>{" "}
-              page
+              page.
             </p>
           </div>
 

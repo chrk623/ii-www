@@ -27,7 +27,7 @@ export default function TeamFounder() {
             Our Founder
           </h3>
           <h3 className="mb-4 text-xl font-bold leading-normal text-gray-500">
-            Christiano Bellavitis
+            Cristiano Bellavitis
           </h3>
 
           {founderData.map((item, index) => (
