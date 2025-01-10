@@ -1,115 +1,3 @@
-// "use client";
-//
-// import React from "react";
-// import { cn } from "@/lib/utils";
-// import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-// import {
-//   Accordion,
-//   AccordionContent,
-//   AccordionItem,
-//   AccordionTrigger,
-// } from "@/components/ui/accordion";
-// import { Menu, ChevronRight } from "lucide-react";
-// import { MENU_ITEMS } from "@/constants";
-//
-// const MobileNav = () => {
-//   const [isOpen, setIsOpen] = React.useState(false);
-//   const [expandedSubmenu, setExpandedSubmenu] = React.useState("");
-//
-//   const handleSubmenuClick = (name: string) => {
-//     setExpandedSubmenu(expandedSubmenu === name ? "" : name);
-//   };
-//
-//   return (
-//     <Sheet open={isOpen} onOpenChange={setIsOpen}>
-//       <SheetTrigger asChild>
-//         <button
-//           type="button"
-//           className={cn(
-//             "inline-flex items-center justify-center rounded-md p-2",
-//             "text-muted-foreground hover:bg-secondary hover:text-foreground",
-//             "focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary",
-//           )}
-//         >
-//           <Menu className="h-6 w-6" />
-//         </button>
-//       </SheetTrigger>
-//       <SheetContent side="right" className="w-full max-w-sm p-0">
-//         <div className="flex flex-col">
-//           <div className="border-b p-4">
-//             <div className="h-8 w-8 rounded-full bg-primary"></div>
-//           </div>
-//           <div className="flex-1 overflow-y-auto">
-//             <Accordion type="single" collapsible>
-//               {MENU_ITEMS.map((item) => (
-//                 <AccordionItem key={item.title} value={item.title}>
-//                   <AccordionTrigger className="px-4">
-//                     {item.title}
-//                   </AccordionTrigger>
-//                   <AccordionContent>
-//                     <div className="space-y-2 px-4">
-//                       {item.subItems.map((subItem) => (
-//                         <div key={subItem.name} className="rounded-lg border">
-//                           <button
-//                             onClick={() => handleSubmenuClick(subItem.name)}
-//                             className="flex w-full items-center justify-between p-3 text-left"
-//                           >
-//                             <div>
-//                               <div className="font-medium">{subItem.name}</div>
-//                               <p className="text-sm text-muted-foreground">
-//                                 {subItem.description}
-//                               </p>
-//                             </div>
-//                             {subItem.children && (
-//                               <ChevronRight
-//                                 className={cn(
-//                                   "h-4 w-4 transition-transform",
-//                                   expandedSubmenu === subItem.name &&
-//                                     "rotate-90",
-//                                 )}
-//                               />
-//                             )}
-//                           </button>
-//
-//                           {subItem.children &&
-//                             expandedSubmenu === subItem.name && (
-//                               <div className="border-t bg-secondary/50">
-//                                 {subItem.children.map((child) => (
-//                                   <div
-//                                     key={child.name}
-//                                     className="border-b p-3 last:border-b-0"
-//                                   >
-//                                     <div className="mb-2 font-medium">
-//                                       {child.name}
-//                                     </div>
-//                                     <ul className="space-y-1">
-//                                       {child.items.map((item) => (
-//                                         <li key={item}>
-//                                           <button className="w-full rounded px-2 py-1 text-left text-sm text-muted-foreground hover:bg-secondary hover:text-foreground">
-//                                             {item}
-//                                           </button>
-//                                         </li>
-//                                       ))}
-//                                     </ul>
-//                                   </div>
-//                                 ))}
-//                               </div>
-//                             )}
-//                         </div>
-//                       ))}
-//                     </div>
-//                   </AccordionContent>
-//                 </AccordionItem>
-//               ))}
-//             </Accordion>
-//           </div>
-//         </div>
-//       </SheetContent>
-//     </Sheet>
-//   );
-// };
-//
-// export default MobileNav;
 "use client";
 
 import React from "react";
@@ -122,8 +10,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Menu, ChevronRight } from "lucide-react";
+import Logo from "../common/Logo";
 import { NAV_ITEMS } from "@/constants/nav";
+import { Menu, ChevronRight } from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { type MainMenuItem, type SubMenuItem } from "@/types";
 
@@ -148,7 +37,7 @@ const MobileNav = () => {
       <SheetContent side="right" className="w-full max-w-sm p-0">
         <div className="flex flex-col">
           <div className="border-b p-4">
-            <div className="h-8 w-8 rounded-full bg-primary"></div>
+            <Logo />
           </div>
           <div className="flex-1 overflow-y-auto">
             <Accordion type="single" collapsible className="space-y-1">
