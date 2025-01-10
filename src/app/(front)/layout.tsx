@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 
-import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
 
 export default function FrontLayout({
   children,
@@ -10,7 +10,8 @@ export default function FrontLayout({
 }) {
   return (
     <section>
-      <Navbar />
+      {/* <Navbar /> */}
+      <Header />
       <div className="flex-1 flex-grow">{children}</div>
       <Footer />
     </section>

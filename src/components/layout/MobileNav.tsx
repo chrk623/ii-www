@@ -1,107 +1,262 @@
+// "use client";
+//
+// import React from "react";
+// import { cn } from "@/lib/utils";
+// import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+// import {
+//   Accordion,
+//   AccordionContent,
+//   AccordionItem,
+//   AccordionTrigger,
+// } from "@/components/ui/accordion";
+// import { Menu, ChevronRight } from "lucide-react";
+// import { MENU_ITEMS } from "@/constants";
+//
+// const MobileNav = () => {
+//   const [isOpen, setIsOpen] = React.useState(false);
+//   const [expandedSubmenu, setExpandedSubmenu] = React.useState("");
+//
+//   const handleSubmenuClick = (name: string) => {
+//     setExpandedSubmenu(expandedSubmenu === name ? "" : name);
+//   };
+//
+//   return (
+//     <Sheet open={isOpen} onOpenChange={setIsOpen}>
+//       <SheetTrigger asChild>
+//         <button
+//           type="button"
+//           className={cn(
+//             "inline-flex items-center justify-center rounded-md p-2",
+//             "text-muted-foreground hover:bg-secondary hover:text-foreground",
+//             "focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary",
+//           )}
+//         >
+//           <Menu className="h-6 w-6" />
+//         </button>
+//       </SheetTrigger>
+//       <SheetContent side="right" className="w-full max-w-sm p-0">
+//         <div className="flex flex-col">
+//           <div className="border-b p-4">
+//             <div className="h-8 w-8 rounded-full bg-primary"></div>
+//           </div>
+//           <div className="flex-1 overflow-y-auto">
+//             <Accordion type="single" collapsible>
+//               {MENU_ITEMS.map((item) => (
+//                 <AccordionItem key={item.title} value={item.title}>
+//                   <AccordionTrigger className="px-4">
+//                     {item.title}
+//                   </AccordionTrigger>
+//                   <AccordionContent>
+//                     <div className="space-y-2 px-4">
+//                       {item.subItems.map((subItem) => (
+//                         <div key={subItem.name} className="rounded-lg border">
+//                           <button
+//                             onClick={() => handleSubmenuClick(subItem.name)}
+//                             className="flex w-full items-center justify-between p-3 text-left"
+//                           >
+//                             <div>
+//                               <div className="font-medium">{subItem.name}</div>
+//                               <p className="text-sm text-muted-foreground">
+//                                 {subItem.description}
+//                               </p>
+//                             </div>
+//                             {subItem.children && (
+//                               <ChevronRight
+//                                 className={cn(
+//                                   "h-4 w-4 transition-transform",
+//                                   expandedSubmenu === subItem.name &&
+//                                     "rotate-90",
+//                                 )}
+//                               />
+//                             )}
+//                           </button>
+//
+//                           {subItem.children &&
+//                             expandedSubmenu === subItem.name && (
+//                               <div className="border-t bg-secondary/50">
+//                                 {subItem.children.map((child) => (
+//                                   <div
+//                                     key={child.name}
+//                                     className="border-b p-3 last:border-b-0"
+//                                   >
+//                                     <div className="mb-2 font-medium">
+//                                       {child.name}
+//                                     </div>
+//                                     <ul className="space-y-1">
+//                                       {child.items.map((item) => (
+//                                         <li key={item}>
+//                                           <button className="w-full rounded px-2 py-1 text-left text-sm text-muted-foreground hover:bg-secondary hover:text-foreground">
+//                                             {item}
+//                                           </button>
+//                                         </li>
+//                                       ))}
+//                                     </ul>
+//                                   </div>
+//                                 ))}
+//                               </div>
+//                             )}
+//                         </div>
+//                       ))}
+//                     </div>
+//                   </AccordionContent>
+//                 </AccordionItem>
+//               ))}
+//             </Accordion>
+//           </div>
+//         </div>
+//       </SheetContent>
+//     </Sheet>
+//   );
+// };
+//
+// export default MobileNav;
 "use client";
 
+import React from "react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-
-import { NAV_ITEMS } from "@/config";
-import { Menu, X } from "lucide-react";
-import { usePathname } from "next/navigation";
-// import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Menu, ChevronRight } from "lucide-react";
+import { NAV_ITEMS } from "@/constants/nav";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { type MainMenuItem, type SubMenuItem } from "@/types";
 
 const MobileNav = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [expandedSubmenu, setExpandedSubmenu] = React.useState<string>("");
 
-  const pathname = usePathname();
-
-  // whenever we click an item in the menu and navigate away, we want to close the menu
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
-
-  // when we click the path we are currently on, we still want the mobile menu to close,
-  // however we can't rely on the pathname for it because that won't change (we're already there)
-  const closeOnCurrent = (href: string) => {
-    if (pathname === href) {
-      setIsOpen(false);
-    }
+  const handleSubmenuClick = (title: string) => {
+    setExpandedSubmenu(expandedSubmenu === title ? "" : title);
   };
 
-  // remove second scrollbar when mobile menu is open
-  useEffect(() => {
-    if (isOpen) document.body.classList.add("overflow-hidden");
-    else document.body.classList.remove("overflow-hidden");
-  }, [isOpen]);
-
-  if (!isOpen)
-    return (
-      <button
-        type="button"
-        onClick={() => setIsOpen(true)}
-        className="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 lg:hidden"
-      >
-        <Menu className="h-6 w-6" aria-hidden="true" />
-      </button>
-    );
-
   return (
-    <div className="fixed inset-0 z-40 flex lg:hidden">
-      <div className="fixed inset-0 bg-black bg-opacity-25" />
-      <div className="relative flex w-full max-w-sm flex-col bg-white shadow-xl">
-        <div className="flex px-4 pb-2 pt-5">
-          <button
-            type="button"
-            onClick={() => setIsOpen(false)}
-            className="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
-          >
-            <X className="h-6 w-6" aria-hidden="true" />
-          </button>
-        </div>
-
-        <div className="flex-1 overflow-y-auto pb-12 pl-4">
-          <ul>
-            {NAV_ITEMS.map((navItem) => (
-              <li key={navItem.label} className="px-4 pb-2 pt-2">
-                <Link
-                  href={navItem.href || "#"}
-                  className="block py-2 text-lg font-bold text-primary"
-                  onClick={() => closeOnCurrent(navItem.href)}
+    <Sheet open={isOpen} onOpenChange={setIsOpen}>
+      <SheetTrigger asChild>
+        <Button
+          variant="ghost"
+          className="p-2 text-muted-foreground hover:bg-secondary hover:text-foreground"
+        >
+          <Menu className="h-6 w-6" />
+        </Button>
+      </SheetTrigger>
+      <SheetContent side="right" className="w-full max-w-sm p-0">
+        <div className="flex flex-col">
+          <div className="border-b p-4">
+            <div className="h-8 w-8 rounded-full bg-primary"></div>
+          </div>
+          <div className="flex-1 overflow-y-auto">
+            <Accordion type="single" collapsible className="space-y-1">
+              {NAV_ITEMS.map((item: MainMenuItem) => (
+                <AccordionItem
+                  key={item.title}
+                  value={item.title}
+                  className="border-0 px-4"
                 >
-                  {navItem.label}
-                </Link>
+                  {item.subMenuItems ? (
+                    <>
+                      <AccordionTrigger className="text-md rounded-md bg-none px-4 py-3 font-semibold text-primary no-underline">
+                        {item.title}
+                      </AccordionTrigger>
+                      <AccordionContent className="pb-1 pt-1">
+                        <div className="space-y-2">
+                          {item.subMenuItems.map((subItem: SubMenuItem) => (
+                            <div
+                              key={subItem.title}
+                              className="overflow-hidden rounded-md border bg-card"
+                            >
+                              <div className="flex flex-col">
+                                <Link
+                                  href={subItem.href}
+                                  className={cn(
+                                    buttonVariants({ variant: "ghost" }),
+                                    "h-auto justify-start p-3 text-left",
+                                  )}
+                                  // className="h-auto justify-start p-3 text-left"
+                                >
+                                  <div className="flex w-full items-center justify-between">
+                                    <div>
+                                      <div className="text-md font-semibold text-primary">
+                                        {subItem.title}
+                                      </div>
+                                      <p className="line-clamp-1 text-sm text-muted-foreground">
+                                        {subItem.description}
+                                      </p>
+                                    </div>
+                                    {subItem.children && (
+                                      <Button
+                                        variant="ghost"
+                                        size="sm"
+                                        className="h-8 w-8 p-0"
+                                        onClick={(e) => {
+                                          e.preventDefault();
+                                          handleSubmenuClick(subItem.title);
+                                        }}
+                                      >
+                                        <ChevronRight
+                                          className={cn(
+                                            "h-4 w-4 transition-transform",
+                                            expandedSubmenu === subItem.title &&
+                                              "rotate-90",
+                                          )}
+                                        />
+                                      </Button>
+                                    )}
+                                  </div>
+                                </Link>
 
-                {navItem.sub && (
-                  <ul className="ml-4 mt-1 space-y-1">
-                    {navItem.sub.map((item) => (
-                      <li key={item.name}>
-                        <Link
-                          href={item.href}
-                          className="block px-4 py-2 text-base font-semibold text-primary"
-                          onClick={() => closeOnCurrent(item.href)}
-                        >
-                          {item.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-          <div className="flow-root">
-            {/* <Link */}
-            {/*   onClick={() => closeOnCurrent("/sign-in")} */}
-            {/*   href="/sign-in" */}
-            {/*   className={buttonVariants({ className: "block p-2 text-lg" })} */}
-            {/* > */}
-            {/*   Sign in */}
-            {/* </Link> */}
+                                {subItem.children &&
+                                  expandedSubmenu === subItem.title && (
+                                    <div className="border-t bg-muted/50">
+                                      {subItem.children.map((child) => (
+                                        <Link
+                                          key={child.title}
+                                          href={child.href}
+                                          className={cn(
+                                            buttonVariants({
+                                              variant: "ghost",
+                                            }),
+                                            "h-auto w-full justify-start border-b p-3 text-sm font-medium last:border-0",
+                                          )}
+                                          onClick={() => setIsOpen(false)}
+                                        >
+                                          <span className="font-semibold text-primary">
+                                            {child.title}
+                                          </span>
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  )}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </AccordionContent>
+                    </>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className={cn(
+                        buttonVariants({ variant: "ghost" }),
+                        "text-md h-auto w-full justify-start py-3 font-medium text-primary",
+                      )}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <span className="font-semibold">{item.title}</span>
+                    </Link>
+                  )}
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
-      </div>
-    </div>
+      </SheetContent>
+    </Sheet>
   );
 };
 

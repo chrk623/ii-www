@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { FORM_URLS } from "@/constants/form";
 
 function LendingForm() {
   return (
@@ -14,7 +15,7 @@ function LendingForm() {
       }}
     >
       <iframe
-        src="https://forms.monday.com/forms/embed/52308e45d13c5d6c5c7e4efa1ca4c575?r=use1"
+        src={FORM_URLS.loanApplication}
         style={{
           position: "absolute",
           top: 0,
