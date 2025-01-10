@@ -5,8 +5,8 @@ import { FORM_URLS } from "@/constants/form";
 function page() {
   return (
     <CustomerForm
-      title="If you already have a loan and want to request a renovations' drawdown. Fill the form, below."
-      formUrl={FORM_URLS.renovationsDrawdown}
+      title="If you already have a loan and want to repay it. Fill the form below."
+      formUrl={FORM_URLS.loanRepayment}
     />
   );
 }
