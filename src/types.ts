@@ -12,7 +12,7 @@ export interface SubMenuChild {
 export interface SubMenuItem {
   title: string;
   href: string;
-  description: string;
+  description?: string;
   children?: SubMenuChild[];
 }
 

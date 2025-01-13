@@ -73,9 +73,6 @@ const MobileNav = () => {
                                       <div className="text-md font-semibold text-primary">
                                         {subItem.title}
                                       </div>
-                                      <p className="line-clamp-1 text-sm text-muted-foreground">
-                                        {subItem.description}
-                                      </p>
                                     </div>
                                     {subItem.children && (
                                       <Button

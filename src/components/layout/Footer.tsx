@@ -5,7 +5,6 @@ import Logo from "../common/Logo";
 
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
-import { buttonVariants } from "../ui/button";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 
 const Footer = () => {
