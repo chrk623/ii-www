@@ -27,7 +27,7 @@ const HomeCover = () => {
               where it&apos;s needed most.
             </p>
             <div className="mb-4 mt-4 flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0">
-              <Link href="/lending-customers" className={buttonVariants()}>
+              <Link href="/lending/customers" className={buttonVariants()}>
                 Explore Lending
               </Link>
               <Link href="/investments" className={buttonVariants()}>

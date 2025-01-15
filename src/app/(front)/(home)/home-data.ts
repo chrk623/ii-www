@@ -11,7 +11,7 @@ export const focusData = [
   {
     image: "/images/home/lending.png",
     title: "EXPLORE LENDING",
-    href: "/lending-customers",
+    href: "/lending/customers",
   },
   {
     image: "/images/home/investments.png",
