@@ -16,10 +16,10 @@ const Footer = () => {
           <div className="space-y-2">
             <h3 className="text-lg font-semibold">GET IN TOUCH:</h3>
             <ul className="text-md space-y-2">
-              <li>Integer Inv US LLC (US)</li>
-              <li>Integer Investments Europe LTD (UK)</li>
+              {/* <li>Integer Inv US LLC (US)</li> */}
+              {/* <li>Integer Investments Europe LTD (UK)</li> */}
               <li>Email: info@integerinvestments.com</li>
-              <li>Phone: +1 315 450 5074</li>
+              <li>Phone: +44 7441395334</li>
               <li>Whatsapp: +44 7909050331</li>
               <li>LONDON | NYC</li>
             </ul>
