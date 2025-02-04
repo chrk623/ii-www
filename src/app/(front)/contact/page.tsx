@@ -1,9 +1,9 @@
-import React from "react";
 import Link from "next/link";
+import React from "react";
 
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import ImageOpacity from "@/components/common/ImageOpacity";
-import ContactForm from "./contactForm";
+import ContactForm from "./_component/contactForm";
 
 export default function Page() {
   return (

@@ -18,7 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
 // import { api } from "@/trpc/react";
-import { contactFormSchema } from "@/lib/form-utils";
+import { contactFormSchema } from "@/lib/form-schemas/form-utils";
 
 const ContactForm = () => {
   const form = useForm<z.infer<typeof contactFormSchema>>({
