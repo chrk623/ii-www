@@ -29,7 +29,6 @@ import {
   type FinanceCalculatorResult,
 } from "@/lib/form-schemas/finance-calculator";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 import CustomInput from "./CustomInput";
 import {
   financeCalculationInteger,
@@ -106,14 +105,15 @@ const FinanceCalculator = () => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>
-                  Renovation Cost (For renovation details click{" "}
-                  <Link
-                    href="/lending/customers/renovations-drawdown"
-                    className="text-primary underline"
-                  >
-                    here
-                  </Link>
-                  )
+                  Renovation Cost
+                  {/*                   (For renovation details click{" "} */}
+                  {/* <Link */}
+                  {/*   href="/lending/customers/renovations-drawdown" */}
+                  {/*   className="text-primary underline" */}
+                  {/* > */}
+                  {/*   here */}
+                  {/* </Link> */}
+                  {/* ) */}
                 </FormLabel>
                 <FormControl>
                   <Input
@@ -216,8 +216,7 @@ const FinanceCalculator = () => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>
-                  If no, for how many months you have a discounted interest
-                  rate?
+                  If no, for how many months you have a discounted rate?
                 </FormLabel>
                 <FormControl>
                   <Input
@@ -441,8 +440,7 @@ const FinanceCalculator = () => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>
-                  Do you have experience with this type of real estate
-                  investment?
+                  Do you have experience with this type investment?
                 </FormLabel>
                 <Select
                   onValueChange={(value) => field.onChange(value === "Yes")}
@@ -470,14 +468,14 @@ const FinanceCalculator = () => {
         </form>
       </Form>
 
-      <div className="container mx-auto py-12 lg:px-24 xl:px-48 2xl:px-72">
-        {resultOthers && resultInteger && (
+      {resultOthers && resultInteger && (
+        <div className="container mx-auto py-12 lg:px-24 xl:px-48 2xl:px-72">
           <LoanComparisonTable
             resultOthers={resultOthers}
             resultInteger={resultInteger}
           />
-        )}
-      </div>
+        </div>
+      )}
     </MaxWidthWrapper>
   );
 };
