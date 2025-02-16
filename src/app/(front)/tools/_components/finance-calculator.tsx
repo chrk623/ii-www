@@ -30,7 +30,7 @@ import {
 } from "@/lib/form-schemas/finance-calculator";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import PercentageInput from "./PercentInput";
+import CustomInput from "./CustomInput";
 import {
   financeCalculationInteger,
   financeCalculationOthers,
@@ -51,11 +51,10 @@ const FinanceCalculator = () => {
     "renovationsCost",
     "borrowAmount",
   ]);
-  const watchRateDuration = form.watch("interestRateDurationSame");
+  const watchRateDuration = form.watch("interestRateDurationSame") ?? true;
 
   useEffect(() => {
     const subscription = form.watch((data) => {
-      console.log(data);
       if (data.purchasePrice && data.renovationsCost && data.borrowAmount) {
         const _ltv =
           data.borrowAmount / (data.purchasePrice + data.renovationsCost);
@@ -154,7 +153,7 @@ const FinanceCalculator = () => {
               <FormItem>
                 <FormLabel>Loan to value (LTV)</FormLabel>
                 <FormControl>
-                  <PercentageInput
+                  <CustomInput
                     type="number"
                     {...field}
                     disabled
@@ -245,9 +244,13 @@ const FinanceCalculator = () => {
                   What is the discounted monthly interest rate?
                 </FormLabel>
                 <FormControl>
-                  <PercentageInput
+                  <CustomInput
                     type="number"
                     {...field}
+                    className={cn({
+                      "bg-zinc-400": watchRateDuration,
+                    })}
+                    disabled={watchRateDuration}
                     onChange={(e) => field.onChange(Number(e.target.value))}
                   />
                 </FormControl>
@@ -265,7 +268,7 @@ const FinanceCalculator = () => {
                   What is the regular monthly interest rate?{" "}
                 </FormLabel>
                 <FormControl>
-                  <PercentageInput
+                  <CustomInput
                     type="number"
                     {...field}
                     onChange={(e) => field.onChange(Number(e.target.value))}
@@ -283,7 +286,7 @@ const FinanceCalculator = () => {
               <FormItem>
                 <FormLabel>What is the application fee?</FormLabel>
                 <FormControl>
-                  <PercentageInput
+                  <CustomInput
                     type="number"
                     {...field}
                     onChange={(e) => field.onChange(Number(e.target.value))}
@@ -301,7 +304,7 @@ const FinanceCalculator = () => {
               <FormItem>
                 <FormLabel>What is the exit fee?</FormLabel>
                 <FormControl>
-                  <PercentageInput
+                  <CustomInput
                     type="number"
                     {...field}
                     onChange={(e) => field.onChange(Number(e.target.value))}
@@ -319,7 +322,7 @@ const FinanceCalculator = () => {
               <FormItem>
                 <FormLabel>Any other fee? (e.g. broker fee)</FormLabel>
                 <FormControl>
-                  <PercentageInput
+                  <CustomInput
                     type="number"
                     {...field}
                     onChange={(e) => field.onChange(Number(e.target.value))}
@@ -341,6 +344,7 @@ const FinanceCalculator = () => {
                 </FormLabel>
                 <Select
                   onValueChange={(value) => field.onChange(value === "Yes")}
+                  defaultValue={field.value ? "Yes" : "No"}
                 >
                   <SelectTrigger>
                     <SelectValue placeholder="Select yes/no" />
@@ -364,6 +368,7 @@ const FinanceCalculator = () => {
                 <FormLabel>Are fees paid in advance?</FormLabel>
                 <Select
                   onValueChange={(value) => field.onChange(value === "Yes")}
+                  defaultValue={field.value ? "Yes" : "No"}
                 >
                   <SelectTrigger>
                     <SelectValue placeholder="Select yes/no" />
@@ -391,10 +396,11 @@ const FinanceCalculator = () => {
                   Average credit score of all borrowers and directors
                 </FormLabel>
                 <FormControl>
-                  <PercentageInput
+                  <CustomInput
                     type="number"
                     {...field}
                     onChange={(e) => field.onChange(Number(e.target.value))}
+                    suffix="/999"
                   />
                 </FormControl>
                 <FormMessage />
@@ -413,6 +419,7 @@ const FinanceCalculator = () => {
                 </FormLabel>
                 <Select
                   onValueChange={(value) => field.onChange(value === "Yes")}
+                  defaultValue={field.value ? "Yes" : "No"}
                 >
                   <SelectTrigger>
                     <SelectValue placeholder="Select yes/no" />
@@ -439,6 +446,7 @@ const FinanceCalculator = () => {
                 </FormLabel>
                 <Select
                   onValueChange={(value) => field.onChange(value === "Yes")}
+                  defaultValue={field.value ? "Yes" : "No"}
                 >
                   <SelectTrigger>
                     <SelectValue placeholder="Select yes/no" />

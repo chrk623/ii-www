@@ -21,13 +21,15 @@ export const financeCalculatorFormSchema = z.object({
     .number()
     .min(1, { message: "Months must be greater than 1" })
     .max(12, { message: "Months must be less than 12" }),
-  interestRateDurationSame: z.boolean(),
+  interestRateDurationSame: z.boolean().default(true),
   monthsDiscountedRate: z
     .number()
-    .min(1, { message: "Months must be greater than 1" }),
+    .min(0, { message: "Months must be greater than 0" })
+    .default(0),
   monthlyDiscountedRate: z
     .number()
-    .min(0, { message: "Discounted monthly rate must be greater than 0" }),
+    .min(0, { message: "Discounted monthly rate must be greater than 0" })
+    .default(0),
   regularMonthlyRate: z
     .number()
     .min(0, { message: "Regular monthly rate must be greater than 0" }),
@@ -36,8 +38,8 @@ export const financeCalculatorFormSchema = z.object({
     .min(0, { message: "Application fee must be greater than 0" }),
   exitFee: z.number().min(0, { message: "Exit fee must be greater than 0" }),
   otherFee: z.number().min(0, { message: "Other fee must be greater than 0" }),
-  interestRolledUp: z.boolean().default(false),
-  paidInAdvance: z.boolean().default(false),
+  interestRolledUp: z.boolean().default(true),
+  paidInAdvance: z.boolean().default(true),
   avgCreditScoreAll: z
     .number()
     .min(100, { message: "Credit score must be greater than 100" })
