@@ -1,7 +1,7 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import Link from "next/link";
 import React from "react";
 import FinanceCalculator from "./_components/finance-calculator";
-import Link from "next/link";
 
 function page() {
   return (

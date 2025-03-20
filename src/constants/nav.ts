@@ -33,6 +33,10 @@ export const NAV_ITEMS: MainMenuItem[] = [
             title: "Loan Repayment",
             href: "/lending/customers/loan-repayment",
           },
+          {
+            title: "Tools",
+            href: "/tools",
+          },
         ],
       },
       {
