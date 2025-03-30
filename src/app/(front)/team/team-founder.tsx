@@ -17,7 +17,7 @@ export default function TeamFounder() {
               sizes="100vw"
               style={{ width: "100%", height: "auto" }}
               className="rounded-lg"
-              alt=""
+              alt="founder"
             />
           </div>
         </div>
@@ -79,7 +79,7 @@ export default function TeamFounder() {
               sizes="100vw"
               style={{ width: "60%", height: "auto" }}
               className="rounded-lg"
-              alt=""
+              alt="head of business development"
             />
           </div>
         </div>
