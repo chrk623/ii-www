@@ -30,7 +30,7 @@ export default function TeamFounder() {
             Cristiano Bellavitis
           </h3>
 
-          {founderData.map((item, index) => (
+          {founderData.cristiano.map((item, index) => (
             <div key={index} className="mb-6">
               <div className="mb-3 flex items-start">
                 <div className="me-3 mt-1.5 flex-shrink-0">
@@ -40,9 +40,48 @@ export default function TeamFounder() {
                   {item}
                 </div>
               </div>
-              {index < founderData.length - 1 && <hr className="my-6" />}
+              {index < founderData.cristiano.length - 1 && (
+                <hr className="my-6" />
+              )}
             </div>
           ))}
+        </div>
+
+        <div className="col-span-6 m-6">
+          <h3 className="mb-2 text-4xl font-semibold leading-normal text-primary">
+            Head of Business Development
+          </h3>
+          <h3 className="mb-4 text-xl font-bold leading-normal text-gray-500">
+            Luke Higgins
+          </h3>
+
+          {founderData.luke.map((item, index) => (
+            <div key={index} className="mb-6">
+              <div className="mb-3 flex items-start">
+                <div className="me-3 mt-1.5 flex-shrink-0">
+                  <div className="h-2.5 w-2.5 rounded-full bg-primary"></div>
+                </div>
+                <div className="max-w-xl text-base font-bold text-gray-400">
+                  {item}
+                </div>
+              </div>
+              {index < founderData.luke.length - 1 && <hr className="my-6" />}
+            </div>
+          ))}
+        </div>
+
+        <div className="relative col-span-6 flex flex-col gap-6">
+          <div className="mx-auto flex w-full max-w-lg justify-center">
+            <Image
+              src="/images/team/luke.jpg"
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{ width: "60%", height: "auto" }}
+              className="rounded-lg"
+              alt=""
+            />
+          </div>
         </div>
       </div>
     </MaxWidthWrapper>
