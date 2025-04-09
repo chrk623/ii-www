@@ -8,9 +8,10 @@ function Page() {
     <MaxWidthWrapper>
       <div className="my-4 text-center">
         <h3 className="mb-4 text-5xl font-semibold leading-normal text-primary">
-          Dear Customers
+          Our Fees
         </h3>
-        <div className="mt-4 space-y-2 px-0 text-left text-lg font-semibold tracking-tight text-gray-400 xl:px-36">
+        <div className="mt-4 space-y-2 px-0 text-justify text-lg font-semibold tracking-tight text-gray-400 xl:px-36">
+          <div>Dear Customer,</div>
           <div>
             Thank you again for working with us. This document sets out the fees
             that you may have to pay during the term of your mortgage. These
