@@ -5,16 +5,14 @@ import React from "react";
 const SailingForm = () => {
   return (
     <MaxWidthWrapper
-      className="relative flex min-h-screen max-w-full flex-col overflow-hidden bg-cover bg-center py-8 md:py-12" // Add flex
+      className="relative flex min-h-screen max-w-full flex-col overflow-hidden bg-cover bg-center py-8 md:py-12"
       style={{ backgroundImage: `url("/images/sailing/bottom.jpg")` }}
     >
       <ImageOpacity opacity={40} />
       <div className="container relative flex flex-1 flex-col text-center">
         {" "}
-        {/* Add flex classes */}
         <div>
           {" "}
-          {/* Wrap text content */}
           <h3 className="text-5xl font-semibold leading-normal text-white">
             How to Join
           </h3>
