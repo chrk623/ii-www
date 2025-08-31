@@ -1,10 +1,11 @@
 import React from "react";
 
-import InvestorsCover from "./investors-cover";
-import InvestorsCommitment from "./investors-commitment";
-import InvestorsExecellence from "./investors-excellence";
-import InvestorsGovernance from "./investors-governance";
 import BetterFutures from "@/components/pages/better-futures";
+import InvestorsCommitment from "./_components/investors-commitment";
+import InvestorsCover from "./_components/investors-cover";
+import InvestorsExecellence from "./_components/investors-excellence";
+import InvestorsGovernance from "./_components/investors-governance";
+import InvestorsSailing from "./_components/investors-sailing";
 
 const Page = () => {
   return (
@@ -17,6 +18,7 @@ const Page = () => {
 
       <InvestorsExecellence />
 
+      <InvestorsSailing />
       <BetterFutures />
     </>
   );

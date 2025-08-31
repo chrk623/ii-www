@@ -1,0 +1,55 @@
+import React from "react";
+import Image from "next/image";
+
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+
+export default function SailingAmalfi() {
+  return (
+    <MaxWidthWrapper>
+      <div className="mt-8 grid grid-cols-1 items-center gap-6 md:grid-cols-12">
+        <div className="col-span-6">
+          <div className="mx-auto w-full max-w-lg">
+            <Image
+              src="/images/sailing/amalfi.jpeg"
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{ width: "100%", height: "auto" }}
+              className="rounded-lg"
+              alt=""
+            />
+          </div>
+        </div>
+
+        <div className="col-span-6">
+          <div className="mb-3 flex items-start text-center sm:px-12 md:text-left">
+            <div className="max-w-xl">
+              <h2 className="text-4xl font-bold text-primary">
+                May & June: The Amalfi Coast
+              </h2>
+              <p className="mt-4 text-lg font-semibold leading-relaxed tracking-tight text-gray-400">
+                Sailing the Amalfi Coast is like gliding through a living
+                postcard. Pastel-colored villages cling dramatically to cliff
+                faces, cascading down into the sparkling Tyrrhenian Sea. From
+                the deck of the catamaran, guests will see iconic towns such as
+                <span className="font-extrabold"> Positano </span> and
+                <span className="font-extrabold"> Amalfi </span>, where narrow
+                cobbled streets lead to hidden piazzas and artisanal shops. Days
+                can be spent dropping anchor in
+                <span className="font-extrabold">
+                  {" "}
+                  secret coves accessible only by boat
+                </span>
+                , swimming in turquoise waters, and indulging in
+                <span className="font-extrabold"> world-class cuisine </span>
+                at seaside trattorias. With its mix of glamour and tradition,
+                this leg of the journey sets the tone for a season of luxury and
+                discovery.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </MaxWidthWrapper>
+  );
+}

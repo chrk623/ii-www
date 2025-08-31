@@ -48,6 +48,16 @@ export const NAV_ITEMS: MainMenuItem[] = [
   {
     title: "Investors",
     href: "/investors",
+    subMenuItems: [
+      {
+        title: "Investor Relations",
+        href: "/investors",
+      },
+      {
+        title: "Sailing with Integer Investments",
+        href: "/investors/sailing",
+      },
+    ],
   },
   {
     title: "Team",
