@@ -14,7 +14,8 @@ export default function SailingWhere() {
               {" "}
               mid-May to the end of August
             </span>
-            , we’ll be cruising some of the most stunning coastlines in Europe:
+            , we’ll be cruising some of the most stunning coastlines in Europe
+            on a new modern Bali Catsmart catamaran.
           </p>
         </div>
       </div>

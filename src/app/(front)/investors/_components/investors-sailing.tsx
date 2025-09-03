@@ -2,6 +2,7 @@ import React from "react";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function InvestorsSailing() {
   return (
@@ -9,12 +10,14 @@ export default function InvestorsSailing() {
       <div className="my-12 grid grid-cols-1 items-center gap-6 md:grid-cols-12">
         <div className="col-span-6">
           <div className="mx-auto w-full max-w-lg">
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/jxIy1g_f968?si=GoFPitHNJLyMqkiy"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            <Image
+              src="/images/sailing/sailing.jpg"
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{ width: "100%", height: "80%" }}
+              className="rounded-lg"
+              alt=""
             />
           </div>
         </div>

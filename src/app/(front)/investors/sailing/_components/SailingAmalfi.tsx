@@ -9,14 +9,12 @@ export default function SailingAmalfi() {
       <div className="mt-8 grid grid-cols-1 items-center gap-6 md:grid-cols-12">
         <div className="col-span-6">
           <div className="mx-auto w-full max-w-lg">
-            <Image
-              src="/images/sailing/amalfi.jpeg"
-              width={0}
-              height={0}
-              sizes="100vw"
-              style={{ width: "100%", height: "auto" }}
-              className="rounded-lg"
-              alt=""
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/jxIy1g_f968?si=GoFPitHNJLyMqkiy"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             />
           </div>
         </div>
@@ -25,7 +23,7 @@ export default function SailingAmalfi() {
           <div className="mb-3 flex items-start text-center sm:px-12 md:text-left">
             <div className="max-w-xl">
               <h2 className="text-4xl font-bold text-primary">
-                May & June: The Amalfi Coast
+                May & June: Amalfi Coast
               </h2>
               <p className="mt-4 text-lg font-semibold leading-relaxed tracking-tight text-gray-400">
                 Sailing the Amalfi Coast is like gliding through a living
