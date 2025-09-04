@@ -10,7 +10,7 @@ export default function SailingSicilian() {
         <div className="col-span-6">
           <div className="mx-auto w-full max-w-lg">
             <Image
-              src="/images/sailing/amalfi.jpeg"
+              src="/images/sailing/sicilian.jpeg"
               width={0}
               height={0}
               sizes="100vw"
@@ -25,7 +25,8 @@ export default function SailingSicilian() {
           <div className="mb-3 flex items-start text-center sm:px-12 md:text-left">
             <div className="max-w-xl">
               <h2 className="text-4xl font-bold text-primary">
-                August: The Sicilian Islands
+                <span className="text-gray-500">August </span>
+                Sicilian Islands
               </h2>
               <p className="mt-4 text-lg font-semibold leading-relaxed tracking-tight text-gray-400">
                 The summer crescendos in

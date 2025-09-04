@@ -11,7 +11,8 @@ export default function SailingSardinia() {
           <div className="mb-3 flex items-start text-center sm:px-12 md:text-left">
             <div className="max-w-xl">
               <h2 className="text-4xl font-bold text-primary">
-                July: Sardinia
+                <span className="text-gray-500">July </span>
+                Sardinia
               </h2>
               <p className="mt-4 text-lg font-semibold leading-relaxed tracking-tight text-gray-400">
                 By July, the catamaran will be gliding through the pristine

@@ -23,7 +23,8 @@ export default function SailingAmalfi() {
           <div className="mb-3 flex items-start text-center sm:px-12 md:text-left">
             <div className="max-w-xl">
               <h2 className="text-4xl font-bold text-primary">
-                May & June: Amalfi Coast
+                <span className="text-gray-500">May & June </span>
+                Amalfi Coast
               </h2>
               <p className="mt-4 text-lg font-semibold leading-relaxed tracking-tight text-gray-400">
                 Sailing the Amalfi Coast is like gliding through a living
