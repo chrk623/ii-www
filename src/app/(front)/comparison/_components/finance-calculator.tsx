@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { type z } from "zod";
 
-import { LoanComparisonTable } from "@/app/(front)/tools/_components/LoanComparisonTable";
+import { LoanComparisonTable } from "@/app/(front)/comparison/_components/LoanComparisonTable";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { Button } from "@/components/ui/button";
 import {

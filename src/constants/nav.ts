@@ -34,8 +34,12 @@ export const NAV_ITEMS: MainMenuItem[] = [
             href: "/lending/customers/loan-repayment",
           },
           {
-            title: "Tools",
-            href: "/tools",
+            title: "Comparison",
+            href: "/comparison",
+          },
+          {
+            title: "Rates",
+            href: "/rates",
           },
         ],
       },
