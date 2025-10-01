@@ -34,6 +34,7 @@ import {
   adjustments,
   type LtvOption,
 } from "./rates-table-data";
+import Link from "next/link";
 
 interface QuoteData {
   ltv: LtvOption;
@@ -434,9 +435,9 @@ export default function LoanRatesCalculator() {
                   <span className="font-medium">
                     {formatCurrency(legalCost.min)}–
                     {formatCurrency(legalCost.max)}
-                    <span className="block text-xs text-muted-foreground">
-                      (paid separately to your solicitor)
-                    </span>
+                    {/* <span className="block text-xs text-muted-foreground"> */}
+                    {/*   (paid separately to your solicitor) */}
+                    {/* </span> */}
                   </span>
                 </div>
               </div>
@@ -444,8 +445,18 @@ export default function LoanRatesCalculator() {
               <div className="mt-6 rounded-lg bg-muted p-4">
                 <p className="text-sm text-muted-foreground">
                   <strong>Note:</strong> All processes are digital with no paper
-                  requirements. Legal costs are paid directly to your solicitor
-                  and range from £500-£1,000.
+                  requirements. We aim to work with dual rep solicitors, see
+                  list{" "}
+                  <Link
+                    href="https://www.integerinvestments.com/news/integer-panel-of-solicitors"
+                    target="_blank"
+                    rel="noopener"
+                    className="font-bold text-primary underline"
+                  >
+                    here
+                  </Link>
+                  . Under special circumstances we can offer discounts to the
+                  above rates.
                 </p>
               </div>
             </CardContent>
