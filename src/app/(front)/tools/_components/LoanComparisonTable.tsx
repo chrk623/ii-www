@@ -91,7 +91,9 @@ export const LoanComparisonTable = ({
               )}
             >
               £{" "}
-              {resultInteger.netAdvance.toLocaleString("en-GB", {
+              {(
+                resultInteger.netAdvance - resultInteger.totalFees
+              ).toLocaleString("en-GB", {
                 minimumFractionDigits: 0,
                 maximumFractionDigits: 0,
               })}
