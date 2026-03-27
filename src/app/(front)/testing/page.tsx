@@ -18,7 +18,7 @@ function Page() {
         }}
       >
         <iframe
-          src="https://forms.monday.com/forms/embed/52308e45d13c5d6c5c7e4efa1ca4c575?r=use1"
+          src="https://ii-dashboard-dev.up.railway.app/external/loan-application"
           style={{
             position: "absolute",
             top: 0,

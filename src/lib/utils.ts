@@ -21,3 +21,37 @@ export function formatPostDate(dateString: string): string {
   };
   return new Intl.DateTimeFormat("en-GB", options).format(date);
 }
+
+export const formatDate = (
+  date: Date | string | null | undefined,
+  long: boolean = false,
+): string => {
+  if (!date) return "";
+
+  const dateObj = new Date(date);
+  const day = dateObj.getDate();
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const month = monthNames[dateObj.getMonth()];
+  const year = dateObj.getFullYear();
+
+  if (long) {
+    const hours = dateObj.getHours().toString().padStart(2, "0");
+    const minutes = dateObj.getMinutes().toString().padStart(2, "0");
+    return `${day} ${month} ${year} ${hours}:${minutes}`;
+  }
+
+  return `${day} ${month} ${year}`;
+};
