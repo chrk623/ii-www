@@ -24,7 +24,7 @@ export function formatPostDate(dateString: string): string {
 
 export const formatDate = (
   date: Date | string | null | undefined,
-  long: boolean = false,
+  long = false,
 ): string => {
   if (!date) return "";
 
