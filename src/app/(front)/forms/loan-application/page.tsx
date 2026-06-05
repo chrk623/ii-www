@@ -16,7 +16,7 @@ function Page() {
         }}
       >
         <iframe
-          src="https://ii-dashboard-dev.up.railway.app/external/loan-application"
+          src="https://dashboard.integerinvestments.com/external/loan-application"
           style={{
             position: "absolute",
             top: 0,

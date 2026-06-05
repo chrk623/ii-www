@@ -38,7 +38,7 @@ export default function SolicitorsForm() {
       >
         <iframe
           id="solicitors-form"
-          src="https://forms.monday.com/forms/embed/25efb68fdec7a7cb3c0694bdc449e717?r=use1"
+          src="https://dashboard.integerinvestments.com/external/solicitors-panel"
           style={{
             position: "absolute",
             top: 0,

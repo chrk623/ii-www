@@ -2,8 +2,6 @@
 
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
-// src="https://forms.monday.com/forms/embed/52308e45d13c5d6c5c7e4efa1ca4c575?r=use1"
-
 function Page() {
   return (
     <MaxWidthWrapper>
@@ -18,7 +16,7 @@ function Page() {
         }}
       >
         <iframe
-          src="https://ii-dashboard-dev.up.railway.app/external/loan-application"
+          src="https://dashboard.integerinvestments.com/external/loan-application"
           style={{
             position: "absolute",
             top: 0,
