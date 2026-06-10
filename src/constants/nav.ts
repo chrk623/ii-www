@@ -25,14 +25,14 @@ export const NAV_ITEMS: MainMenuItem[] = [
             title: "Loan Application",
             href: "/lending/customers/loan-application",
           },
-          // {
-          //   title: "Renovations Drawdown",
-          //   href: "/lending/customers/renovations-drawdown",
-          // },
-          // {
-          //   title: "Loan Repayment",
-          //   href: "/lending/customers/loan-repayment",
-          // },
+          {
+            title: "Renovations Drawdown",
+            href: "/lending/customers/renovations-drawdown",
+          },
+          {
+            title: "Loan Repayment",
+            href: "/lending/customers/loan-repayment",
+          },
           {
             title: "Comparison",
             href: "/comparison",
