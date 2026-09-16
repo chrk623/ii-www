@@ -1,6 +1,6 @@
 export const FORM_URLS = {
   loanApplication:
-    "https://forms.monday.com/forms/embed/52308e45d13c5d6c5c7e4efa1ca4c575?r=use1",
+    "https://dashboard.integerinvestments.com/external/loan-application",
   renovationsDrawdown:
     "https://forms.monday.com/forms/embed/ba422567a66712c19ea0c411b25a865c?r=use1",
   loanRepayment:
