@@ -16,25 +16,31 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-
-// import { api } from "@/trpc/react";
-import { contactFormSchema } from "@/lib/form-schemas/form-utils";
+import { contactFormSchema } from "@/lib/form-schemas/contact";
+import { api } from "@/trpc/react";
 
 const ContactForm = () => {
   const form = useForm<z.infer<typeof contactFormSchema>>({
     resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      message: "",
+    },
   });
 
-  // const homeRouter = api.home.getLatest.useQuery();
+  const { mutate, isPending, isSuccess, isError, error, reset } =
+    api.contact.contactUs.useMutation({
+      onSuccess: () => {
+        form.reset();
+      },
+    });
 
-  // const data = api.home.hello.useQuery({ text: "from tRPC" }).data;
-
-  // const { mutate, isSuccess } = api.home.contact.useMutation();
   function onSubmit(values: z.infer<typeof contactFormSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    // const data = mutate(values);
-    console.log(values);
+    reset();
+    mutate(values);
   }
 
   return (
@@ -132,9 +138,24 @@ const ContactForm = () => {
             )}
           />
         </div>
+        {isSuccess && (
+          <p className="text-center text-sm text-green-300">
+            Thank you — your message has been sent.
+          </p>
+        )}
+        {isError && (
+          <p className="text-center text-sm text-red-300">
+            {error.message ||
+              "Unable to send your message. Please try again later."}
+          </p>
+        )}
         <div className="flex items-center justify-center">
-          <Button disabled className="px-4 py-2 font-bold" type="submit">
-            Submit
+          <Button
+            disabled={isPending}
+            className="px-4 py-2 font-bold"
+            type="submit"
+          >
+            {isPending ? "Sending..." : "Submit"}
           </Button>
         </div>
       </form>

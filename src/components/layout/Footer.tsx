@@ -1,13 +1,58 @@
 "use client";
 
 import Link from "next/link";
-import Logo from "../common/Logo";
+import { type z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
+import Logo from "../common/Logo";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import MaxWidthWrapper from "../MaxWidthWrapper";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "../ui/form";
+import {
+  footerContactSchema,
+  splitFullName,
+} from "@/lib/form-schemas/contact";
+import { api } from "@/trpc/react";
 
 const Footer = () => {
+  const form = useForm<z.infer<typeof footerContactSchema>>({
+    resolver: zodResolver(footerContactSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+    },
+  });
+
+  const { mutate, isPending, isSuccess, isError, error, reset } =
+    api.contact.contactUs.useMutation({
+      onSuccess: () => {
+        form.reset();
+      },
+    });
+
+  function onSubmit(values: z.infer<typeof footerContactSchema>) {
+    reset();
+    const { firstName, lastName } = splitFullName(values.name);
+    mutate({
+      firstName,
+      lastName,
+      email: values.email,
+      phone: values.phone,
+      message: values.message,
+    });
+  }
+
   return (
     <footer className="bg-zinc-50 bg-opacity-90 bg-gradient-to-br text-primary">
       <MaxWidthWrapper>
@@ -16,8 +61,6 @@ const Footer = () => {
           <div className="space-y-2">
             <h3 className="text-lg font-semibold">GET IN TOUCH:</h3>
             <ul className="text-md space-y-2">
-              {/* <li>Integer Inv US LLC (US)</li> */}
-              {/* <li>Integer Investments Europe LTD (UK)</li> */}
               <li>Email: info@integerinvestments.com</li>
               <li>Phone: +44 7441395334</li>
               <li>Whatsapp: +44 7909050331</li>
@@ -25,79 +68,111 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* form start */}
           <div>
             <h3 className="text-lg font-semibold">CONTACT US:</h3>
-            <form className="mt-4 space-y-4">
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-                <div className="col-span-1">
-                  <label htmlFor="name" className="text-md mb-1 block">
-                    Name *
-                  </label>
-                  <Input
-                    type="text"
-                    id="name"
+            <Form {...form}>
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="mt-4 space-y-4"
+              >
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+                  <FormField
+                    control={form.control}
                     name="name"
-                    placeholder="Name"
-                    className="w-full rounded-md border border-gray-300 p-2"
+                    render={({ field }) => (
+                      <FormItem className="col-span-1">
+                        <FormLabel className="text-md">Name *</FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="Name"
+                            className="w-full rounded-md border border-gray-300 p-2"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
-                </div>
-                <div className="col-span-1">
-                  <label htmlFor="email" className="text-md mb-1 block">
-                    Email *
-                  </label>
-                  <Input
-                    type="email"
-                    id="email"
+                  <FormField
+                    control={form.control}
                     name="email"
-                    placeholder="Email"
-                    className="w-full rounded-md border border-gray-300 p-2"
+                    render={({ field }) => (
+                      <FormItem className="col-span-1">
+                        <FormLabel className="text-md">Email *</FormLabel>
+                        <FormControl>
+                          <Input
+                            type="email"
+                            placeholder="Email"
+                            className="w-full rounded-md border border-gray-300 p-2"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
-                </div>
-                <div className="relative col-span-1">
-                  <label htmlFor="phone" className="text-md mb-1 block">
-                    Phone Number *
-                  </label>
-                  <Input
-                    type="text"
-                    id="phone"
+                  <FormField
+                    control={form.control}
                     name="phone"
-                    placeholder="Include country code"
-                    className="w-full rounded-md border border-gray-300 p-2"
+                    render={({ field }) => (
+                      <FormItem className="relative col-span-1">
+                        <FormLabel className="text-md">
+                          Phone Number *
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="Include country code"
+                            className="w-full rounded-md border border-gray-300 p-2"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
-                </div>
 
-                <div className="col-span-1 md:col-span-2">
-                  <label htmlFor="message" className="text-md mb-1 block">
-                    Message
-                  </label>
-                  <Input
-                    type="text"
-                    id="message"
+                  <FormField
+                    control={form.control}
                     name="message"
-                    placeholder="Message"
-                    className="w-full rounded-md border border-gray-300 p-2"
+                    render={({ field }) => (
+                      <FormItem className="col-span-1 md:col-span-2">
+                        <FormLabel className="text-md">Message *</FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="Message"
+                            className="w-full rounded-md border border-gray-300 p-2"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
-                </div>
 
-                <div className="col-span-1 flex items-end justify-end">
-                  {/* <Link */}
-                  {/*   href="/send-newsletter" */}
-                  {/*   className={buttonVariants({ */}
-                  {/*     className: "w-full md:w-3/4", */}
-                  {/*   })} */}
-                  {/* > */}
-                  {/*   Send */}
-                  {/* </Link> */}
-                  <Button className="md:3/4 w-full" disabled>
-                    Send
-                  </Button>
+                  <div className="col-span-1 flex flex-col items-end justify-end gap-2">
+                    <Button
+                      type="submit"
+                      className="md:3/4 w-full"
+                      disabled={isPending}
+                    >
+                      {isPending ? "Sending..." : "Send"}
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            </form>
+                {isSuccess && (
+                  <p className="text-sm text-green-700">
+                    Thank you — your message has been sent.
+                  </p>
+                )}
+                {isError && (
+                  <p className="text-sm text-red-600">
+                    {error.message ||
+                      "Unable to send your message. Please try again later."}
+                  </p>
+                )}
+              </form>
+            </Form>
           </div>
-
-          {/* form end */}
         </div>
 
         <div className="border-t border-gray-500 py-2 text-center md:flex md:items-center md:justify-between md:text-left">

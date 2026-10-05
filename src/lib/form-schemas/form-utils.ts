@@ -42,16 +42,6 @@ export const validateFile = (
   }
 };
 
-export const contactFormSchema = z.object({
-  firstName: z
-    .string()
-    .min(2, { message: "Must be 2 or more characters long" }),
-  lastName: z.string().min(2, { message: "Must be 2 or more characters long" }),
-  email: z.string().email({ message: "Invalid email address" }),
-  phone: z.string().min(5, { message: "Must be 5 or more characters long" }),
-  message: z.string().min(5, { message: "Must be 5 or more characters long" }),
-});
-
 export const lendingFormSchema = z.object({
   fullName: z.string().min(2, { message: "Must be 2 or more characters long" }),
   email: z.string().email({ message: "Invalid email address" }),
