@@ -10,7 +10,7 @@ import { getImageDimensions } from "@sanity/asset-utils";
 import type { SanityImageSource } from "@sanity/asset-utils";
 
 export const getPostPreviews = async () => {
-  const query = `*[_type == "post" && !(_id in path("drafts.**"))]{
+  const query = `*[_type == "post" && !(_id in path("drafts.**"))] | order(coalesce(publishedAt, _createdAt) desc) {
     _id,
     _updatedAt,
     title,
